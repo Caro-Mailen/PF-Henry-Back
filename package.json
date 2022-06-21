@@ -1,22 +1,23 @@
 {
-  "name": "api",
+  "name": "mascotas-pf",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "start": "nodemon -L"
   },
-  "author": "",
+  "author": "Grupo 15",
   "license": "ISC",
+  "engines": {
+    "node": ">=12.18.3",
+    "npm": ">=6.14.6"
+  },
   "dependencies": {
-    "dot": "^1.1.3",
-    "dotenv": "^16.0.1",
-    "env": "^0.0.2",
-    "express": "^4.18.1",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.16",
-    "pg": "^8.7.3",
-    "sequelize": "^6.21.0"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
   }
 }
