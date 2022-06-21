@@ -5,6 +5,10 @@ module.exports = (sequelize) => {
     monto: {
         type: DataTypes.NUMBER,
         allowNull: false,
+    },
+    currency: {
+        type: DataTypes.ENUM(["USD", "ARS", "BO", "BS", "CO"]),
+        allowNull: false,
     }
     });
 };

@@ -21,7 +21,7 @@ try{
 
 let {pet, user, donation} = sequelize.models;
 
-//relaciones.
+
 
 module.exports = {
   ...sequelize.models,
