@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const routes = require('./routes/index.js');
+const routes = require('./Routes/index.js.js');
 
 require('./db.js');
 

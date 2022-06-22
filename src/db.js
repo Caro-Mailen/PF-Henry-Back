@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const pet = require('./models/Pet.js')
-const user = require('./models/User.js');
-const donation = require('./models/Donation.js');
+const pet = require('./Models/Pet.js')
+const user = require('./Models/User.js');
+const donation = require('./Models/Donation.js');
 
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
