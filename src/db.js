@@ -23,7 +23,6 @@ try{
 
 let {pet, user, donation} = sequelize.models;
 
-
 //relaciones.
 user.hasMany(pet);
 pet.belongsTo(user);
