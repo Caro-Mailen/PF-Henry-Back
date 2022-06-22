@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('user', {
+    sequelize.define('User', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -38,6 +38,7 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: false,
-    }
+    }}, {
+        timestamps: false
     });
 };

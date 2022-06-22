@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('donation', {
+    sequelize.define('Donation', {
     monto: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
     currency: {
         type: DataTypes.ENUM(["USD", "ARS", "BO", "BS", "CO"]),
         allowNull: false,
-    }
+    }}, {
+        timestamps: false
     });
 };
