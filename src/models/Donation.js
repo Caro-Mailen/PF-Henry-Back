@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
     currency: {
         type: DataTypes.ENUM(["USD", "ARS", "BO", "BS", "CO"]),
         allowNull: false,
-    }
+    }}, {
+        timestamps: false
     });
 };
