@@ -1,11 +1,11 @@
 const server = require('./src/app.js');
 const { db } = require('./src/db.js');
-// const { pet, type } = require('./src/db');
+// const { Pet, Type } = require('./src/db');
 
 db.sync({ force: true }).then(() => {
-  server.listen(3001, async () => {
+  server.listen(process.env.PORT, async () => {
     console.log('%s Server Levantado: 3001');
-    // await pet.create({
+    // await Pet.create({
     //   name: "tristan",
     //   image: "https://i.postimg.cc/1tKP9NkV/tristan.jpg",
     //   size: "big",
