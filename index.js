@@ -1,7 +1,7 @@
 const server = require("./src/app.js");
 const { db } = require("./src/db.js");
 const { Pet } = require("./src/db");
-const json = require("./src/Helper/mascotas.json"); //cuando lucas suba las carpetas ordenadas cambiar.
+const json = require("./src/Helper/mascotas.json"); 
 
 const mascotas = json.data;
 
