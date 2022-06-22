@@ -9,11 +9,20 @@ const { Pet } = require('../db.js');
 
 const router = Router();
 
-router.get('/',(req, res) => {
+router.get('/pets',(req, res) => {
     Pet.findAll().then(r=>res.send(r));
 })
 
+router.get('/pet',(req, res) => {
+    const{name} = req.query
+    Pet.findOne({where:{name:name}}).then(r=>res.send(r))
+})
 
+
+router.get('/pet/:id',(req, res) => {
+    const{id} = req.params
+    Pet.findByPk(id).then(r=>res.send(r))
+})
 // router.use('/pets', pets)
 // router.use('/donation', donation)
 // router.use('/user', user)
