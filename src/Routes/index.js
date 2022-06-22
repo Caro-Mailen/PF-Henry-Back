@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const { Pet } = require("../db.js");
+const { Pet, User } = require("../db.js");
 // const pets = require('./routePets')
 // const donation = require('./routeDonation')
 //const user = require('./routeUser')
@@ -21,37 +21,7 @@ router.get("/pet/:id", (req, res) => {
   Pet.findByPk(id).then((r) => res.send(r));
 });
 
-router.post("/pet", (req, res) => {
-  console.log(req.body);
-  //   const {
-  //     name,
-  //     image,
-  //     size,
-  //     weight,
-  //     fur,
-  //     breed,
-  //     gender,
-  //     castration,
-  //     vaccinate,
-  //     UserId,
-  //   } = req.body;
-
-  //   const characterCreate = Pet.create({
-  //     name,
-  //     image,
-  //     size,
-  //     weight,
-  //     fur,
-  //     breed,
-  //     gender,
-  //     castration,
-  //     vaccinate,
-  //   });
-
-  //   // const episodeDb = await Episode.findAll({where:{name:name}})
-  //   // characterCreate.addEpisode(episodeDb)
-
-  //   res.send("Personaje creado con exito").json(characterCreate);
+router.post("/pet", async (req, res) => {
   const {
     name,
     image,
@@ -77,21 +47,35 @@ router.post("/pet", (req, res) => {
     return res.status(400).send("please insert require fields to continue");
 
   try {
-    const newPet = Pet.create({
-      name,
-      image,
-      size,
-      weight,
-      fur,
-      breed,
-      gender,
-      castration,
-      vaccinate,
-    });
+    let infoPet = { ...req.body };
+    const newPet = await Pet.create(infoPet);
     // console.log(newPet);
     res.status(200).send(newPet);
   } catch (error) {
     console.log(error);
+  }
+});
+
+router.post("/user", async (req, res) => {
+  const {
+    name,
+    lastname,
+    email,
+    image,
+    address,
+    socialMedia,
+    tel,
+    age,
+    isAdmin,
+  } = req.body;
+  if (!name || !lastname || !email || !address || !socialMedia || !tel || !age)
+    return res.status(400).send("please insert require fields to continue");
+  try {
+    let infoUser = { ...req.body };
+    let newUser = await User.create(infoUser);
+    res.status(200).send(newUser);
+  } catch (e) {
+    console.log(e);
   }
 });
 
