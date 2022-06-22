@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const Pet = require('./models/Pet.js')
-const User = require('./models/User.js');
-const Donation = require('./models/Donation.js');
+const pet = require('./models/Pet.js')
+const user = require('./models/User.js');
+const donation = require('./models/Donation.js');
 
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
@@ -14,20 +14,21 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 });
 
 try{
-  Pet(sequelize);
-  User(sequelize);
-  Donation(sequelize);
+  pet(sequelize);
+  user(sequelize);
+  donation(sequelize);
 } catch (e) {
   console.log(e.message);
 }
 
-let {pet, user, donation} = sequelize.models;
+let {Pet, User, Donation} = sequelize.models;
 
 //relaciones.
-user.hasMany(pet);
-pet.belongsTo(user);
-user.hasMany(donation);
-donation.belongsTo(user);
+User.hasMany(Pet);
+Pet.belongsTo(User);
+
+User.hasMany(Donation);
+Donation.belongsTo(User);
 
 module.exports = {
   ...sequelize.models,

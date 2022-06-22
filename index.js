@@ -1,6 +1,6 @@
 const server = require('./src/app.js');
 const { db } = require('./src/db.js');
-const { pet, type } = require('./src/db');
+// const { pet, type } = require('./src/db');
 
 db.sync({ force: true }).then(() => {
   server.listen(3001, async () => {
