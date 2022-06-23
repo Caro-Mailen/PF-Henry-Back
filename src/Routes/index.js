@@ -79,6 +79,28 @@ router.post("/user", async (req, res) => {
   }
 });
 
+
+
+
+
+
+
+router.delete('/pet/:id', async (req, res, next) => {
+    try{
+        const {id} = req.params;
+        await Pet.destroy({
+            where: {
+                id
+            }
+        })
+        res.status(200).send('pet removed successfully')
+    }
+    catch(error){
+        next(error);
+    }
+
+})
+
 // router.use('/pets', pets)
 // router.use('/donation', donation)
 // router.use('/user', user)
