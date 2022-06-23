@@ -1,60 +1,66 @@
 const { Router } = require("express");
 
 const { Pet, User } = require("../db.js");
+const pet = require('./routePets')
 // const pets = require('./routePets')
 // const donation = require('./routeDonation')
 //const user = require('./routeUser')
 
 const router = Router();
 
-router.get("/pets", (req, res) => {
-  Pet.findAll().then((r) => res.send(r));
-});
+// router.get("/pets", (req, res) => {
+//   Pet.findAll().then((r) => res.send(r));
+// });
 
-router.get("/pet", (req, res) => {
-  const { name } = req.query;
-  Pet.findOne({ where: { name: name } }).then((r) => res.send(r));
-});
+// router.get("/pet", (req, res) => {
+//   const { name } = req.query;
+//   Pet.findOne({ where: { name: name } }).then((r) => res.send(r));
+// });
 
-router.get("/pet/:id", (req, res) => {
-  const { id } = req.params;
-  Pet.findByPk(id).then((r) => res.send(r));
-});
+// router.get("/pet/:id", (req, res) => {
+//   const { id } = req.params;
+//   Pet.findByPk(id).then((r) => res.send(r));
+// });
 
-router.post("/pet", async (req, res) => {
-  const {
-    name,
-    image,
-    size,
-    weight,
-    fur,
-    breed,
-    gender,
-    castration,
-    vaccinate,
-  } = req.body;
+// router.post("/pet", async (req, res) => {
+//   const {
+//     name,
+//     image,
+//     size,
+//     weight,
+//     fur,
+//     breed,
+//     gender,
+//     castration,
+//     vaccinate,
+//   } = req.body;
 
-  if (
-    !name ||
-    !image ||
-    !size ||
-    !fur ||
-    !breed ||
-    !gender ||
-    !castration ||
-    !vaccinate
-  )
-    return res.status(400).send("please insert require fields to continue");
+//   if (
+//     !name ||
+//     !image ||
+//     !size ||
+//     !fur ||
+//     !breed ||
+//     !gender ||
+//     !castration ||
+//     !vaccinate
+//   )
+//     return res.status(400).send("please insert require fields to continue");
 
-  try {
-    let infoPet = { ...req.body };
-    const newPet = await Pet.create(infoPet);
-    // console.log(newPet);
-    res.status(200).send(newPet);
-  } catch (error) {
-    console.log(error);
-  }
-});
+//   try {
+//     let infoPet = { ...req.body };
+//     const newPet = await Pet.create(infoPet);
+//     // console.log(newPet);
+//     res.status(200).send(newPet);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
+router.get("/user", (req, res) => {
+    User.findAll().then((r) => res.send(r));
+   });
+
 
 router.post("/user", async (req, res) => {
   const {
@@ -121,7 +127,7 @@ router.delete('/pet/:id', async (req, res, next) => {
     }
 })
 
-// router.use('/pets', pets)
+router.use('/pet', pet)
 // router.use('/donation', donation)
 // router.use('/user', user)
 
