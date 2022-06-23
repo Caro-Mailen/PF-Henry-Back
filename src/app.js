@@ -1,11 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+
 const routes = require('./Routes/index.js');
 
 require('./db.js');
 
 const server = express();
-
+server.use(express.json())
 server.name = 'API';
 
 server.use(morgan('dev'));
