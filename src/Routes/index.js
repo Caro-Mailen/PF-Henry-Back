@@ -1,6 +1,5 @@
 const { Router } = require("express");
 
-const { Pet, User } = require("../db.js");
 const pet = require('./routePets')
 const user = require('./routeUser')
 const userPet = require('./ruteUserPet');

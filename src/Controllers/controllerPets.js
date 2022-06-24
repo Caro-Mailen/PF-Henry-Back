@@ -1,10 +1,12 @@
 //aca van las funciones controladoras de las rutas pets
-const { Pet, User } = require("../db.js");
+const { Pet } = require("../db.js");
 
-  function petName (req, res, next) {
+const petName = async (req, res, next) => {
     const { name } = req.query;
     if(!name)return next()
-    Pet.findOne({ where: { name: name } }).then((r) => res.send(r));
+    const pet = await Pet.findOne({ where: { name: name } })
+    if(!pet) return res.status(404).send('pet not found')
+    res.send(pet)
 }
 
 const pet = async (req, res)=> {
@@ -21,17 +23,19 @@ const pet = async (req, res)=> {
       total: count,
       pets: rows,
     });
-  
-    // Pet.findAll().then((r) => res.send(r));
+
   }
 
 
-function petId (req, res) {
+const petId = async (req, res, next) => {
     const { id } = req.params;
-    Pet.findByPk(id).then((r) => res.send(r));
+    if(!id)return next()
+    const pet = await Pet.findByPk(id);
+    if(!pet) return res.status(404).send('pet not found');
+    res.send(pet)
 }
 
-const petPost = async (req, res) => {
+const petPost = async (req, res, next) => {
       const {
         name,
         image,
@@ -59,10 +63,9 @@ const petPost = async (req, res) => {
       try {
         let infoPet = { ...req.body };
         const newPet = await Pet.create(infoPet);
-        // console.log(newPet);
         res.status(200).send(newPet);
       } catch (error) {
-        console.log(error);
+        next(error);
       }
     }
 
