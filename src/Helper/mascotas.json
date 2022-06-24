@@ -28,7 +28,7 @@
       "size": "big",
       "weight": "",
       "fur": "short",
-      "breed": "mestizo",
+      "breed": "crossbreed",
       "gender": "male",
       "castration": true,
       "vaccinate": true
@@ -406,17 +406,6 @@
       "gender": "female",
       "castration": true,
       "vaccinate": true
-    },
-    {
-      "name": "peque",
-      "image": "https://i.postimg.cc/QM0Xgdc5/peque.jpg",
-      "size": "small",
-      "weight": "",
-      "fur": "",
-      "breed": "sulcata",
-      "gender": "female",
-      "castration": false,
-      "vaccinate": false
     },
     {
       "name": "malta",

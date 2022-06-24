@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {user,userPost,userId} = require('../Controllers/controllerUser')
+const {UPPut, UPGetId} = require('../Controllers/controllerUSerPet')
 //  Importar todos los routers;
 // /Ejemplo: const authRouter = require('./auth.js');
 
@@ -8,8 +8,7 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.get('/:userId', userId)
-router.get('/', user)
-router.post('/', userPost)
+router.get('/:userId', UPGetId)
+router.put('/', UPPut)
 
 module.exports = router;
