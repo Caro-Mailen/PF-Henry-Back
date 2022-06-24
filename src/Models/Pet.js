@@ -47,6 +47,11 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: false,
       },
+      stateBinary:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      }
     },
     {
       timestamps: false,
