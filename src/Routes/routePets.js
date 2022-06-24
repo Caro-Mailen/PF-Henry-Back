@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const {pet,petId,petName,petPost} = require('../Controllers/controllerPets')
+const {pet,petId,petName,petPost, petDelete} = require('../Controllers/controllerPets')
 //  Importar todos los routers;
 // /Ejemplo: const authRouter = require('./auth.js');
 
@@ -11,6 +11,7 @@ router.get('/', petName)
 router.get('/', pet)
 router.get('/:id', petId)
 router.post('/', petPost)
+router.put('/:id',petDelete)
 
 
 module.exports = router;
