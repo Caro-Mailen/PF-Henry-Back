@@ -6,9 +6,12 @@
 
 la ruta base es: http://localhost:3001
 
-------------
+---
+
 #### Pet:
+
 ##### Get:
+
 1. /pet
 
 Esta ruta se utiliza para el paginado de las cards, devuelve (de forma predeterminada) las primeras 6 mascotas de la base de datos.
@@ -17,19 +20,28 @@ Esta ruta se utiliza para el paginado de las cards, devuelve (de forma predeterm
 
 Esta ruta recibe dos valores por params y ambos son numeros (es la misma que la anterior):
 size = es el tamaño del paginado, si queremos que traiga 5 o 10 mascotas por pagina. page = es la posicion de la pagina que queremos traer.
->ejemplo: /pet?size=10&page=0
-esta ruta nos traeria las primeras 10 mascotas, son las primeras porque usamos la pagina 0, si cambiamos page a 1, nos  traeria las 10 mascotas siguientes y asi sucesivamente.
-El size divide la cantidad total de mascotas en la db por su valor dando asi tantas paginas y page, tomaria una de esas paginas.
 
-3. /pet/:id
+> ejemplo: /pet?size=10&page=0
+> esta ruta nos traeria las primeras 10 mascotas, son las primeras porque usamos la pagina 0, si cambiamos page a 1, nos traeria las 10 mascotas siguientes y asi sucesivamente.
+> El size divide la cantidad total de mascotas en la db por su valor dando asi tantas paginas y page, tomaria una de esas paginas.
+
+3. /pet?sizePet={}
+
+Esta ruta recibe a travez de query params un string el cual va a corresponderse con el tamaño de mascota q queremos filtrar (big, medium o small) y asi devolver la infomacion deseada en a busqueda.
+
+> Ejemplo: /pet?sizePet=small --> esta ruta devuelve los registros de todas las mascotas cuyo tamaño sea pequeño.
+
+4. /pet/:id
 
 Esta ruta trae una mascota especifica mediante su id.
 
 ##### Post:
+
 1. /pet
 
 Esta ruta crea una mascota a partir de la información enviada por body.
 Estructura del json que deberia recibir el backend:
+
 ```js
     {
       "name": "tristan",
@@ -45,6 +57,7 @@ Estructura del json que deberia recibir el backend:
 ```
 
 #### User:
+
 ##### Get:
 
 1. /user
@@ -56,10 +69,12 @@ Esta ruta devuelve todos los usuarios. (ruta general)
 Esta ruta devuelve la info completa de un usuario.
 
 ##### Post:
+
 1. /user
 
 Esta ruta crea un nuevo usuario.
 Estructura del json que deberia recibir el backend:
+
 ```js
     {
       "name": "Agus",
@@ -74,17 +89,21 @@ Estructura del json que deberia recibir el backend:
 ```
 
 #### User-Pet:
+
 ##### Get:
 
 1. /userPet/:userId
 
 Esta ruta trae a un usuario y todas sus mascotas.
->Ejemplo: /userPet/3
+
+> Ejemplo: /userPet/3
 
 ##### Put:
+
 1. /userPet
 
 Esta ruta toma un usuario y le adjudica una mascota, los id son pasados por body.
+
 ```js
 {
     "userId":2,
@@ -92,7 +111,6 @@ Esta ruta toma un usuario y le adjudica una mascota, los id son pasados por body
 }
 ```
 
-------------
-
+---
 
 ##### con amor, de parte del back :3
