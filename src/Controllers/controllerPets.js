@@ -10,20 +10,23 @@ const petName = async (req, res, next) => {
 };
 
 const pet = async (req, res) => {
-  const { page = 0, size = 6, sizePet, gender } = req.query;
+  const { page = 0, size = 6, sizePet, gender, state } = req.query;
 
   const obj = {};
 
   if (sizePet) obj.size = sizePet;
   if (gender) obj.gender = gender;
+  if (state) obj.state = state;
 
   const options = {
     limit: size,
     offset: size * page,
   };
-  if (obj.size || obj.gender) options.where = obj;
+  if (obj.size || obj.gender || obj.state) options.where = obj;
 
   const petFind = await Pet.findAll(options);
+
+  if (!petFind) return res.status(404).send("the search returned no results");
 
   return res.json(petFind);
 };
