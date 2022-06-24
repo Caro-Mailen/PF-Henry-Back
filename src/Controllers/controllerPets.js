@@ -70,10 +70,25 @@ const petPost = async (req, res) => {
     console.log(error);
   }
 };
-
+const petDelete = async (req, res, next) => {
+  try{
+    const {id} = req.params;
+    await Pet.update(
+        {stateBinary: false},
+        {where:{
+            id
+        }}
+    )
+    res.status(200).send('pet removed successfully')
+}
+catch(error){
+    next(error);
+}
+}
 module.exports = {
   pet,
   petId,
   petName,
   petPost,
+  petDelete
 };
