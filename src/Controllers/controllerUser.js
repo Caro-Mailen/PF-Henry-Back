@@ -1,9 +1,15 @@
 //aca tenemos que hacer las funciones controladoras de las rutas User
 const { Pet, User } = require("../db.js");
 
+const userId = (req, res, next) => {
+  let {userId} = req.params;
+  if(!userId)return next();
+  User.findByPk(userId).then((r) => res.send(r));
+}
+
 const user = (req, res) => {
     User.findAll().then((r) => res.send(r));
-   }
+}
 
 const userPost = async (req, res) => {
     const {
@@ -30,4 +36,5 @@ const userPost = async (req, res) => {
 module.exports={
     user,
     userPost,
+    userId,
 }
