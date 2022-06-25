@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg",
       },
+      pet: {
+        type: DataTypes.ENUM(["dog","cat"]),
+        allowNull: false,
+      },
       size: {
         type: DataTypes.ENUM(["small", "medium", "big"]),
         allowNull: false,
