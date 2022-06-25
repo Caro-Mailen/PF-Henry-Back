@@ -13,23 +13,22 @@ const petName = async (req, res, next) => {
 };
 
 const pet = async (req, res) => {
-  const { page = 0, size = 6, sizePet, gender, state } = req.query;
-
-  const obj = {};
-
-  if (sizePet) obj.size = sizePet;
-  if (gender) obj.gender = gender;
-  if (state) obj.state = state;
+  const { page = 0, size = 6 } = req.query;
 
   const options = {
     limit: size,
     offset: size * page,
   };
-  if (obj.size || obj.gender || obj.state) options.where = obj;
 
-  const { count, rows } = await Pet.findAndCountAll(options);
+  if(Object.entries({...req.body}).length !== 0) options.where = {...req.body};
 
-  return res.json({ total: count, pets: rows });
+  try{
+    const { count = 1, rows } = await Pet.findAndCountAll(options);
+    if (rows.length === 0) throw new Error();
+    res.json({ total: count, pets: rows });
+  } catch (e) {
+    res.status(404).send('the search returned no results')
+  }
 };
 
 function petId(req, res) {

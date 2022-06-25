@@ -34,7 +34,7 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": false
     },
     {
       "name": "peperina",
@@ -58,7 +58,7 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": false
     },
     {
       "name": "bolivar",
@@ -310,7 +310,7 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": false,
-      "vaccinate": true
+      "vaccinate": false
     },
     {
       "name": "nala",
@@ -490,7 +490,7 @@
       "breed": "crossbreed",
       "gender": "female",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": false
     },
     {
       "name": "morita",
@@ -550,7 +550,7 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": false
     },
     {
       "name": "pedro",
@@ -562,7 +562,7 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": false
     }
   ]
 }
