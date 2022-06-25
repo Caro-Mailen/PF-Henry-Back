@@ -2,6 +2,7 @@
   "data": [
     {
       "name": "tristan",
+      "pet": "dog",
       "image": "https://i.postimg.cc/1tKP9NkV/tristan.jpg",
       "size": "big",
       "weight": "",
@@ -13,6 +14,7 @@
     },
     {
       "name": "fLor",
+      "pet": "dog",
       "image": "https://i.postimg.cc/xTNzPCXW/Mesa-de-trabajo-13-6.png",
       "size": "big",
       "weight": "",
@@ -24,6 +26,7 @@
     },
     {
       "name": "simon",
+      "pet": "dog",
       "image": "https://i.postimg.cc/ry0Cwc1F/Mesa-de-trabajo-13-3.png",
       "size": "big",
       "weight": "",
@@ -35,6 +38,7 @@
     },
     {
       "name": "peperina",
+      "pet": "dog",
       "image": "https://i.postimg.cc/PxLZJz8F/Mesa-de-trabajo-13.png",
       "size": "small",
       "weight": "",
@@ -46,6 +50,7 @@
     },
     {
       "name": "braulio",
+      "pet": "dog",
       "image": "https://i.postimg.cc/zBRb8z9s/claudio.png",
       "size": "medium",
       "weight": "",
@@ -57,6 +62,7 @@
     },
     {
       "name": "bolivar",
+      "pet": "dog",
       "image": "https://i.postimg.cc/MKYcWrFp/Mesa-de-trabajo-1-2.png",
       "size": "big",
       "weight": "",
@@ -68,6 +74,7 @@
     },
     {
       "name": "lucho",
+      "pet": "dog",
       "image": "https://i.postimg.cc/7hwxdqDM/Mesa-de-trabajo-13-11.png",
       "size": "medium",
       "weight": "",
@@ -79,6 +86,7 @@
     },
     {
       "name": "selva",
+      "pet": "dog",
       "image": "https://i.postimg.cc/JzvRmNMh/Mesa-de-trabajo-13-10.png",
       "size": "medium",
       "weight": "",
@@ -90,6 +98,7 @@
     },
     {
       "name": "lucy",
+      "pet": "dog",
       "image": "https://i.postimg.cc/PJx7P7Mn/Mesa-de-trabajo-13-7.png",
       "size": "big",
       "weight": "",
@@ -101,6 +110,7 @@
     },
     {
       "name": "duquesa",
+      "pet": "dog",
       "image": "https://i.postimg.cc/kMR8JQwt/nn.jpg",
       "size": "small",
       "weight": "",
@@ -112,6 +122,7 @@
     },
     {
       "name": "harry",
+      "pet": "dog",
       "image": "https://i.postimg.cc/MHmyJZBW/Mesa-de-trabajo-13-8.png",
       "size": "medium",
       "weight": "",
@@ -123,6 +134,7 @@
     },
     {
       "name": "jorgito",
+      "pet": "dog",
       "image": "https://i.postimg.cc/BQNxh6sp/Mesa-de-trabajo-1-1.png",
       "size": "medium",
       "weight": "",
@@ -134,6 +146,7 @@
     },
     {
       "name": "carmelo",
+      "pet": "dog",
       "image": "https://i.postimg.cc/05XkcRFm/carmelo.png",
       "size": "medium",
       "weight": "",
@@ -145,6 +158,7 @@
     },
     {
       "name": "drako",
+      "pet": "dog",
       "image": "https://i.postimg.cc/L5GMRRFb/drako.png",
       "size": "medium",
       "weight": "",
@@ -156,6 +170,7 @@
     },
     {
       "name": "droopy",
+      "pet": "dog",
       "image": "https://i.postimg.cc/3NszVBgM/droopy.png",
       "size": "small",
       "weight": "",
@@ -167,6 +182,7 @@
     },
     {
       "name": "nieve",
+      "pet": "dog",
       "image": "https://i.postimg.cc/br1jzWYY/nieve.png",
       "size": "big",
       "weight": "",
@@ -178,6 +194,7 @@
     },
     {
       "name": "coral",
+      "pet": "dog",
       "image": "https://i.postimg.cc/R08rw4NV/Mesa-de-trabajo-13-5.png",
       "size": "medium",
       "weight": "",
@@ -189,6 +206,7 @@
     },
     {
       "name": "pirata",
+      "pet": "dog",
       "image": "https://i.postimg.cc/pT8S8jwq/pirata.png",
       "size": "small",
       "weight": "",
@@ -200,6 +218,7 @@
     },
     {
       "name": "aleli",
+      "pet": "dog",
       "image": "https://i.postimg.cc/yNBb7rsn/aleli.jpg",
       "size": "medium",
       "weight": "",
@@ -211,6 +230,7 @@
     },
     {
       "name": "marco",
+      "pet": "dog",
       "image": "https://i.postimg.cc/nhPSPTZ3/Mesa-de-trabajo-1-3.png",
       "size": "small",
       "weight": "",
@@ -222,6 +242,7 @@
     },
     {
       "name": "vizcacha",
+      "pet": "dog",
       "image": "https://i.postimg.cc/nzfcVxMg/vizcacha.jpg",
       "size": "medium",
       "weight": "",
@@ -233,6 +254,7 @@
     },
     {
       "name": "cony",
+      "pet": "dog",
       "image": "https://i.postimg.cc/CM7N2Jsb/cony.png",
       "size": "small",
       "weight": "",
@@ -244,6 +266,7 @@
     },
     {
       "name": "jano",
+      "pet": "dog",
       "image": "https://i.postimg.cc/02JdLgBL/IMG-20220129-WA0002.jpg",
       "size": "big",
       "weight": "42",
@@ -255,6 +278,7 @@
     },
     {
       "name": "clemente",
+      "pet": "cat",
       "image": "https://i.postimg.cc/CLP5Hd70/20220429-144340.jpg",
       "size": "small",
       "weight": "",
@@ -262,10 +286,11 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": false,
-      "vaccinate": false
+      "vaccinate": true
     },
     {
       "name": "nena",
+      "pet": "cat",
       "image": "https://i.postimg.cc/tC5SrGnp/nena.jpg",
       "size": "medium",
       "weight": "",
@@ -277,6 +302,7 @@
     },
     {
       "name": "cartucho",
+      "pet": "dog",
       "image": "https://i.postimg.cc/6QyBW0x4/cartucho.jpg",
       "size": "small",
       "weight": "",
@@ -288,6 +314,7 @@
     },
     {
       "name": "nala",
+      "pet": "cat",
       "image": "https://i.postimg.cc/dVBSHk3W/IMG-20220317-WA0039.jpg",
       "size": "small",
       "weight": "",
@@ -299,6 +326,7 @@
     },
     {
       "name": "capitan",
+      "pet": "dog",
       "image": "https://i.postimg.cc/htj9nfMZ/capitan.jpg",
       "size": "medium",
       "weight": "",
@@ -306,10 +334,11 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": false,
-      "vaccinate": false
+      "vaccinate": true
     },
     {
       "name": "pupula",
+      "pet": "cat",
       "image": "https://i.postimg.cc/1tHt4K3G/20211101-213457.jpg",
       "size": "medium",
       "weight": "",
@@ -321,6 +350,7 @@
     },
     {
       "name": "neron",
+      "pet": "dog",
       "image": "https://i.postimg.cc/L6q9MSLB/neron.jpg",
       "size": "big",
       "weight": "45",
@@ -332,6 +362,7 @@
     },
     {
       "name": "teo",
+      "pet": "cat",
       "image": "https://i.postimg.cc/j5dXDZhK/teo.jpg",
       "size": "small",
       "weight": "",
@@ -343,6 +374,7 @@
     },
     {
       "name": "sophi",
+      "pet": "cat",
       "image": "https://i.postimg.cc/XYjcHsT5/sophi.jpg",
       "size": "medium",
       "weight": "",
@@ -354,6 +386,7 @@
     },
     {
       "name": "diño",
+      "pet": "dog",
       "image": "https://i.postimg.cc/hjLXqBmt/di-o.jpg",
       "size": "medium",
       "weight": "",
@@ -365,6 +398,7 @@
     },
     {
       "name": "pascal",
+      "pet": "cat",
       "image": "https://i.postimg.cc/zB8JKRLq/pascal.jpg",
       "size": "small",
       "weight": "",
@@ -376,6 +410,7 @@
     },
     {
       "name": "atena",
+      "pet": "dog",
       "image": "https://i.postimg.cc/4dLryKVL/atena.jpg",
       "size": "medium",
       "weight": "",
@@ -387,6 +422,7 @@
     },
     {
       "name": "miguel",
+      "pet": "cat",
       "image": "https://i.postimg.cc/Y9GJ4rRt/miguel.jpg",
       "size": "medium",
       "weight": "3",
@@ -398,6 +434,7 @@
     },
     {
       "name": "gorda",
+      "pet": "dog",
       "image": "https://i.postimg.cc/t4stGs4R/20220128-184236.jpg",
       "size": "big",
       "weight": "",
@@ -409,6 +446,7 @@
     },
     {
       "name": "malta",
+      "pet": "dog",
       "image": "https://i.postimg.cc/htM97CV2/malta.jpg",
       "size": "small",
       "weight": "",
@@ -420,6 +458,7 @@
     },
     {
       "name": "luna",
+      "pet": "dog",
       "image": "https://i.postimg.cc/7ZPzDgj0/luna.jpg",
       "size": "small",
       "weight": "",
@@ -427,10 +466,11 @@
       "breed": "crossbreed",
       "gender": "female",
       "castration": false,
-      "vaccinate": false
+      "vaccinate": true
     },
     {
       "name": "marito",
+      "pet": "dog",
       "image": "https://i.postimg.cc/dQBdfHxw/marito.jpg",
       "size": "medium",
       "weight": "",
@@ -442,6 +482,7 @@
     },
     {
       "name": "flak",
+      "pet": "dog",
       "image": "https://i.postimg.cc/4dtCdHjQ/flak.jpg",
       "size": "medium",
       "weight": "",
@@ -453,6 +494,7 @@
     },
     {
       "name": "morita",
+      "pet": "dog",
       "image": "https://i.postimg.cc/3rVyVsZM/morita.jpg",
       "size": "small",
       "weight": "",
@@ -464,6 +506,7 @@
     },
     {
       "name": "tornado",
+      "pet": "dog",
       "image": "https://i.postimg.cc/fRgsH9XM/tornado.jpg",
       "size": "medium",
       "weight": "",
@@ -475,6 +518,7 @@
     },
     {
       "name": "matilde",
+      "pet": "dog",
       "image": "https://i.postimg.cc/7Lm2tX9f/matilde.jpg",
       "size": "medium",
       "weight": "",
@@ -486,6 +530,7 @@
     },
     {
       "name": "pit",
+      "pet": "dog",
       "image": "https://i.postimg.cc/nrYj7kXF/pit.jpg",
       "size": "medium",
       "weight": "",
@@ -497,6 +542,7 @@
     },
     {
       "name": "chelo",
+      "pet": "dog",
       "image": "https://i.postimg.cc/25fs97yR/chelo.jpg",
       "size": "medium",
       "weight": "",
@@ -508,6 +554,7 @@
     },
     {
       "name": "pedro",
+      "pet": "dog",
       "image": "https://i.postimg.cc/c48TkDHD/pedro.jpg",
       "size": "medium",
       "weight": "",
