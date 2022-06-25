@@ -5,8 +5,10 @@ const petName = async (req, res, next) => {
   const { name } = req.query;
   if (!name) return next();
   const pet = await Pet.findAll();
-  const petByName = pet.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
-  if(petByName.length)return res.send(petByName); 
+  const petByName = pet.filter((e) =>
+    e.name.toLowerCase().includes(name.toLowerCase())
+  );
+  if (petByName.length) return res.send(petByName);
   else return res.status(404).send("pet not found");
 };
 
@@ -25,11 +27,9 @@ const pet = async (req, res) => {
   };
   if (obj.size || obj.gender || obj.state) options.where = obj;
 
-  const petFind = await Pet.findAll(options);
+  const { count, rows } = await Pet.findAndCountAll(options);
 
-  if (!petFind) return res.status(404).send("the search returned no results");
-
-  return res.json(petFind);
+  return res.json({ total: count, pets: rows });
 };
 
 function petId(req, res) {
@@ -72,26 +72,46 @@ const petPost = async (req, res) => {
   }
 };
 
-const petDelete = async (req, res, next) => {
-  try{
-    const {id} = req.params;
+const petState = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
     await Pet.update(
-        {stateBinary: false},
-        {where:{
-            id
-        }}
-    )
-    res.status(200).send('pet removed successfully')
-}
-catch(error){
+      { state: "adopted" },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+    res.status(200).send("status updated successfully");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const petDelete = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await Pet.update(
+      { stateBinary: false },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+    res.status(200).send("pet removed successfully");
+  } catch (error) {
     next(error);
-}
-}
+  }
+};
 
 module.exports = {
   pet,
   petId,
   petName,
   petPost,
-  petDelete
+  petState,
+  petDelete,
 };
