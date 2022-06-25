@@ -47,11 +47,16 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: false,
       },
-      stateBinary:{
+      stateBinary: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true,
-      }
+      },
+      state: {
+        type: DataTypes.ENUM(["adopt", "adopted", "lost", "transit"]),
+        defaultValue: "adopt",
+        allowNull: false,
+      },
     },
     {
       timestamps: false,

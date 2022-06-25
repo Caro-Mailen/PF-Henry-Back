@@ -1,2 +1,0 @@
-//aca las rutas controladoras de las rutas Donation
-///////////////////////////////////////////
