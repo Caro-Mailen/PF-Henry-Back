@@ -4,9 +4,10 @@ const { Pet } = require("../db.js");
 const petName = async (req, res, next) => {
   const { name } = req.query;
   if (!name) return next();
-  const pet = await Pet.findOne({ where: { name: name } });
-  if (!pet) return res.status(404).send("pet not found");
-  res.send(pet);
+  const pet = await Pet.findAll();
+  const petByName = pet.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
+  if(petByName.length)return res.send(petByName); 
+  else return res.status(404).send("pet not found");
 };
 
 const pet = async (req, res) => {
@@ -70,6 +71,7 @@ const petPost = async (req, res) => {
     console.log(error);
   }
 };
+
 const petDelete = async (req, res, next) => {
   try{
     const {id} = req.params;
@@ -85,6 +87,7 @@ catch(error){
     next(error);
 }
 }
+
 module.exports = {
   pet,
   petId,
