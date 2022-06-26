@@ -14,8 +14,10 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-// router.get("/", petName);***
-router.get("/", pet);
+router.put("/", pet); 
+// Gente, tuvimos que cambiarlo a put, porque los get no pueden recibir body 
+//(si hubieramos usado post tenia conflicto con petPost, con los otros dos no porque reciben id por params.)
+router.get("/", petName);
 router.get("/:id", petId);
 router.post("/", petPost);
 router.put("/:id", petState);

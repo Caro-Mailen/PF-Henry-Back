@@ -1,5 +1,6 @@
 //aca van las funciones controladoras de las rutas pets
 const { Pet } = require("../db.js");
+const { sortAsc, sortDes } = require("../Helper/index.js");
 
 const petName = async (req, res, next) => {
   const { name } = req.query;
@@ -23,11 +24,13 @@ const pet = async (req, res) => {
   if(Object.entries({...req.body}).length !== 0) options.where = {...req.body};
 
   try{
-    const { count = 1, rows } = await Pet.findAndCountAll(options);
-    if (rows.length === 0) throw new Error();
+    const { count, rows } = await Pet.findAndCountAll(options);
+    if(rows.length === 0) return res.status(404).send('pets not found');
+    if(req.query.hasOwnProperty('a_z')) req.query.a_z === 'true' ? rows.sort(sortAsc) : rows.sort(sortDes);
     res.json({ total: count, pets: rows });
   } catch (e) {
-    res.status(404).send('the search returned no results')
+    if(e.message.includes('no existe la columna')) return res.status(404).send('error, the name of the properties are mistyped');
+    res.status(404).send('the search returned no results');
   }
 };
 
@@ -37,37 +40,14 @@ function petId(req, res) {
 }
 
 const petPost = async (req, res) => {
-  const {
-    name,
-    image,
-    size,
-    weight,
-    fur,
-    breed,
-    gender,
-    castration,
-    vaccinate,
-  } = req.body;
-
-  if (
-    !name ||
-    !image ||
-    !size ||
-    !fur ||
-    !breed ||
-    !gender ||
-    !castration ||
-    !vaccinate
-  )
-    return res.status(400).send("please insert require fields to continue");
+  if(Object.entries({...req.body}).length !== 9
+  && Object.entries({...req.body}).length !== 10) return res.status(400).send("please insert require fields to continue");
 
   try {
-    let infoPet = { ...req.body };
-    const newPet = await Pet.create(infoPet);
-    // console.log(newPet);
+    const newPet = await Pet.create({ ...req.body });
     res.status(200).send(newPet);
   } catch (error) {
-    console.log(error);
+    res.status(400).send("error, possibly the name of the properties are mistyped");
   }
 };
 
