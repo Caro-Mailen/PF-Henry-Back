@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         defaultValue: "https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg",
       },
+      pet: {
+        type: DataTypes.ENUM(["dog","cat"]),
+        allowNull: false,
+      },
       size: {
         type: DataTypes.ENUM(["small", "medium", "big"]),
         allowNull: false,
@@ -47,11 +51,16 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: false,
       },
-      stateBinary:{
+      stateBinary: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true,
-      }
+      },
+      state: {
+        type: DataTypes.ENUM(["adopt", "adopted", "lost", "transit"]),
+        defaultValue: "adopt",
+        allowNull: false,
+      },
     },
     {
       timestamps: false,
