@@ -7,7 +7,6 @@ const breed = async (req, res, next) => {
     pets.forEach(pet => {
         breeds.add(pet.breed);
     });
-    console.log(Array.from(breeds));
     res.send(Array.from(breeds))
 }
 
