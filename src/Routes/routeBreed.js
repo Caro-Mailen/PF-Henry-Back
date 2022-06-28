@@ -1,8 +1,8 @@
-const { Router } = require('express');
+const { Router } = require('express')
 const { breed } = require('../Controllers/controllerBreed.js')
 
-const router = Router();
+const router = Router()
 
-router.get('/',breed)
+router.get('/', breed)
 
-module.exports = router;
+module.exports = router

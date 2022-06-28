@@ -1,53 +1,53 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "User",
+    'User',
     {
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       lastname: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
 
-      validate: {
-        isEmail: true,
-        },
+        validate: {
+          isEmail: true
+        }
 
       },
       image: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       socialMedia: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       tel: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       age: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       isAdmin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: false,
-      },
+        defaultValue: false
+      }
     },
     {
-      timestamps: false,
+      timestamps: false
     }
-  );
-};
+  )
+}
