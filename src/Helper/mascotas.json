@@ -70,7 +70,8 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": true,
+      "state": "adopted"
     },
     {
       "name": "lucho",
@@ -94,7 +95,8 @@
       "breed": "crossbreed",
       "gender": "female",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": true,
+      "state": "adopted"
     },
     {
       "name": "lucy",
@@ -154,7 +156,8 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": true,
+      "state": "lost"
     },
     {
       "name": "drako",
@@ -502,7 +505,8 @@
       "breed": "crossbreed",
       "gender": "female",
       "castration": false,
-      "vaccinate": true
+      "vaccinate": true,
+      "state": "lost"
     },
     {
       "name": "tornado",
@@ -538,7 +542,8 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": true
+      "vaccinate": true,
+      "state": "lost"
     },
     {
       "name": "chelo",
@@ -562,7 +567,8 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": true,
-      "vaccinate": false
+      "vaccinate": false,
+      "state": "transit"
     }
   ]
 }
