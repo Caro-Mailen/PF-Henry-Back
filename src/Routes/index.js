@@ -10,11 +10,11 @@ const breed = require('./routeBreed.js')
 
 const router = Router()
 
-router.use('/', (req, res, next) => res.send('welcome to pfmascotas-api'))
 router.use('/pet', pet)
 router.use('/donation', donation)
 router.use('/user', user)
 router.use('/userPet', userPet)
 router.use('/breed', breed)
+router.use('/', (req, res, next) => res.send('welcome to pfmascotas-api'))
 
 module.exports = router
