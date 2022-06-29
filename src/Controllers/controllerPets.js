@@ -26,6 +26,7 @@ const pet = async (req, res) => {
   try {
     const { count, rows } = await Pet.findAndCountAll(options)
     if (rows.length === 0) return res.status(404).send('pets not found')
+    // eslint-disable-next-line no-prototype-builtins
     if (req.query.hasOwnProperty('a_z')) req.query.a_z === 'true' ? rows.sort(sortAsc) : rows.sort(sortDes)
     res.json({ total: count, pets: rows })
   } catch (e) {
@@ -40,7 +41,7 @@ function petId (req, res) {
 }
 
 const petPost = async (req, res) => {
-  if (Object.entries({ ...req.body }).length !== 13) return res.status(400).send('please insert require fields to continue')
+  if (Object.entries({ ...req.body }).length !== 14) return res.status(400).send('please insert require fields to continue')
 
   try {
     const newPet = await Pet.create({ ...req.body })
