@@ -8,10 +8,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      lastname: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
+    
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -21,30 +18,11 @@ module.exports = (sequelize) => {
         }
 
       },
-      image: {
-        type: DataTypes.STRING
-      },
-      address: {
+      password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true,
       },
-      socialMedia: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      tel: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      age: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      isAdmin: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      }
+      
     },
     {
       timestamps: false
