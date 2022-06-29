@@ -20,5 +20,12 @@
     "nodemon": "^2.0.16",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "standard": "^17.0.0"
+  }, 
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
