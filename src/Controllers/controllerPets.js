@@ -40,8 +40,7 @@ function petId (req, res) {
 }
 
 const petPost = async (req, res) => {
-  if (Object.entries({ ...req.body }).length !== 9 &&
-  Object.entries({ ...req.body }).length !== 10) return res.status(400).send('please insert require fields to continue')
+  if (Object.entries({ ...req.body }).length !== 13) return res.status(400).send('please insert require fields to continue')
 
   try {
     const newPet = await Pet.create({ ...req.body })
