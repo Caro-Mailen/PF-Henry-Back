@@ -1,33 +1,33 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
   sequelize.define(
-    "Pet",
+    'Pet',
     {
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       image: {
         type: DataTypes.STRING,
-        defaultValue: "https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg",
+        defaultValue: 'https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg'
       },
       pet: {
-        type: DataTypes.ENUM(["dog","cat"]),
-        allowNull: false,
+        type: DataTypes.ENUM(['dog', 'cat']),
+        allowNull: false
       },
       size: {
-        type: DataTypes.ENUM(["small", "medium", "big"]),
+        type: DataTypes.ENUM(['small', 'medium', 'big']),
         allowNull: false,
-        defaultValue: "medium",
+        defaultValue: 'medium'
       },
       weight: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       fur: {
         type: DataTypes.STRING,
         // type: DataTypes.ENUM(["short", "long"]),
-        allowNull: false,
+        allowNull: false
         // defaultValue: "medium",
       },
       breed: {
@@ -35,35 +35,35 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
 
         allowNull: false,
-        defaultValue: "crossbreed",
+        defaultValue: 'crossbreed'
       },
       gender: {
-        type: DataTypes.ENUM(["female", "male"]),
-        allowNull: false,
+        type: DataTypes.ENUM(['female', 'male']),
+        allowNull: false
       },
       castration: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: false,
+        defaultValue: false
       },
       vaccinate: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: false,
+        defaultValue: false
       },
       stateBinary: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: true,
+        defaultValue: true
       },
       state: {
-        type: DataTypes.ENUM(["adopt", "adopted", "lost", "transit"]),
-        defaultValue: "adopt",
-        allowNull: false,
-      },
+        type: DataTypes.ENUM(['adopt', 'adopted', 'lost', 'transit']),
+        defaultValue: 'adopt',
+        allowNull: false
+      }
     },
     {
-      timestamps: false,
+      timestamps: false
     }
-  );
-};
+  )
+}
