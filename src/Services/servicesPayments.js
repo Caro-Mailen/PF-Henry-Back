@@ -1,15 +1,15 @@
 const axios = require("axios");
 
-class PaymentService {
+class servicesPayments {
     async createPayment() {
         const url = "https://api.mercadopago.com/checkout/preferences";
 
         const body = {
-            payer_email: "test_user_46945293@testuser.com",
+            payer_email: "test_user_63222635@testuser.com", //usuario comprador
             items: [
                 {
-                    title: "Dummy Title",
-                    description: "Dummy description",
+                    title: "Adopt-A Title",
+                    description: "Adopt-A description",
                     picture_url: "http://www.myapp.com/myimage.jpg",
                     category_id: "category123",
                     quantity: 1,
@@ -22,6 +22,8 @@ class PaymentService {
                 success: "/success"
             }
         };
+
+
 
         const payment = await axios.post(url, body, {
             headers: {
@@ -45,7 +47,7 @@ class PaymentService {
                 currency_id: "ARS"
             },
             back_url: "https://google.com.ar",
-            payer_email: "test_user_46945293@testuser.com"
+            payer_email: "test_user_63222635@testuser.com" //usuario comprador
         };
 
         const subscription = await axios.post(url, body, {
@@ -59,4 +61,4 @@ class PaymentService {
     }
 }
 
-module.exports = PaymentService;
+module.exports = servicesPayments;

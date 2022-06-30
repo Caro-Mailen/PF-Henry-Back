@@ -1,19 +1,19 @@
 const { Router } = require("express");
-const router = express.Router();
+const router = Router();
 
 const controllerService = require("../Controllers/controllerService");
 const servicePayments = require("../Services/servicesPayments");
 
-const PaymentInstance = new controllerService(new servicePatment());
+const PaymentInstance = new controllerService(new servicePayments());
+
+// router.get("/", function (req, res, next) {
+//     return res.json({
+//         "/payment": "generates a payment link",
+//         "/subscription": "generates a subscription link"
+//     });
+// });
 
 router.get("/", function (req, res, next) {
-    return res.json({
-        "/payment": "generates a payment link",
-        "/subscription": "generates a subscription link"
-    });
-});
-
-router.get("/payment", function (req, res, next) {
     PaymentInstance.getPaymentLink(req, res);
 });
 
