@@ -21,7 +21,7 @@ class PaymentController {
     try {
       const subscription = await this.subscriptionService.createSubscription(req)
 
-      return res.json(subscription)
+      return res.json({ url: subscription.init_point })
     } catch (error) {
       console.log(error)
 

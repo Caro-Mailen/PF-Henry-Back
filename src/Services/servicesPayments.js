@@ -33,15 +33,15 @@ class PaymentService {
     const url = 'https://api.mercadopago.com/preapproval'
 
     const body = {
-      reason: 'Suscripción de ejemplo',
+      reason: 'Donas por mes: ',
       auto_recurring: {
         frequency: 1,
         frequency_type: 'months',
-        transaction_amount: 10,
+        transaction_amount: req.body.transaction_amount,
         currency_id: 'ARS'
       },
-      back_url: 'https://google.com.ar',
-      payer_email: 'test_user_46945293@testuser.com'
+      back_url: req.body.back_url,
+      payer_email: req.body.payer_email
     }
 
     const subscription = await axios.post(url, body, {
