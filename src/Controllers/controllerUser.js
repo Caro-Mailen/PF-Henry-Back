@@ -9,39 +9,12 @@ const {
 
   const ExtractJwt = passport.ExtractJt
   const EstrategyJwt = passport.EstrategyJwt
-// const userId = (req, res, next) => {
-//   const { userId } = req.params
-//   if (!userId) return next()
-//   User.findByPk(userId).then((r) => res.send(r))
-// }
+
 
 const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
 }
-
-// const userPost = async (req, res) => {
-//   const {
-//     name,
-//     lastname,
-//     email,
-//     image,
-//     address,
-//     socialMedia,
-//     tel,
-//     age,
-//     isAdmin
-//   } = req.body
-//   if (!name || !lastname || !email || !address || !socialMedia || !tel || !age) { return res.status(400).send('please insert require fields to continue') }
-//   try {
-//     const infoUser = { ...req.body }
-//     const newUser = await User.create(infoUser)
-//     res.status(200).send(newUser)
-//   } catch (e) {
-//     console.log(e)
-//   }
-// }
 const userRegister = async(req, res)=>{
-
 const {name, email, password} = req.body
     console.log(req.body)
   const x = await User.findOne({where:{email}}).catch((error)=>{
@@ -62,8 +35,6 @@ const {name, email, password} = req.body
 }
 
 const userLogin = async(req, res)=>{
- 
-    
   const {email, password} = req.body
 console.log(req.body)
   const userEmail = await User.findOne({where: {email}}).catch((error)=>{
@@ -80,13 +51,29 @@ console.log(req.body)
   res.json({message: 'holi', token:jwtoken})
   
 }
+// const loginSucces=(req,res)=>{
+//   if(req.user){
+//    res.status(200).json({succes:true, message:'succesfull', user:req.user})
+// }
+// }
 
 
+// const loginFailed =(req,res)=>{
+//   res.status(401).json({succes:false, message:'failure'})
+// }
 
+// const logout=(req,res)=>{
+//   req.logout()
+//   res.redirect('http://localhost:3001')
+// }
 
 
 module.exports = {
   userLogin,
   userRegister,
-  user
-}
+  user,
+//   loginSucces,
+//   logout,
+//   loginFailed,
+//   loginSucces
+ }
