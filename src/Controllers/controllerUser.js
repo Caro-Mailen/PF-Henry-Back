@@ -15,9 +15,9 @@ const {
 //   User.findByPk(userId).then((r) => res.send(r))
 // }
 
-// const user = (req, res) => {
-//   User.findAll().then((r) => res.send(r))
-// }
+const user = (req, res) => {
+  User.findAll().then((r) => res.send(r))
+}
 
 // const userPost = async (req, res) => {
 //   const {
@@ -40,10 +40,10 @@ const {
 //     console.log(e)
 //   }
 // }
-
 const userRegister = async(req, res)=>{
-  console.log(req.body)
-  const {name, email, password} = req.body
+
+const {name, email, password} = req.body
+    console.log(req.body)
   const x = await User.findOne({where:{email}}).catch((error)=>{
       console.log(error)
   })
@@ -58,14 +58,14 @@ const userRegister = async(req, res)=>{
       return res.json(newUser)
   }
 
-  res.json({message: "holi"})
+  res.send({message: "holi"})
 }
 
-
-
 const userLogin = async(req, res)=>{
+ 
+    
   const {email, password} = req.body
-
+console.log(req.body)
   const userEmail = await User.findOne({where: {email}}).catch((error)=>{
       console.log(error)
   })
@@ -78,10 +78,15 @@ const userLogin = async(req, res)=>{
 
   const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, JWT_SECRET)
   res.json({message: 'holi', token:jwtoken})
-
+  
 }
+
+
+
+
 
 module.exports = {
   userLogin,
-  userRegister
+  userRegister,
+  user
 }
