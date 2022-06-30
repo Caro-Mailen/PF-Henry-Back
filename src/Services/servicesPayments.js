@@ -1,25 +1,21 @@
 const axios = require('axios')
 
 class PaymentService {
-  async createPayment () {
+  async createPayment (req) {
     const url = 'https://api.mercadopago.com/checkout/preferences'
 
     const body = {
-      payer_email: 'test_user_46945293@testuser.com',
       items: [
         {
-          title: 'Dummy Title',
-          description: 'Dummy description',
-          picture_url: 'http://www.myapp.com/myimage.jpg',
-          category_id: 'category123',
+          title: `Donación: ${req.body.unit_price}`,
           quantity: 1,
-          unit_price: 10
+          unit_price: req.body.unit_price
         }
       ],
       back_urls: {
-        failure: '/failure',
-        pending: '/pending',
-        success: '/success'
+        failure: req.body.failure,
+        pending: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        success: req.body.success
       }
     }
 
@@ -33,7 +29,7 @@ class PaymentService {
     return payment.data
   }
 
-  async createSubscription () {
+  async createSubscription (req) {
     const url = 'https://api.mercadopago.com/preapproval'
 
     const body = {

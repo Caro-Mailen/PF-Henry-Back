@@ -5,9 +5,9 @@ class PaymentController {
 
   async getPaymentLink (req, res) {
     try {
-      const payment = await this.subscriptionService.createPayment()
+      const payment = await this.subscriptionService.createPayment(req)
 
-      return res.redirect(payment.init_point)
+      return res.json({ url: payment.init_point })
     } catch (error) {
       console.log(error)
 
@@ -19,7 +19,7 @@ class PaymentController {
 
   async getSubscriptionLink (req, res) {
     try {
-      const subscription = await this.subscriptionService.createSubscription()
+      const subscription = await this.subscriptionService.createSubscription(req)
 
       return res.json(subscription)
     } catch (error) {
