@@ -1,10 +1,11 @@
-const { Router } = require("express");
-const router = Router();
+/* eslint-disable new-cap */
+const { Router } = require('express')
+const router = Router()
 
-const controllerService = require("../Controllers/controllerService");
-const servicePayments = require("../Services/servicesPayments");
+const controllerService = require('../Controllers/controllerService')
+const servicePayments = require('../Services/servicesPayments')
 
-const PaymentInstance = new controllerService(new servicePayments());
+const PaymentInstance = new controllerService(new servicePayments())
 
 // router.get("/", function (req, res, next) {
 //     return res.json({
@@ -13,12 +14,12 @@ const PaymentInstance = new controllerService(new servicePayments());
 //     });
 // });
 
-router.get("/", function (req, res, next) {
-    PaymentInstance.getPaymentLink(req, res);
-});
+router.get('/', function (req, res, next) {
+  PaymentInstance.getPaymentLink(req, res)
+})
 
-router.get("/subscription", function (req, res, next) {
-    PaymentInstance.getSubscriptionLink(req, res);
-});
+router.get('/subscription', function (req, res, next) {
+  PaymentInstance.getSubscriptionLink(req, res)
+})
 
-module.exports = router;
+module.exports = router

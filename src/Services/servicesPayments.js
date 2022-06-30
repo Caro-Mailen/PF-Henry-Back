@@ -1,64 +1,62 @@
-const axios = require("axios");
+const axios = require('axios')
 
-class servicesPayments {
-    async createPayment() {
-        const url = "https://api.mercadopago.com/checkout/preferences";
+class PaymentService {
+  async createPayment () {
+    const url = 'https://api.mercadopago.com/checkout/preferences'
 
-        const body = {
-            payer_email: "test_user_63222635@testuser.com", //usuario comprador
-            items: [
-                {
-                    title: "Adopt-A Title",
-                    description: "Adopt-A description",
-                    picture_url: "http://www.myapp.com/myimage.jpg",
-                    category_id: "category123",
-                    quantity: 1,
-                    unit_price: 10
-                }
-            ],
-            back_urls: {
-                failure: "/failure",
-                pending: "/pending",
-                success: "/success"
-            }
-        };
-
-
-
-        const payment = await axios.post(url, body, {
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
-            }
-        });
-
-        return payment.data;
+    const body = {
+      payer_email: 'test_user_46945293@testuser.com',
+      items: [
+        {
+          title: 'Dummy Title',
+          description: 'Dummy description',
+          picture_url: 'http://www.myapp.com/myimage.jpg',
+          category_id: 'category123',
+          quantity: 1,
+          unit_price: 10
+        }
+      ],
+      back_urls: {
+        failure: '/failure',
+        pending: '/pending',
+        success: '/success'
+      }
     }
 
-    async createSubscription() {
-        const url = "https://api.mercadopago.com/preapproval";
+    const payment = await axios.post(url, body, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
+      }
+    })
 
-        const body = {
-            reason: "Suscripción de ejemplo",
-            auto_recurring: {
-                frequency: 1,
-                frequency_type: "months",
-                transaction_amount: 10,
-                currency_id: "ARS"
-            },
-            back_url: "https://google.com.ar",
-            payer_email: "test_user_63222635@testuser.com" //usuario comprador
-        };
+    return payment.data
+  }
 
-        const subscription = await axios.post(url, body, {
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
-            }
-        });
+  async createSubscription () {
+    const url = 'https://api.mercadopago.com/preapproval'
 
-        return subscription.data;
+    const body = {
+      reason: 'Suscripción de ejemplo',
+      auto_recurring: {
+        frequency: 1,
+        frequency_type: 'months',
+        transaction_amount: 10,
+        currency_id: 'ARS'
+      },
+      back_url: 'https://google.com.ar',
+      payer_email: 'test_user_46945293@testuser.com'
     }
+
+    const subscription = await axios.post(url, body, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
+      }
+    })
+
+    return subscription.data
+  }
 }
 
-module.exports = servicesPayments;
+module.exports = PaymentService
