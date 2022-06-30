@@ -1,17 +1,18 @@
+/* eslint-disable new-cap */
 const { Router } = require('express')
 const router = Router()
 
-const PaymentController = require('../Controllers/PaymentController')
-const PaymentService = require('../Services/PaymentService')
+const controllerService = require('../Controllers/controllerService')
+const servicePayments = require('../Services/servicesPayments')
 
-const PaymentInstance = new PaymentController(new PaymentService())
+const PaymentInstance = new controllerService(new servicePayments())
 
-// router.get('/', function (req, res, next) {
-//   return res.json({
-//     '/payment': 'generates a payment link',
-//     '/subscription': 'generates a subscription link'
-//   })
-// })
+// router.get("/", function (req, res, next) {
+//     return res.json({
+//         "/payment": "generates a payment link",
+//         "/subscription": "generates a subscription link"
+//     });
+// });
 
 router.get('/', function (req, res, next) {
   PaymentInstance.getPaymentLink(req, res)
