@@ -2,7 +2,7 @@
 const { Router } = require('express')
 const router = Router()
 
-const controllerService = require('../Controllers/controllerService')
+const controllerService = require('../Services/controllerService')
 const servicePayments = require('../Services/servicesPayments')
 
 const PaymentInstance = new controllerService(new servicePayments())
@@ -14,11 +14,11 @@ const PaymentInstance = new controllerService(new servicePayments())
 //     });
 // });
 
-router.get('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
   PaymentInstance.getPaymentLink(req, res)
 })
 
-router.get('/subscription', function (req, res, next) {
+router.post('/subscription', function (req, res, next) {
   PaymentInstance.getSubscriptionLink(req, res)
 })
 
