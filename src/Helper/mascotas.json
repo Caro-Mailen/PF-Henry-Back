@@ -9,8 +9,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "flor",
@@ -21,8 +21,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "simon",
@@ -33,8 +33,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": false
+      "castration": "true",
+      "vaccinate": "false"
     },
     {
       "name": "peperina",
@@ -45,8 +45,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "braulio",
@@ -57,8 +57,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": false
+      "castration": "true",
+      "vaccinate": "false"
     },
     {
       "name": "bolivar",
@@ -69,8 +69,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true,
+      "castration": "true",
+      "vaccinate": "true",
       "state": "adopted"
     },
     {
@@ -82,8 +82,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "selva",
@@ -94,8 +94,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true,
+      "castration": "true",
+      "vaccinate": "true",
       "state": "adopted"
     },
     {
@@ -107,8 +107,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "duquesa",
@@ -119,8 +119,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "harry",
@@ -131,8 +131,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "jorgito",
@@ -143,8 +143,8 @@
       "fur": "",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "carmelo",
@@ -155,8 +155,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true,
+      "castration": "true",
+      "vaccinate": "true",
       "state": "lost"
     },
     {
@@ -168,8 +168,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "droopy",
@@ -180,8 +180,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "nieve",
@@ -192,8 +192,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "coral",
@@ -204,8 +204,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "pirata",
@@ -216,8 +216,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "aleli",
@@ -228,8 +228,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "marco",
@@ -240,8 +240,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "vizcacha",
@@ -252,8 +252,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "cony",
@@ -264,8 +264,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "jano",
@@ -276,8 +276,8 @@
       "fur": "short",
       "breed": "german shepherd",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "clemente",
@@ -288,8 +288,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "nena",
@@ -300,8 +300,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "cartucho",
@@ -312,8 +312,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": false
+      "castration": "false",
+      "vaccinate": "false"
     },
     {
       "name": "nala",
@@ -324,8 +324,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "capitan",
@@ -336,8 +336,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "pupula",
@@ -348,8 +348,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "neron",
@@ -360,8 +360,8 @@
       "fur": "short",
       "breed": "french mastiff",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "teo",
@@ -372,8 +372,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "sophi",
@@ -384,8 +384,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "diño",
@@ -396,8 +396,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "pascal",
@@ -408,8 +408,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "atena",
@@ -420,8 +420,8 @@
       "fur": "short",
       "breed": "bullterrier",
       "gender": "female",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "miguel",
@@ -432,8 +432,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "gorda",
@@ -444,8 +444,8 @@
       "fur": "short",
       "breed": "labrador",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "malta",
@@ -456,8 +456,8 @@
       "fur": "short",
       "breed": "dachshund",
       "gender": "female",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "luna",
@@ -468,8 +468,8 @@
       "fur": "long",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "marito",
@@ -480,8 +480,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": false,
-      "vaccinate": true
+      "castration": "false",
+      "vaccinate": "true"
     },
     {
       "name": "flak",
@@ -492,8 +492,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": false
+      "castration": "true",
+      "vaccinate": "false"
     },
     {
       "name": "morita",
@@ -504,8 +504,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": false,
-      "vaccinate": true,
+      "castration": "false",
+      "vaccinate": "true",
       "state": "lost"
     },
     {
@@ -517,8 +517,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "matilde",
@@ -529,8 +529,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "female",
-      "castration": true,
-      "vaccinate": true
+      "castration": "true",
+      "vaccinate": "true"
     },
     {
       "name": "pit",
@@ -541,8 +541,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": true,
+      "castration": "true",
+      "vaccinate": "true",
       "state": "lost"
     },
     {
@@ -554,8 +554,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": false
+      "castration": "true",
+      "vaccinate": "false"
     },
     {
       "name": "pedro",
@@ -566,8 +566,8 @@
       "fur": "short",
       "breed": "crossbreed",
       "gender": "male",
-      "castration": true,
-      "vaccinate": false,
+      "castration": "true",
+      "vaccinate": "false",
       "state": "transit"
     }
   ]
