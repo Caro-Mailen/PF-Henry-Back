@@ -15,7 +15,9 @@ const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
 }
 const userRegister = async(req, res)=>{
-const {name, email, password} = req.body
+
+  try {
+    const {name, email, password} = req.body
     console.log(req.body)
   const x = await User.findOne({where:{email}}).catch((error)=>{
       console.log(error)
@@ -32,35 +34,34 @@ const {name, email, password} = req.body
   }
 
   res.send({message: "holi"})
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 const userLogin = async(req, res)=>{
-  const {email, password} = req.body
-console.log(req.body)
-  const userEmail = await User.findOne({where: {email}}).catch((error)=>{
-      console.log(error)
-  })
-  if(!userEmail){
-      return res.json({message: 'password or mail incorrect'})
-  }
-  if(userEmail.password !== password){
-      return res.json({message: 'password or mail incorrect'})
-  }
 
-  const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, JWT_SECRET)
-  res.json({message: 'holi', token:jwtoken})
+  try {
+    const {email, password} = req.body
+    console.log(req.body)
+      const userEmail = await User.findOne({where: {email}}).catch((error)=>{
+          console.log(error)
+      })
+      if(!userEmail){
+          return res.json({message: 'password or mail incorrect'})
+      }
+      if(userEmail.password !== password){
+          return res.json({message: 'password or mail incorrect'})
+      }
+    
+      const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, JWT_SECRET)
+      res.json({message:req.body , token:jwtoken})
+  } catch (error) {
+    console.log(error)
+  }
   
 }
-// const loginSucces=(req,res)=>{
-//   if(req.user){
-//    res.status(200).json({succes:true, message:'succesfull', user:req.user})
-// }
-// }
 
-
-// const loginFailed =(req,res)=>{
-//   res.status(401).json({succes:false, message:'failure'})
-// }
 
 // const logout=(req,res)=>{
 //   req.logout()
@@ -72,8 +73,6 @@ module.exports = {
   userLogin,
   userRegister,
   user,
-//   loginSucces,
-//   logout,
-//   loginFailed,
-//   loginSucces
+  // logout,
+
  }
