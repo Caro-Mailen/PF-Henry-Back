@@ -41,16 +41,16 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM(['female', 'male', 'unknown']),
         allowNull: false
       },
-      castration: {
-        type: DataTypes.ENUM(['yes', 'no', 'unknown']),
-        allowNull: false,
-        defaultValue: false
-      },
-      vaccinate: {
-        type: DataTypes.ENUM(['yes', 'no', 'unknown']),
-        allowNull: false,
-        defaultValue: false
-      },
+      // castration: {
+      //   type: DataTypes.ENUM(['yes', 'no', 'unknown']),
+      //   allowNull: false,
+      //   defaultValue: false
+      // },
+      // vaccinate: {
+      //   type: DataTypes.ENUM(['yes', 'no', 'unknown']),
+      //   allowNull: false,
+      //   defaultValue: false
+      // },
       stateBinary: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
