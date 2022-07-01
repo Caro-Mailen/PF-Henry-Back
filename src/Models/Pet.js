@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
         allowNull: false
       },
       image: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         defaultValue: 'https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg'
       },
       pet: {
@@ -38,19 +38,19 @@ module.exports = (sequelize) => {
         defaultValue: 'crossbreed'
       },
       gender: {
-        type: DataTypes.ENUM(['female', 'male']),
+        type: DataTypes.ENUM(['female', 'male', 'unknown']),
         allowNull: false
       },
-      castration: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
-      vaccinate: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
+      // castration: {
+      //   type: DataTypes.ENUM(['yes', 'no', 'unknown']),
+      //   allowNull: false,
+      //   defaultValue: false
+      // },
+      // vaccinate: {
+      //   type: DataTypes.ENUM(['yes', 'no', 'unknown']),
+      //   allowNull: false,
+      //   defaultValue: false
+      // },
       stateBinary: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

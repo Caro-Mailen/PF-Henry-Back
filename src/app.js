@@ -5,8 +5,9 @@ const cors = require('cors')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 require('./db.js')
-
+require('./Auth/passportGoogle.js');
 const server = express()
 server.use(express.json())
 server.name = 'API'
@@ -17,6 +18,11 @@ server.use(passport.initialize())
 server.use(passport.session())
 server.use(cors())
 server.use(morgan('dev'))
+// server.use(session({secret:'cats'}))
+server.use(passport.initialize())
+server.use(passport.session())
+
+
 
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
