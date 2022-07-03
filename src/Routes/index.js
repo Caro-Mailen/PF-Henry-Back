@@ -4,6 +4,7 @@ const pet = require('./routePets')
 const user = require('./routeUser')
 const userPet = require('./ruteUserPet')
 const donation = require('./ruteDonation')
+const payment = require('./routePayment')
 const breed = require('./routeBreed.js')
 
 
@@ -17,6 +18,7 @@ router.use('/pet', pet)
 router.use('/donation', donation)
 router.use('/user', user)
 router.use('/userPet', userPet)
+router.use('/payment', payment)
 router.use('/breed', breed)
 //router.use('/', (req, res, next) => res.send('welcome to pfmascotas-api'))
 
