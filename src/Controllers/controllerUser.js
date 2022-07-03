@@ -17,23 +17,26 @@ const user = (req, res) => {
 const userRegister = async(req, res)=>{
 
   try {
-    const {name, email, password} = req.body
+    const {email} = req.body
     console.log(req.body)
   const x = await User.findOne({where:{email}}).catch((error)=>{
       console.log(error)
   })
   if(x){return res.json({message: 'email existente'})}
-  const newUser = new User({name, email, password})
-  const userSave = await newUser.save().catch ((error)=>{
-      console.log(error)
-      res.json({error:'no registrado '})
-  })
+  const info ={...req.body}
+  console.log(info)
+  const newUser = await User.create(info)
+  // const userSave = await newUser.save().catch ((error)=>{
+  //     console.log(error)
+  //     res.json({error:'no registrado '})
 
-  if(userSave){
+  
+
+  
       return res.json(newUser)
-  }
+  
 
-  res.send({message: "holi"})
+  
   } catch (error) {
     console.log(error)
   }
@@ -63,16 +66,10 @@ const userLogin = async(req, res)=>{
 }
 
 
-// const logout=(req,res)=>{
-//   req.logout()
-//   res.redirect('http://localhost:3001')
-// }
 
 
 module.exports = {
   userLogin,
   userRegister,
-  user,
-  // logout,
-
+  user
  }
