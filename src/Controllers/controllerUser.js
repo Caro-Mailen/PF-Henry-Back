@@ -1,11 +1,14 @@
 // aca tenemos que hacer las funciones controladoras de las rutas User
 const { User } = require('../db.js')
 const jwt = require('jsonwebtoken')
-const {
-    JWT_SECRET
-  } = process.env;
+// const {
+//     JWT_SECRET
+//   } = process.env;
+
+const jwtSecret = process.env.JWT_SECRET
   const passport = require('passport')
   const passportJwt = require ('passport-jwt');
+  require("dotenv").config();
 
   const ExtractJwt = passport.ExtractJt
   const EstrategyJwt = passport.EstrategyJwt
@@ -48,14 +51,14 @@ const userLogin = async(req, res)=>{
           console.log(error)
       })
       if(!userEmail){
-          return res.json({message: 'password or mail incorrect'})
+          return res.status(404).json({message: 'Password or Email Incorrect'})
       }
       if(userEmail.password !== password){
-          return res.json({message: 'password or mail incorrect'})
+          return res.status(404).json({message: 'Password or Email Incorrect'})
       }
     
-      const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, JWT_SECRET)
-      res.json({message:req.body , token:jwtoken})
+      const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, jwtSecret)
+      res.json({message:userEmail , token:jwtoken})
   } catch (error) {
     console.log(error)
   }
