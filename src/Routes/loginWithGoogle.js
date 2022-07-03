@@ -1,10 +1,10 @@
 const express = require("express");
 const passport = require("passport");
 const { isUserAuthenticated } = require("../Middlewares/auth.js");
-
+const session = require('express-session')
 const router = express.Router();
 
-const successLoginUrl = "http://localhost:3000/login/succes";
+const successLoginUrl = "http://localhost:3000/";
 const errorLoginUrl = "http://localhost:3000/login/error";
 
 router.get(
@@ -27,7 +27,6 @@ router.get(
   }
 );
 
-
-
+// });
 
 module.exports = router;

@@ -14,6 +14,8 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, accessToken, refreshToken, profile, cb) => {
+    const cuenta = profile._json
+    console.log(cuenta)
       const defaultUser = {
     
         name: `${profile.name.givenName} ${profile.name.familyName}`,
@@ -30,11 +32,34 @@ console.log(defaultUser)
         cb(err, null);
       });
 
-      if (user && user[0]) return cb(null, user & user[0]);
+      if (user && user[0]) return cb(null, user[0]);
     }
   )
 );
 
+
+// passport.use(
+//   new GoogleStrategy({
+//     clientID: '587687410177-o4okd3jb0lgb7s8if0hi49ppmv5u4m3k.apps.googleusercontent.com',
+//     clientSecret: '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',
+//     callbackURL:  GOOGLE_CALLBACK_URL
+//   },
+//   function(accessToken, refreshToken, profile, done, db) {
+//     console.log(profile);
+//     // Query the database to find user record associated with this
+//     // google profile, then pass that object to done callback
+//     db.findUserById(profile.id).then(function(id) {
+//       if (id) {
+//         return done(null, profile);
+//       } else {
+//         db.createUser(profile.id)
+//           .then(function(id) {
+//             return done(null, profile);
+//           });
+//       }
+//     });
+//   })
+// );
 
 
 
