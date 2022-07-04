@@ -24,6 +24,9 @@ module.exports = (sequelize) => {
       },
       googleId: {
         type: DataTypes.STRING,
+      },
+      picture: {
+        type: DataTypes.STRING,
         allowNull: true,
       },
     },

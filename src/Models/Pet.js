@@ -42,6 +42,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: 'unknown'
       },
+
       castration: {
         type: DataTypes.ENUM(['true', 'false', 'unknown']),
         allowNull: false,
