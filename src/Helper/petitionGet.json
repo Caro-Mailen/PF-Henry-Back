@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+    "petId": 3,
+    "userId": 1,
+    "type": "adopt",
+    "formDate": "22/6/2022",
+    "userAge": "19",
+    "tel": "3547598556",
+    "actualPlace": ["calle","barrio","ciuddad","codigoPostal"],
+    "otherPets": "false",
+    "adoptedPetPlace": "casa",
+    "openSpace": "patio",
+    "rental": "tenant",
+    "adoptedPetSleepingSpace": "adoptedPetSleepingSpace",
+    "getPetReason": "reason",
+    "userMovility": "yes",
+    "familySize": "5",
+    "FamilyRelation": "se llevan bien po",
+    "adoptedPetAloneMoments": "siempre hay alguien en casa",
+    "adoptedPetWalkingInfo": "a la tarde ",
+    "adaptationTime": "yes",
+    "userMovingIdea": "si, tenemos pensado mudarnos"
+        }
+    ]
+}
