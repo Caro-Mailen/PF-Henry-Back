@@ -39,17 +39,19 @@ module.exports = (sequelize) => {
       },
       gender: {
         type: DataTypes.ENUM(['female', 'male', 'unknown']),
-        allowNull: false
-      },
-      castration: {
-        type: DataTypes.ENUM(['yes', 'no', 'unknown']),
         allowNull: false,
-        defaultValue: false
+        defaultValue: 'unknown'
+      },
+
+      castration: {
+        type: DataTypes.ENUM(['true', 'false', 'unknown']),
+        allowNull: false,
+        defaultValue: 'unknown'
       },
       vaccinate: {
-        type: DataTypes.ENUM(['yes', 'no', 'unknown']),
+        type: DataTypes.ENUM(['true', 'false', 'unknown']),
         allowNull: false,
-        defaultValue: false
+        defaultValue: 'unknown'
       },
       stateBinary: {
         type: DataTypes.BOOLEAN,
@@ -60,6 +62,15 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM(['adopt', 'adopted', 'lost', 'transit']),
         defaultValue: 'adopt',
         allowNull: false
+      },
+      foundDate: {
+        type: DataTypes.STRING
+      },
+      actualPlace: {
+        type: DataTypes.STRING
+      },
+      foundPlace: {
+        type: DataTypes.STRING
       }
     },
     {

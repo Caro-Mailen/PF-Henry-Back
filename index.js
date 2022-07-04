@@ -3,6 +3,8 @@ const { db } = require('./src/db.js')
 const { Pet, User } = require('./src/db')
 const json = require('./src/Helper/mascotas.json')
 const Ujson = require('./src/Helper/users.json')
+//const passportSetUp = require('./src/Controllers/passport.js')
+
 
 const mascotas = json.data
 const users = Ujson.data
