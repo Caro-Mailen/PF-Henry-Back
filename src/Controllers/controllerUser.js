@@ -58,7 +58,7 @@ const userLogin = async(req, res)=>{
       }
     
       const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, JWT_SECRET)
-      res.json({message:req.body , token:jwtoken})
+      res.json({message: userEmail, token:jwtoken})
   } catch (error) {
     console.log(error)
   }
