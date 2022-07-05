@@ -51,10 +51,10 @@ const userLogin = async(req, res)=>{
           console.log(error)
       })
       if(!userEmail){
-          return res.json({message: 'password or mail incorrect'})
+          return res.status(400).json({error: 'mail'})
       }
       if(userEmail.password !== password){
-          return res.json({message: 'password or mail incorrect'})
+          return res.status(400).json({error: 'password'})
       }
     
       const jwtoken = jwt.sign({id:userEmail.id, email:userEmail.email}, JWT_SECRET)
