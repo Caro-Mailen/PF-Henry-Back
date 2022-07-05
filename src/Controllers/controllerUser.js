@@ -1,5 +1,6 @@
 // aca tenemos que hacer las funciones controladoras de las rutas User
 const { User } = require('../db.js')
+const { transporter } = require('./nodemailer')
 const jwt = require('jsonwebtoken')
 const {
   JWT_SECRET
@@ -15,7 +16,7 @@ const user = (req, res) => {
 }
 const userRegister = async (req, res) => {
   try {
-    const { email } = req.body
+    const { email, name } = req.body
     console.log(req.body)
     const x = await User.findOne({ where: { email } }).catch((error) => {
       console.log(error)
@@ -24,6 +25,27 @@ const userRegister = async (req, res) => {
     const info = { ...req.body }
     console.log(info)
     const newUser = await User.create(info)
+
+    const correo = await transporter.sendMail({
+      from: '"AdoptA 🐶🐱" <carolina.mailen21@gmail.com>', // sender address
+      to: email, // list of receivers
+      subject: `¡Bienvenido ${name} !`, // Subject line
+      // text: 'Hello world?', // plain text body
+      html: ` '<b>Gracias por registrarte en AdoptA 🐕🐈🐕‍🦺🐈‍💕 </b>'
+      <br><br>
+      <p>estos son tus datos de usuario: 
+      <ul>
+      <li> Email: ${email} </li>
+      <li> Password: ${req.body.password}
+      </ul>
+      
+      ` // html body
+    })
+
+    console.log('Message sent: %s', correo.messageId)
+
+    console.log('Preview URL: %s', transporter.nodemailer.getTestMessageUrl(correo))
+
     // const userSave = await newUser.save().catch ((error)=>{
     //     console.log(error)
     //     res.json({error:'no registrado '})
