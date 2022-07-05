@@ -45,7 +45,7 @@ try {
   console.log(e.message)
 }
 
-const { Pet, User, Donation, PetitionGet } = sequelize.models
+const { Pet, User, Donation, PetitionGet, PetitionLost, PetitionGetLost } = sequelize.models
 
 // relaciones.
 User.hasMany(Pet)
@@ -55,6 +55,12 @@ User.hasMany(Donation)
 Donation.belongsTo(User)
 
 User.hasMany(PetitionGet)
+PetitionGet.belongsTo(User)
+
+User.hasMany(PetitionLost)
+PetitionGet.belongsTo(User)
+
+User.hasMany(PetitionGetLost)
 PetitionGet.belongsTo(User)
 
 module.exports = {
