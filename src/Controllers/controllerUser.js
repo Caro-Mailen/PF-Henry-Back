@@ -1,30 +1,29 @@
 // aca tenemos que hacer las funciones controladoras de las rutas User
-const { User } = require('../db.js')
-const { transporter } = require('./nodemailer')
-const jwt = require('jsonwebtoken')
-const {
-  JWT_SECRET
-} = process.env
-// const passport = require('passport')
-// const passportJwt = require('passport-jwt')
-
-// const ExtractJwt = passport.ExtractJt
-// const EstrategyJwt = passport.EstrategyJwt
+const { User } = require("../db.js");
+const { transporter } = require("./nodemailer");
+const jwt = require("jsonwebtoken");
+const jwtDecode = require("jwt-decode");
+const { JWT_SECRET } = process.env;
 
 const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
 }
+
 const userRegister = async (req, res) => {
   try {
-    const { email, name } = req.body
-    console.log(req.body)
-    const x = await User.findOne({ where: { email } }).catch((error) => {
+    const { email, name } = req.body;
+    const user = await User.findOne({ where: { email } }).catch((error) => {
       console.log(error)
     })
-    if (x) { return res.json({ message: 'email existente' }) }
+    if (user) {
+      return res.json({ error: "Email existente" })
+    }
+
+    // ACA SE HASEA EL PASSWORD.
     const info = { ...req.body }
-    console.log(info)
-    const newUser = await User.create(info)
+    await User.create(info).catch((error) => {
+      console.log(error)
+    })
 
     const correo = await transporter.sendMail({
       from: '"AdoptA 🐶🐱" <adopta@gmail.com>', // sender address
@@ -39,10 +38,10 @@ const userRegister = async (req, res) => {
       <li> Password: ${req.body.password}
       </ul>
       
-      ` // html body
-    })
+      `, // html body
+    });
 
-    console.log('Message sent: %s', correo.messageId)
+    console.log("Message sent: %s", correo.messageId);
 
     // console.log('Preview URL: %s', transporter.nodemailer.getTestMessageUrl(correo))
 
@@ -50,35 +49,57 @@ const userRegister = async (req, res) => {
     //     console.log(error)
     //     res.json({error:'no registrado '})
 
-    return res.json(newUser)
+    return res.json({ message: "Usuario Registrado!" });
   } catch (error) {
-    console.log(error)
+    res.status(400).send({ error: error.message });
   }
-}
+};
 
 const userLogin = async (req, res) => {
+  const { email, password } = req.body;
   try {
-    const { email, password } = req.body
-    console.log(req.body)
-    const userEmail = await User.findOne({ where: { email } }).catch((error) => {
-      console.log(error)
-    })
-    if (!userEmail) {
-      return res.json({ message: 'password or mail incorrect' })
+    const user = await User.findOne({ where: { email } }).catch((e) => {
+      console.log(e);
+    });
+    if (!user) {
+      return res.json({ error: "Email inexistente" });
     }
-    if (userEmail.password !== password) {
-      return res.json({ message: 'password or mail incorrect' })
+    if (user.password !== password) {
+      return res.json({ error: "Contraseña incorrecta" });
     }
-
-    const jwtoken = jwt.sign({ id: userEmail.id, email: userEmail.email }, JWT_SECRET)
-    res.json({ message: userEmail, token: jwtoken })
-  } catch (error) {
-    console.log(error)
+    const jwtoken = jwt.sign(
+      { id: user.id, email: user.email },
+      JWT_SECRET
+    );
+    res.json({ token: jwtoken });
+  } catch (e) {
+    return res.status(400).json({ error: e.message });
   }
-}
+};
+
+const userLoginGoogle = async (req, res) => {
+  const { token } = req.body
+  try {
+    const { email, password } = jwtDecode(token);
+    const user = await User.findOne({ where: { email } }).catch((error) => {
+      console.log(error);
+    });
+    if (!user) {
+      await User.create(...req.body);
+      return res.json({ message: "Sesion Iniciada y usuario nuevo creado!" });
+    }
+    if (user.password === password) {
+      return res.status(400).json({ error: "Constraseña incorrecta" });
+    }
+    res.json({ message: "Sesion Iniciada" });
+  } catch (e) {
+    return res.status(400).json({ error: e.message });
+  }
+};
 
 module.exports = {
   userLogin,
   userRegister,
-  user
-}
+  user,
+  userLoginGoogle,
+};

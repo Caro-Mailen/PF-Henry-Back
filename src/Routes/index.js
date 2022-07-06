@@ -1,5 +1,4 @@
 const { Router } = require('express')
-const loginWithGoogleApi = require("./loginWithGoogle");
 const pet = require('./routePets')
 const user = require('./routeUser')
 const userPet = require('./ruteUserPet')
@@ -14,8 +13,6 @@ const petitionLoad = require('./routePetitionLoad.js')
 
 const router = Router()
 
-
-router.use(loginWithGoogleApi)
 router.use('/pet', pet)
 router.use('/donation', donation)
 router.use('/user', user)
