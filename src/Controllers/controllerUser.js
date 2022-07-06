@@ -1,6 +1,7 @@
 // aca tenemos que hacer las funciones controladoras de las rutas User
 const { User } = require('../db.js')
 const { transporter } = require('./nodemailer')
+const { emailWelcome } = require('../Helper/templateWelcome')
 const jwt = require('jsonwebtoken')
 const {
   JWT_SECRET
@@ -27,24 +28,13 @@ const userRegister = async (req, res) => {
     const newUser = await User.create(info)
 
     const correo = await transporter.sendMail({
-      from: '"AdoptA 🐶🐱" <adopta@gmail.com>', // sender address
-      to: email, // list of receivers
-      subject: `¡Bienvenido ${name} !`, // Subject line
-      // text: 'Hello world?', // plain text body
-      html: ` '<b>Gracias por registrarte en AdoptA 🐕🐈🐕‍🦺🐈‍💕 </b>'
-      <br><br>
-      <p>Estos son tus datos de usuario: 
-      <ul>
-      <li> Email: ${email} </li>
-      <li> Password: ${req.body.password}
-      </ul>
-      
-      ` // html body
+      from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
+      to: email,
+      subject: `¡Bienvenido ${name} !`,
+      html: emailWelcome
     })
 
     console.log('Message sent: %s', correo.messageId)
-
-    // console.log('Preview URL: %s', transporter.nodemailer.getTestMessageUrl(correo))
 
     // const userSave = await newUser.save().catch ((error)=>{
     //     console.log(error)
