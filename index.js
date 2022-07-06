@@ -26,10 +26,12 @@ db.sync({ force: true }).then(() => {
     const peticion = await PetitionGet.findOne({where:{id:1}});
     const peticionLost = await PetitionGetLost.findOne({where:{id:1}});
     const peticionLoad = await PetitionLoad.findOne({where:{id:1}});
-    const pet = await Pet.findAll({where:{id:1} || {id:2}});
+    const pet = await Pet.findAll({where:{id:1}});
+    const pet2 = await Pet.findAll({where:{id:2}});
     await usuario.addPetitionGets(peticion)
     await usuario.addPetitionGetLosts(peticionLost)
     await usuario.addPetitionLoads(peticionLoad)
-    await usuario.addPets(pet)
+    const pet3 = pet.concat(pet2)
+    await usuario.addPets(pet3)
   })
 })
