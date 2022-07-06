@@ -54,7 +54,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: true
           },
-          type: {
+          state: {
             type: DataTypes.ENUM(['adopt', 'lost']),
             allowNull: false
           },

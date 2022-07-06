@@ -3,7 +3,7 @@
         {
             "petId": 3,
             "userId": 1,
-            "type": "adopt",
+            "state": "adopt",
             "formDate": "22/6/2022",
             "userAge": "19",
             "tel": "3547598556",
@@ -24,8 +24,8 @@
         },
         {
             "petId": 5,
-            "userId": 2,
-            "type": "transit",
+            "userId": 1,
+            "state": "transit",
             "formDate": "22/6/2022",
             "userAge": "19",
             "tel": "3547598556",
