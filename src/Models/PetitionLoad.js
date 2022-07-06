@@ -1,10 +1,10 @@
-const sequelize = require('sequelize')
+
 const {DataTypes} = require('sequelize')
 
 module.exports = (sequelize) => {
-    sequelize.define('PetitionLost', {
+    sequelize.define('PetitionLoad', {
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false
           },
           image: {
@@ -21,14 +21,14 @@ module.exports = (sequelize) => {
             defaultValue: 'medium'
           },
           weight: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
           },
           fur: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false
           },
           breed: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
     
             allowNull: false,
             defaultValue: 'crossbreed'
@@ -54,27 +54,26 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: true
           },
-          state: {
-            type: DataTypes.ENUM(['adopt', 'adopted', 'lost', 'transit']),
-            defaultValue: 'adopt',
+          type: {
+            type: DataTypes.ENUM(['adopt', 'lost']),
             allowNull: false
           },
           foundDate: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
           },
           actualPlace: {
             type: DataTypes.ARRAY(DataTypes.TEXT),
             allowNull: false
           },
           foundPlace: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
           },
           formDate: {
-            type: DataTypes.DATE,
+            type: DataTypes.TEXT,
             allowNull:false
           },
           petId: {
-             type: DataTypes.INTEGER,
+             type: DataTypes.TEXT,
              allowNull:false
           }
     })
