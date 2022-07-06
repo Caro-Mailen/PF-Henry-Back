@@ -10,7 +10,8 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": "true",
-      "vaccinate": "true"
+      "vaccinate": "true",
+      "state":"transit"
     },
     {
       "name": "flor",
