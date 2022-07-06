@@ -25,12 +25,8 @@
       "gender": "female",
       "castration": "true",
       "vaccinate": "true",
-<<<<<<< HEAD
       "state":"adopted",
       "actualPlace":"Cachi 119, Los Altos, Capital, Salta, 4400"
-=======
-      "state":"adopted"
->>>>>>> bcfe028a7270731e07e97944c9e6fc6c1cff4b4c
     },
     {
       "name": "simon",
