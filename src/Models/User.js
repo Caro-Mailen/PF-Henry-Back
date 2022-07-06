@@ -20,12 +20,12 @@ module.exports = (sequelize) => {
         allowNull: true
       },
       googleId: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       picture: {
         type: DataTypes.STRING,
-        allowNull: true,
-      },
+        allowNull: true
+      }
     },
     {
       timestamps: false
