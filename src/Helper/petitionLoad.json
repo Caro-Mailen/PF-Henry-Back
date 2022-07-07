@@ -3,7 +3,7 @@
         [
         { "userId": 1,
           "name": "coco",
-          "image":"",
+          "image":"x",
           "pet":"dog",
           "size":"medium",
           "weight":"58",
@@ -13,16 +13,13 @@
           "castration":"false",
           "vaccinate":"true",
           "stateBinary":"true" ,
-          "state": "adopt",
-          "foundDate":"",
-          "actualPlace":[],
-          "foundPlace":"",
-          "formDate":"5/07/2022" ,
-          "petId": ""
+          "state": "adopt",          
+          "actualPlace":[],          
+          "formDate":"5/07/2022"           
         },
         { "userId": 1,
           "name": "coca",
-          "image":"",
+          "image":"x",
           "pet":"dog",
           "size":"medium",
           "weight":"48",
@@ -36,8 +33,7 @@
           "foundDate":"4/07/2022",
           "actualPlace":["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
           "foundPlace":"En la terminal",
-          "formDate":"6/07/2022" ,
-          "petId": "probando"
+          "formDate":"6/07/2022"           
         }        
     ]
 }

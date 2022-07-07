@@ -3,7 +3,7 @@
         {
             "petId": 3,
             "userId": 1,
-            "state": "adopt",
+            "state": "adopted",
             "formDate": "22/6/2022",
             "userAge": "19",
             "tel": "3547598556",
