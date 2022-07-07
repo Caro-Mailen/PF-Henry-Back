@@ -1,9 +1,11 @@
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
+const { transporter } = require('./nodemailer')
+const { poster } = require('../Helper/templateAdoption')
 
 const getAll = async (req, res, next) => {
   const allPetitions = await PetitionGet.findAll().catch(() => { return 'no se encontraron peticiones.' })
   const allPetitionsLost = await PetitionGetLost.findAll().catch(() => { return 'no se encontraron peticiones.' })
-  res.send({allPetitions, allPetitionsLost})
+  res.send({ allPetitions, allPetitionsLost })
 }
 
 const getId = async (req, res, next) => {
@@ -18,7 +20,16 @@ const postPetition = async (req, res, next) => {
   try {
     const newPetition = await PetitionGet.create({ ...req.body })
     const user = await User.findByPk(userId)
+    console.log(user)
     await user.addPetitionGets(newPetition)
+    const correo = await transporter.sendMail({
+      from: '"AdoptA 🐶🐱" <patitas.adopt@gmail.com>',
+      to: user.email,
+      subject: `¡Bienvenido ${user.name} !`,
+      html: poster
+    })
+
+    console.log('Message sent: Adoptionn  %s', correo.messageId)
     res.send('Petición realizada.')
   } catch (e) {
     console.log(e)
