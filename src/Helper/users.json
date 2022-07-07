@@ -8,7 +8,8 @@
       "address": "Santa Ana",
       "socialMedia": "AgustinDi",
       "tel": "3547598556",
-      "age": 19
+      "age": 19,
+      "password":"agus123"
     },
     {
       "name": "Lucas",
@@ -18,7 +19,8 @@
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "12321",
-      "age": 27
+      "age": 27,
+      "password":"lucas123"
     },
     {
       "name": "ignacio",
@@ -28,7 +30,8 @@
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "12321",
-      "age": 20
+      "age": 20,
+      "password":"igna123"
     },
     {
       "name": "carolina",
@@ -38,7 +41,8 @@
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "123747321",
-      "age": 21
+      "age": 21,
+      "password":"caro123"
     }
   ]
 }

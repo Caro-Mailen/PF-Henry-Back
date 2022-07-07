@@ -25,6 +25,7 @@ const userRegister = async(req, res)=>{
   if(x){return res.json({message: 'email existente'})}
   const info ={...req.body}
   console.log(info)
+
   const newUser = await User.create(info)
   // const userSave = await newUser.save().catch ((error)=>{
   //     console.log(error)
