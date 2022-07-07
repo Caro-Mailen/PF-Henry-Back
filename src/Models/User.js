@@ -8,27 +8,28 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-    
       email: {
         type: DataTypes.STRING,
         allowNull: false,
-
         validate: {
           isEmail: true
         }
-
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: true
       },
       googleId: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       picture: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: true
       },
+      rol: {
+        type: DataTypes.ENUM(['admin', 'user']),
+        defaultValue: 'user'
+      }
     },
     {
       timestamps: false

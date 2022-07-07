@@ -1,0 +1,25 @@
+{
+    "data":
+        [
+        { "userId": 1,
+          "name": "joaquin",
+          "image":"",
+          "pet":"dog",
+          "size":"medium",
+          "weight":"probando",
+          "fur":"probando",
+          "breed":"probando",
+          "gender":"female",
+          "castration":"false",
+          "vaccinate":"true",
+          "stateBinary":"true" ,
+          "state": "adopt",
+          "foundDate":"probando",
+          "actualPlace":["probando"],
+          "foundPlace":"probando",
+          "formDate":"probando" ,
+          "petId": "probando"
+        }
+        
+    ]
+}
