@@ -24,13 +24,17 @@ db.sync({ force: true }).then(() => {
     await PetitionLoad.bulkCreate(petitionLoad)
     const usuario = await User.findOne({where:{id:1}});
     const peticion = await PetitionGet.findOne({where:{id:1}});
+    const peticion2 = await PetitionGet.findOne({where:{id:2}});
     const peticionLost = await PetitionGetLost.findOne({where:{id:1}});
     const peticionLoad = await PetitionLoad.findOne({where:{id:1}});
+    const peticionLoad2 = await PetitionLoad.findOne({where:{id:2}});
     const pet = await Pet.findAll({where:{id:1}});
     const pet2 = await Pet.findAll({where:{id:2}});
     await usuario.addPetitionGets(peticion)
+    await usuario.addPetitionGets(peticion2)
     await usuario.addPetitionGetLosts(peticionLost)
     await usuario.addPetitionLoads(peticionLoad)
+    await usuario.addPetitionLoads(peticionLoad2)
     const pet3 = pet.concat(pet2)
     await usuario.addPets(pet3)
   })

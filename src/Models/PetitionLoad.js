@@ -71,10 +71,10 @@ module.exports = (sequelize) => {
           formDate: {
             type: DataTypes.TEXT,
             allowNull:false
-          },
-          petId: {
-             type: DataTypes.TEXT,
-             allowNull:false
-          }
+          } ,
+          formState:{
+            type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
+            defaultValue:'pending'
+          }         
     })
 }

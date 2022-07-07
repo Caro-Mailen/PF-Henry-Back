@@ -76,7 +76,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     state: {
-      type: DataTypes.ENUM(['adopt', 'transit']),
+      type: DataTypes.ENUM(['adopted', 'transit']),
       allowNull: false
     },
     transitPetPeriod: {
@@ -91,6 +91,10 @@ module.exports = (sequelize) => {
     petId: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    formState:{
+      type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
+      defaultValue:'pending'
     }
   }, {
     timestamps: false

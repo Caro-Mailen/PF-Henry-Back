@@ -11,7 +11,8 @@
       "gender": "male",
       "castration": "true",
       "vaccinate": "true",
-      "state":"transit"
+      "state":"transit",
+      "actualPlace":"Cachi 119, Los Altos, Capital, Salta, 4400"
     },
     {
       "name": "flor",
@@ -24,7 +25,8 @@
       "gender": "female",
       "castration": "true",
       "vaccinate": "true",
-      "state":"adopted"
+      "state":"adopted",
+      "actualPlace":"Cachi 119, Los Altos, Capital, Salta, 4400"
     },
     {
       "name": "simon",
@@ -36,7 +38,8 @@
       "breed": "crossbreed",
       "gender": "male",
       "castration": "true",
-      "vaccinate": "false"
+      "vaccinate": "false",
+      "state":"adopt"
     },
     {
       "name": "peperina",
