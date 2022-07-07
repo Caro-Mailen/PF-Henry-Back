@@ -75,7 +75,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     adaptationTime: {
-      type: DataTypes.ENUM(['yes', 'no']),
+      type: DataTypes.ENUM(['yes', 'no', 'maybe']),
       allowNull: false
     },
     state: {
