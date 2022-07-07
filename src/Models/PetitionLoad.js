@@ -8,8 +8,8 @@ module.exports = (sequelize) => {
             allowNull: false
           },
           image: {
-            type: DataTypes.TEXT,
-            defaultValue: 'https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg'
+            type: DataTypes.ARRAY(DataTypes.TEXT),
+            defaultValue: ['https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg']
           },
           pet: {
             type: DataTypes.ENUM(['dog', 'cat']),
@@ -63,7 +63,8 @@ module.exports = (sequelize) => {
           },
           actualPlace: {
             type: DataTypes.ARRAY(DataTypes.TEXT),
-            allowNull: false
+            allowNull: true,
+            defaultValue:['Los Alamos 119, La Tablada, Capital, Cordoba, 5000']
           },
           foundPlace: {
             type: DataTypes.TEXT

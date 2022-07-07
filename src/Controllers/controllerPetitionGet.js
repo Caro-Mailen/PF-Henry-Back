@@ -14,23 +14,26 @@ const getId = async (req, res, next) => {
 
 const postPetition = async (req, res, next) => {
   const { userId } = req.body
+  console.log(req.body)
   try {
     const newPetition = await PetitionGet.create({ ...req.body })
     const user = await User.findByPk(userId)
     await user.setPetitionGets(newPetition)
     res.send('Petición realizada.')
   } catch (e) {
+    console.log(e)
     res.status(400).send(e.message)
   }
 }
 
 const postPetitionLost = async (req, res, next) => {
   const { userId } = req.body
+  console.log(req.body)
   try {
     const newPetition = await PetitionGetLost.create({ ...req.body })
-    const user = await User.findByPk(userId)
-    await user.setPetitionGetLosts(newPetition)
-    res.send('Petición realizada.')
+    const usuarioId = await User.findByPk(userId)
+    await usuarioId.setPetitionGetLosts(newPetition)
+    res.status(200).send('Petición realizada.')
   } catch (e) {
     res.status(400).send(e.message)
   }

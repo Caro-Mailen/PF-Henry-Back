@@ -23,13 +23,16 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     otherPetsInfo: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull: true
     },
     otherPetsCastration: {
-      type: DataTypes.ENUM(['true', 'false'])
+      type: DataTypes.ENUM(['true', 'false']),
+      allowNull: true
     },
     otherPetsVacunation: {
-      type: DataTypes.ENUM(['true', 'false'])
+      type: DataTypes.ENUM(['true', 'false']),
+      allowNull: true
     },
     adoptedPetPlace: {
       type: DataTypes.TEXT,
