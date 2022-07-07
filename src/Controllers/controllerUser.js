@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const {
   JWT_SECRET
 } = process.env
+const { decode } = require('../Helper/decode.js')
 
 const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
@@ -14,19 +15,14 @@ const user = (req, res) => {
 
 const userToken = (req, res) => {
   const { token } = req.params
-  let result
   try {
-    jwt.verify(token, JWT_SECRET, function (err, decoded) {
-      if (err) {
-        result = jwtDecode(token)
-      } else {
-        result = decoded
-      }
+    User.findOne({ where: { email: decode(token).email } }).then(user => {
+      delete user.password
+      console.log(user)
+      res.send(user)
     })
-    delete result.password
-    res.send(result)
   } catch (e) {
-    res.status(400).send('token invalido')
+    res.status(400).send({ error: 'token invalido' })
   }
 }
 
@@ -78,13 +74,9 @@ const userLogin = async (req, res) => {
       return res.json({ error: 'Contraseña incorrecta' })
     }
     const jwtoken = jwt.sign(
-      { id: user.id, email: user.email },
+      { id: user.id, email: user.email, rol: user.rol },
       JWT_SECRET
     )
-    jwt.verify(jwtoken, JWT_SECRET, function (err, decoded) {
-      console.log('err:', err)
-      console.log('decoded:', decoded)
-    })
     res.json({ token: jwtoken })
   } catch (e) {
     return res.status(400).json({ error: e.message })
@@ -94,32 +86,24 @@ const userLogin = async (req, res) => {
 const userLoginGoogle = async (req, res) => {
   const { token } = req.body
   try {
-    const { email, password } = jwtDecode(token)
-    const user = await User.findOne({ where: { email } }).catch((error) => {
+    const decoded = jwtDecode(token)
+    const user = await User.findOne({ where: { email: decoded.email } }).catch((error) => {
       console.log(error)
     })
     if (!user) {
-      await User.create(...req.body)
+      const data = {
+        email: decoded.email,
+        name: decoded.given_name,
+        lastname: decoded.family_name
+      }
+      await User.create(data)
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
-    if (user.password === password) {
-      return res.status(400).json({ error: 'Constraseña incorrecta' })
-    }
-    console.log(user.id)
     res.json({ message: 'Sesion Iniciada' })
   } catch (e) {
     return res.status(400).json({ error: e.message })
   }
 }
-
-// jwt usuario normal
-// jwt.verify(jwtoken, JWT_SECRET, function (err, decoded) {
-//   console.log('err:', err)
-//   console.log('decoded:', decoded)
-// })
-
-// jwt usuario google
-// jwtDecode(token)
 
 module.exports = {
   userLogin,
