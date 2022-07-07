@@ -25,6 +25,10 @@ module.exports = (sequelize) => {
       picture: {
         type: DataTypes.STRING,
         allowNull: true
+      },
+      rol: {
+        type: DataTypes.ENUM(['admin', 'user']),
+        defaultValue: 'user'
       }
     },
     {
