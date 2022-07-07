@@ -1,5 +1,5 @@
 // aca tenemos que hacer las funciones controladoras de las rutas User
-const { User } = require('../db.js')
+const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
 const { transporter } = require('./nodemailer')
 const jwtDecode = require('jwt-decode')
 const { emailWelcome } = require('../Helper/templateWelcome')
@@ -11,6 +11,10 @@ const { decode } = require('../Helper/decode.js')
 
 const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
+}
+
+const userAll = (req, res) => {
+  User.findAll({ include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).then((r) => res.send(r))
 }
 
 const userToken = (req, res) => {
@@ -112,5 +116,6 @@ module.exports = {
   userRegister,
   user,
   userLoginGoogle,
-  userToken
+  userToken,
+  userAll
 }
