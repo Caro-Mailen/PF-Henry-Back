@@ -1,5 +1,5 @@
 // aca tenemos que hacer las funciones controladoras de las rutas User
-const { User } = require('../db.js')
+const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
 const { transporter } = require('./nodemailer')
 const jwtDecode = require('jwt-decode')
 const { emailWelcome } = require('../Helper/templateWelcome')
@@ -13,12 +13,14 @@ const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
 }
 
+const userAll = (req, res) => {
+  User.findAll({ include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).then((r) => res.send(r))
+}
+
 const userToken = (req, res) => {
   const { token } = req.params
   try {
     User.findOne({ where: { email: decode(token).email } }).then(user => {
-      delete user.password
-      console.log(user)
       res.send(user)
     })
   } catch (e) {
@@ -85,18 +87,22 @@ const userLogin = async (req, res) => {
 
 const userLoginGoogle = async (req, res) => {
   const { token } = req.body
+
   try {
     const decoded = jwtDecode(token)
+  
     const user = await User.findOne({ where: { email: decoded.email } }).catch((error) => {
       console.log(error)
+     
     })
-    if (!user) {
+  
+    if (user === null) {
       const data = {
         email: decoded.email,
         name: decoded.given_name,
         lastname: decoded.family_name
       }
-      await User.create(data)
+      await User.create(data)  
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
     res.json({ message: 'Sesion Iniciada' })
@@ -110,5 +116,6 @@ module.exports = {
   userRegister,
   user,
   userLoginGoogle,
-  userToken
+  userToken,
+  userAll
 }

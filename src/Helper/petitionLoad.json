@@ -3,7 +3,7 @@
         [
         { "userId": 1,
           "name": "coco",
-          "image":"x",
+          "image":[],
           "pet":"dog",
           "size":"medium",
           "weight":"58",
@@ -19,7 +19,7 @@
         },
         { "userId": 1,
           "name": "coca",
-          "image":"x",
+          "image":[],
           "pet":"dog",
           "size":"medium",
           "weight":"48",
