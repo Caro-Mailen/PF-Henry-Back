@@ -17,8 +17,6 @@ const userToken = (req, res) => {
   const { token } = req.params
   try {
     User.findOne({ where: { email: decode(token).email } }).then(user => {
-      delete user.password
-      console.log(user)
       res.send(user)
     })
   } catch (e) {
@@ -85,18 +83,22 @@ const userLogin = async (req, res) => {
 
 const userLoginGoogle = async (req, res) => {
   const { token } = req.body
+
   try {
     const decoded = jwtDecode(token)
+  
     const user = await User.findOne({ where: { email: decoded.email } }).catch((error) => {
       console.log(error)
+     
     })
-    if (!user) {
+  
+    if (user === null) {
       const data = {
         email: decoded.email,
         name: decoded.given_name,
         lastname: decoded.family_name
       }
-      await User.create(data)
+      await User.create(data)  
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
     res.json({ message: 'Sesion Iniciada' })
