@@ -2,24 +2,38 @@
     "data":
         [
         { "userId": 1,
-          "name": "joaquin",
-          "image":"",
+          "name": "coco",
+          "image":"x",
           "pet":"dog",
           "size":"medium",
-          "weight":"probando",
-          "fur":"probando",
-          "breed":"probando",
-          "gender":"female",
+          "weight":"58",
+          "fur":"long",
+          "breed":"labrador",
+          "gender":"male",
           "castration":"false",
           "vaccinate":"true",
           "stateBinary":"true" ,
-          "state": "adopt",
-          "foundDate":"probando",
-          "actualPlace":["probando"],
-          "foundPlace":"probando",
-          "formDate":"probando" ,
-          "petId": "probando"
-        }
-        
+          "state": "adopt",          
+          "actualPlace":[],          
+          "formDate":"5/07/2022"           
+        },
+        { "userId": 1,
+          "name": "coca",
+          "image":"x",
+          "pet":"dog",
+          "size":"medium",
+          "weight":"48",
+          "fur":"short",
+          "breed":"labrador",
+          "gender":"female",
+          "castration":"true",
+          "vaccinate":"true",
+          "stateBinary":"true" ,
+          "state": "lost",
+          "foundDate":"4/07/2022",
+          "actualPlace":["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
+          "foundPlace":"En la terminal",
+          "formDate":"6/07/2022"           
+        }        
     ]
 }

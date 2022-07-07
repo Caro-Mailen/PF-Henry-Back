@@ -8,7 +8,8 @@
       "address": "Santa Ana",
       "socialMedia": "AgustinDi",
       "tel": "3547598556",
-      "age": 19
+      "age": 19,
+      "password":"123"      
     },
     {
       "name": "Lucas",
