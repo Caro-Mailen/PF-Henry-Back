@@ -33,5 +33,9 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull:false
           },
+          formState:{
+            type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
+            defaultValue:'pending'
+          }
     })
 }
