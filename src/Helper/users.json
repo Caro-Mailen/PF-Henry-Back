@@ -9,18 +9,20 @@
       "socialMedia": "AgustinDi",
       "tel": "3547598556",
       "age": 19,
-      "password":"123"      
+      "password": "123",
+      "rol": "admin"
     },
     {
       "name": "Lucas",
       "lastname": "akdsjflksd",
-      "email": "asg@gkdas.com",
+      "email": "lucas1995giorgi@gmail.com",
       "image": "dajklsfjkd",
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "12321",
+      "password": "123",
       "age": 27,
-      "password":"lucas123"
+      "rol": "admin"
     },
     {
       "name": "ignacio",
@@ -30,19 +32,45 @@
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "12321",
+      "password": "123",
       "age": 20,
-      "password":"igna123"
+      "rol": "admin"
     },
     {
       "name": "carolina",
       "lastname": "guzmn",
-      "email": "carolina.mailen21@gmail.com",
+      "email": "fgimenez029@gmail.com",
       "image": "https://i.postimg.cc/zGgLtXS3/teo.jpg",
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "123747321",
+      "password": "123",
       "age": 21,
-      "password":"caro123"
+      "rol": "admin"
+    },
+    {
+      "name": "Matias",
+      "lastname": "Farina",
+      "email": "carolina.mailen21@gmail.com",
+      "image": "fgimenez029@gmail.com",
+      "address": "jdsafljsd",
+      "socialMedia": "1321adsf",
+      "tel": "123747321",
+      "password": "123",
+      "age": 21,
+      "rol": "admin"
+    },
+    {
+      "name": "franco",
+      "lastname": "guzmn",
+      "email": "matiasfarinasola@gmail.com",
+      "image": "fgimenez029@gmail.com",
+      "address": "jdsafljsd",
+      "socialMedia": "1321adsf",
+      "tel": "123747321",
+      "password": "123",
+      "age": 21,
+      "rol": "admin"
     }
   ]
 }
