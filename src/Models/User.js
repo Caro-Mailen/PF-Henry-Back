@@ -8,6 +8,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      lastname: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -19,12 +23,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true
       },
-      googleId: {
-        type: DataTypes.STRING
-      },
       picture: {
         type: DataTypes.STRING,
-        allowNull: true
+        defaultValue: 'https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg'
       },
       rol: {
         type: DataTypes.ENUM(['admin', 'user']),

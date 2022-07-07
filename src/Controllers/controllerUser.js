@@ -12,6 +12,24 @@ const user = (req, res) => {
   User.findAll().then((r) => res.send(r))
 }
 
+const userToken = (req, res) => {
+  const { token } = req.params
+  let result
+  try {
+    jwt.verify(token, JWT_SECRET, function (err, decoded) {
+      if (err) {
+        result = jwtDecode(token)
+      } else {
+        result = decoded
+      }
+    })
+    delete result.password
+    res.send(result)
+  } catch (e) {
+    res.status(400).send('token invalido')
+  }
+}
+
 const userRegister = async (req, res) => {
   try {
     const { email, name } = req.body
@@ -107,5 +125,6 @@ module.exports = {
   userLogin,
   userRegister,
   user,
-  userLoginGoogle
+  userLoginGoogle,
+  userToken
 }
