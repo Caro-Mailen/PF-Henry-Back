@@ -94,14 +94,17 @@ const userLoginGoogle = async (req, res) => {
     const user = await User.findOne({ where: { email: decoded.email } }).catch((error) => {
       console.log(error)
      
+     
     })
   
     if (user === null) {
       const data = {
         email: decoded.email,
         name: decoded.given_name,
-        lastname: decoded.family_name
+        lastname: decoded.family_name,
+        picture: decoded.picture
       }
+      console.log('esto es decode',decoded)
       await User.create(data)  
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
@@ -111,10 +114,25 @@ const userLoginGoogle = async (req, res) => {
   }
 }
 
+const updatePassword = async (req, res, next) => {
+  try{
+    const {password} = req.body;
+    const {id} = req.params;
+    await User.update({password: password}, {where: {
+      id: id
+    }})
+    res.send('se cambio la contraseña con exito')
+  }
+  catch(error){
+    next(error)
+  }
+}
+
 module.exports = {
   userLogin,
   userRegister,
   user,
+  updatePassword,
   userLoginGoogle,
   userToken,
   userAll
