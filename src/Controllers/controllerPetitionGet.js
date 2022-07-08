@@ -1,6 +1,5 @@
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
 const { transporter } = require('./nodemailer')
-const { poster } = require('../Helper/templateAdoption')
 
 const getAll = async (req, res, next) => {
   const allPetitions = await PetitionGet.findAll().catch(() => { return 'no se encontraron peticiones.' })
@@ -26,7 +25,9 @@ const postPetition = async (req, res, next) => {
       from: '"AdoptA 🐶🐱" <patitas.adopt@gmail.com>',
       to: user.email,
       subject: `¡ ${user.name} te postulaste para una adopcion !`,
-      html: poster
+      html: `
+      <img src="https://i.postimg.cc/KYG4jpgQ/poster-mascota-saludable-celeste.png" alt="AQUI VA UNA IMAGEN">
+      `
     })
 
     console.log('Message sent: Adoptionn  %s', correo.messageId)
