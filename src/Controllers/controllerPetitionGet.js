@@ -18,7 +18,7 @@ const postPetition = async (req, res, next) => {
   try {
     const newPetition = await PetitionGet.create({ ...req.body })
     const user = await User.findByPk(userId)
-    await user.setPetitionGets(newPetition)
+    await user.addPetitionGets(newPetition)
     res.send('Petición realizada.')
   } catch (e) {
     console.log(e)
@@ -32,10 +32,40 @@ const postPetitionLost = async (req, res, next) => {
   try {
     const newPetition = await PetitionGetLost.create({ ...req.body })
     const usuarioId = await User.findByPk(userId)
-    await usuarioId.setPetitionGetLosts(newPetition)
+    await usuarioId.addPetitionGetLosts(newPetition)
     res.status(200).send('Petición realizada.')
   } catch (e) {
     res.status(400).send(e.message)
+  }
+}
+
+const deletePetition = async (req, res, next) => {
+  try{
+    const {id} = req.params;
+    await PetitionGet.destroy({
+      where:{
+        id: id
+      }
+    })
+    res.status(200).send('se elimino su petición')
+  }
+  catch(error){
+    next(error);
+  }
+}
+
+const deletePetitionLost = async (req, res, next) => {
+  try{
+    const {id} = req.params;
+    await PetitionGetLost.destroy({
+      where:{
+        id: id
+      }
+    })
+    res.status(200).send('se elimino su petición')
+  }
+  catch(error){
+    next(error);
   }
 }
 
@@ -43,5 +73,7 @@ module.exports = {
   getAll,
   getId,
   postPetition,
-  postPetitionLost
+  postPetitionLost,
+  deletePetition,
+  deletePetitionLost
 }
