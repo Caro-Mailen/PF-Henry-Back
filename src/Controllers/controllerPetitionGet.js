@@ -20,12 +20,12 @@ const postPetition = async (req, res, next) => {
   try {
     const newPetition = await PetitionGet.create({ ...req.body })
     const user = await User.findByPk(userId)
-    console.log(user)
+    // console.log(user)
     await user.addPetitionGets(newPetition)
     const correo = await transporter.sendMail({
       from: '"AdoptA 🐶🐱" <patitas.adopt@gmail.com>',
       to: user.email,
-      subject: `¡Bienvenido ${user.name} !`,
+      subject: `¡ ${user.name} te postulaste para una adopcion !`,
       html: poster
     })
 
