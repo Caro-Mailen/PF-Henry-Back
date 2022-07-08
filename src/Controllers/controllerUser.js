@@ -111,10 +111,25 @@ const userLoginGoogle = async (req, res) => {
   }
 }
 
+const updatePassword = async (req, res, next) => {
+  try{
+    const {password} = req.body;
+    const {id} = req.params;
+    await User.update({password: password}, {where: {
+      id: id
+    }})
+    res.send('se cambio la contraseña con exito')
+  }
+  catch(error){
+    next(error)
+  }
+}
+
 module.exports = {
   userLogin,
   userRegister,
   user,
+  updatePassword,
   userLoginGoogle,
   userToken,
   userAll

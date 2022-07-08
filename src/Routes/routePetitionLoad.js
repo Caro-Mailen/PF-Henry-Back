@@ -1,8 +1,10 @@
 const { Router } = require('express')
-const {postPetition} = require('../Controllers/controllerPetitionLoad.js')
+const {postPetition, deletePetitionLoad, getAll} = require('../Controllers/controllerPetitionLoad.js')
 
 const router = Router()
 
+router.get('/',getAll)
 router.post('/', postPetition)
+router.delete('/:id',deletePetitionLoad)
 
 module.exports = router
