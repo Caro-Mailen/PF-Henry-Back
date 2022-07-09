@@ -1,4 +1,4 @@
-const { User, PetitionGet } = require('../db.js')
+const { User, PetitionGet, Pet } = require('../db.js')
 const { decode } = require('../Helper/decode.js')
 
 const getToken = async (req, res) => {
@@ -9,9 +9,7 @@ const getToken = async (req, res) => {
     if (!token) return res.status(400).send({ error: 'Token invalido' })
     const user = await User.findOne({ where: { email } })
     if (user === null) return res.status(400).send({ error: 'Usuario no encontrado' })
-    user.rol !== 'admin'
-      ? res.status(400).send({ result: 'false' })
-      : res.send({ result: 'true' })
+    res.send({ result: user.rol })
   } catch (e) {
     console.log(e.message)
     res.status(400).send({ error: e.message })
@@ -20,11 +18,22 @@ const getToken = async (req, res) => {
 
 const getPet = async (req, res) => {
   const { petitionId } = req.body
-  if (!petitionId) return res.status(400).send('No se envió el Id de la petición')
+  const { action } = req.params
+  if (!petitionId) return res.status(400).send({ error: 'No se envió el Id de la petición' })
   try {
     const petition = await PetitionGet.findByPk(petitionId, { include: User })
-    console.log(petition)
-    res.send('getted')
+    if (action === 'acepted') {
+      const owner = petition.User
+      if (owner == null) return res.status(400).send({ error: 'La petición no pertenece a ningun usuario' })
+      const pet = await Pet.findByPk(petition.petId)
+      await owner.addPets(pet)
+      petition.update({ formState: action })
+      await PetitionGet.update({ formState: 'rejected' }, { where: { petId: petition.petId } })
+      res.send({ message: 'La petición fue aceptada' })
+    } else if (action === 'rejected') {
+      petition.update({ formState: action })
+      res.send({ message: 'La petición fue rechazada' })
+    } else res.status(400).send('action no aceptada')
   } catch (e) {
     console.log(e.message)
     res.status(400).send({ error: e.message })
