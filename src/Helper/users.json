@@ -71,6 +71,18 @@
       "password": "123",
       "age": 21,
       "rol": "admin"
+    },
+    {
+      "name": "usuarionormall",
+      "lastname": "guusuarionormallzmn",
+      "email": "user@gmail.com",
+      "image": "usuarionormall",
+      "address": "usuarionormall",
+      "socialMedia": "13usuarionormall21adsf",
+      "tel": "123124321",
+      "password": "123",
+      "age": 21,
+      "rol": "user"
     }
   ]
 }
