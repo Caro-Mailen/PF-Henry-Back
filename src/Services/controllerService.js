@@ -1,3 +1,6 @@
+const { decode } = require('jsonwebtoken')
+const { Donation } = require('../db.js')
+
 class PaymentController {
   constructor (subscriptionService) {
     this.subscriptionService = subscriptionService
@@ -6,6 +9,11 @@ class PaymentController {
   async getPaymentLink (req, res) {
     try {
       const payment = await this.subscriptionService.createPayment(req)
+
+      const user = decode(req.body.token)
+      // console.log(user)
+      await Donation.create({ email: user.email, amount: req.body.unit_price })
+      // console.log(donationData)
 
       return res.json({ url: payment.init_point })
     } catch (error) {

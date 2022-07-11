@@ -20,8 +20,8 @@ module.exports = (sequelize) => {
         }
       },
       password: {
-        type: DataTypes.STRING,
-        
+        type: DataTypes.STRING
+
       },
       picture: {
         type: DataTypes.STRING,
