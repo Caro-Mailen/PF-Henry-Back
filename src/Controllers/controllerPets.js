@@ -69,19 +69,23 @@ const petState = async (req, res, next) => {
   }
 }
 
+// const counter = (state) => {
+//   Pet.count({where: {state}})
+// }
+
 const countPets = async (req, res) => {
-  const pets = await Pet.findAndCountAll()
-  const lost = await Pet.findAndCountAll({
+  const pets = await Pet.count()
+  const lost = await Pet.count({
     where: {
       state: 'lost'
     }
   })
-  const adopted = await Pet.findAndCountAll({
+  const adopted = await Pet.count({
     where: {
       state: 'adopted'
     }
   })
-  const transit = await Pet.findAndCountAll({
+  const transit = await Pet.count({
     where: {
       state: 'transit'
     }

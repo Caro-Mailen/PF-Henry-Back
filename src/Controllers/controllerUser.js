@@ -10,8 +10,12 @@ const {
 const { decode } = require('../Helper/decode.js')
 
 const user = (req, res) => {
-  User.findAll().then((r) => res.send(r))
+  User.findAndCountAll().then((r) => res.send(r))
 }
+
+// const countUsers = (req, res) => {
+//   User.count().then((r) => res.send(r))
+// }
 
 const userAll = (req, res) => {
   User.findAll({ include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).then((r) => res.send(r))
@@ -130,6 +134,7 @@ module.exports = {
   userLogin,
   userRegister,
   user,
+  // countUsers,
   updatePassword,
   userLoginGoogle,
   userToken,
