@@ -2,10 +2,6 @@ const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
   sequelize.define('PetitionGet', {
-    type: {
-      type: DataTypes.ENUM(['adopt', 'transit']),
-      allowNull: false
-    },
     formDate: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -26,14 +22,17 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM(['true', 'false']),
       allowNull: false
     },
+    otherPetsInfo: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
     otherPetsCastration: {
-      type: DataTypes.ENUM(['true', 'false'])
+      type: DataTypes.ENUM(['true', 'false']),
+      allowNull: true
     },
     otherPetsVacunation: {
-      type: DataTypes.ENUM(['true', 'false'])
-    },
-    otherPetsInfo: {
-      type: DataTypes.TEXT
+      type: DataTypes.ENUM(['true', 'false']),
+      allowNull: true
     },
     adoptedPetPlace: {
       type: DataTypes.TEXT,
@@ -55,12 +54,6 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    transitPetPeriod: {
-      type: DataTypes.TEXT
-    },
-    userAgreement: {
-      type: DataTypes.ENUM(['true', 'false'])
-    },
     userMovility: {
       type: DataTypes.ENUM(['yes', 'no']),
       allowNull: false
@@ -69,7 +62,7 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    FamilyRelation: {
+    familyRelation: {
       type: DataTypes.TEXT,
       allowNull: false
     },
@@ -82,11 +75,29 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     adaptationTime: {
-      type: DataTypes.ENUM(['yes', 'no']),
+      type: DataTypes.ENUM(['yes', 'no', 'maybe']),
       allowNull: false
+    },
+    state: {
+      type: DataTypes.ENUM(['adopted', 'transit']),
+      allowNull: false
+    },
+    transitPetPeriod: {
+      type: DataTypes.TEXT
+    },
+    userAgreement: {
+      type: DataTypes.ENUM(['true', 'false'])
     },
     userMovingIdea: {
       type: DataTypes.TEXT
+    },
+    petId: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    formState: {
+      type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
+      defaultValue: 'pending'
     }
   }, {
     timestamps: false

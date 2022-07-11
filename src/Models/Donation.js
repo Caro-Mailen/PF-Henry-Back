@@ -5,6 +5,10 @@ module.exports = (sequelize) => {
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     timestamps: false

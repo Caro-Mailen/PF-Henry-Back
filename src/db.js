@@ -4,6 +4,9 @@ const pet = require('./Models/Pet.js')
 const user = require('./Models/User.js')
 const donation = require('./Models/Donation.js')
 const petitionGet = require('./Models/PetitionGet.js')
+const petitionGetLost = require('./Models/PetitionGetLost.js')
+const petitionLoad = require('./Models/PetitionLoad.js')
+const seguimiento = require('./Models/seguimiento.js')
 
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
@@ -41,13 +44,19 @@ try {
   user(sequelize)
   donation(sequelize)
   petitionGet(sequelize)
+  petitionGetLost(sequelize)
+  petitionLoad(sequelize)
+  seguimiento(sequelize)
 } catch (e) {
   console.log(e.message)
 }
 
-const { Pet, User, Donation, PetitionGet } = sequelize.models
+const { Pet, User, Donation, PetitionGet, PetitionLoad, PetitionGetLost, Seguimiento } = sequelize.models
 
 // relaciones.
+Seguimiento.hasOne(Pet)
+Pet.belongsTo(Seguimiento)
+
 User.hasMany(Pet)
 Pet.belongsTo(User)
 
@@ -56,6 +65,12 @@ Donation.belongsTo(User)
 
 User.hasMany(PetitionGet)
 PetitionGet.belongsTo(User)
+
+User.hasMany(PetitionLoad)
+PetitionLoad.belongsTo(User)
+
+User.hasMany(PetitionGetLost)
+PetitionGetLost.belongsTo(User)
 
 module.exports = {
   ...sequelize.models,
