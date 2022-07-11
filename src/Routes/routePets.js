@@ -24,7 +24,7 @@ router.get('/count', countPets)
 router.get('/:id', petId)
 router.post('/', petPost)
 router.put('/update/:id', petUpdate)
-router.put('/:id', petState)
+router.put('/:id/:state', petState)
 router.put('/:id', petDelete)
 
 module.exports = router
