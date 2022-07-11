@@ -3,7 +3,7 @@
     {
       "name": "tristan",
       "pet": "dog",
-      "image": "https://i.postimg.cc/1tKP9NkV/tristan.jpg",
+      "image": ["https://i.postimg.cc/1tKP9NkV/tristan.jpg"],
       "size": "big",
       "weight": "",
       "fur": "short",
@@ -12,12 +12,12 @@
       "castration": "true",
       "vaccinate": "true",
       "state":"transit",
-      "actualPlace":"Cachi 119, Los Altos, Capital, Salta, 4400"
+      "actualPlace":["Cachi 119","Los Altos", "Capital", "Salta", "4400"]
     },
     {
       "name": "flor",
       "pet": "dog",
-      "image": "https://i.postimg.cc/xTNzPCXW/Mesa-de-trabajo-13-6.png",
+      "image":[ "https://i.postimg.cc/xTNzPCXW/Mesa-de-trabajo-13-6.png"],
       "size": "big",
       "weight": "",
       "fur": "long",
@@ -26,12 +26,12 @@
       "castration": "true",
       "vaccinate": "true",
       "state":"adopted",
-      "actualPlace":"Cachi 119, Los Altos, Capital, Salta, 4400"
+      "actualPlace":["Cachi 119","Los Altos", "Capital", "Salta", "4400"]
     },
     {
       "name": "simon",
       "pet": "dog",
-      "image": "https://i.postimg.cc/ry0Cwc1F/Mesa-de-trabajo-13-3.png",
+      "image": ["https://i.postimg.cc/ry0Cwc1F/Mesa-de-trabajo-13-3.png"],
       "size": "big",
       "weight": "",
       "fur": "short",
@@ -44,7 +44,7 @@
     {
       "name": "peperina",
       "pet": "dog",
-      "image": "https://i.postimg.cc/PxLZJz8F/Mesa-de-trabajo-13.png",
+      "image": ["https://i.postimg.cc/PxLZJz8F/Mesa-de-trabajo-13.png"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -56,7 +56,7 @@
     {
       "name": "braulio",
       "pet": "dog",
-      "image": "https://i.postimg.cc/zBRb8z9s/claudio.png",
+      "image": ["https://i.postimg.cc/zBRb8z9s/claudio.png"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -68,7 +68,7 @@
     {
       "name": "bolivar",
       "pet": "dog",
-      "image": "https://i.postimg.cc/MKYcWrFp/Mesa-de-trabajo-1-2.png",
+      "image": ["https://i.postimg.cc/MKYcWrFp/Mesa-de-trabajo-1-2.png"],
       "size": "big",
       "weight": "",
       "fur": "short",
@@ -81,7 +81,7 @@
     {
       "name": "lucho",
       "pet": "dog",
-      "image": "https://i.postimg.cc/7hwxdqDM/Mesa-de-trabajo-13-11.png",
+      "image": ["https://i.postimg.cc/7hwxdqDM/Mesa-de-trabajo-13-11.png"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -93,7 +93,7 @@
     {
       "name": "selva",
       "pet": "dog",
-      "image": "https://i.postimg.cc/JzvRmNMh/Mesa-de-trabajo-13-10.png",
+      "image": ["https://i.postimg.cc/JzvRmNMh/Mesa-de-trabajo-13-10.png"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -106,7 +106,7 @@
     {
       "name": "lucy",
       "pet": "dog",
-      "image": "https://i.postimg.cc/PJx7P7Mn/Mesa-de-trabajo-13-7.png",
+      "image": ["https://i.postimg.cc/PJx7P7Mn/Mesa-de-trabajo-13-7.png"],
       "size": "big",
       "weight": "",
       "fur": "short",
@@ -118,7 +118,7 @@
     {
       "name": "duquesa",
       "pet": "dog",
-      "image": "https://i.postimg.cc/kMR8JQwt/nn.jpg",
+      "image": ["https://i.postimg.cc/kMR8JQwt/nn.jpg"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -130,7 +130,7 @@
     {
       "name": "harry",
       "pet": "dog",
-      "image": "https://i.postimg.cc/MHmyJZBW/Mesa-de-trabajo-13-8.png",
+      "image": ["https://i.postimg.cc/MHmyJZBW/Mesa-de-trabajo-13-8.png"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -142,7 +142,7 @@
     {
       "name": "jorgito",
       "pet": "dog",
-      "image": "https://i.postimg.cc/BQNxh6sp/Mesa-de-trabajo-1-1.png",
+      "image": ["https://i.postimg.cc/BQNxh6sp/Mesa-de-trabajo-1-1.png"],
       "size": "medium",
       "weight": "",
       "fur": "",
@@ -154,7 +154,7 @@
     {
       "name": "carmelo",
       "pet": "dog",
-      "image": "https://i.postimg.cc/05XkcRFm/carmelo.png",
+      "image": ["https://i.postimg.cc/05XkcRFm/carmelo.png"],
       "size": "medium",
       "weight": "",
       "fur": "long",
@@ -167,7 +167,7 @@
     {
       "name": "drako",
       "pet": "dog",
-      "image": "https://i.postimg.cc/L5GMRRFb/drako.png",
+      "image": ["https://i.postimg.cc/L5GMRRFb/drako.png"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -179,7 +179,7 @@
     {
       "name": "droopy",
       "pet": "dog",
-      "image": "https://i.postimg.cc/3NszVBgM/droopy.png",
+      "image": ["https://i.postimg.cc/3NszVBgM/droopy.png"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -191,7 +191,7 @@
     {
       "name": "nieve",
       "pet": "dog",
-      "image": "https://i.postimg.cc/br1jzWYY/nieve.png",
+      "image": ["https://i.postimg.cc/br1jzWYY/nieve.png"],
       "size": "big",
       "weight": "",
       "fur": "short",
@@ -203,7 +203,7 @@
     {
       "name": "coral",
       "pet": "dog",
-      "image": "https://i.postimg.cc/R08rw4NV/Mesa-de-trabajo-13-5.png",
+      "image": ["https://i.postimg.cc/R08rw4NV/Mesa-de-trabajo-13-5.png"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -215,7 +215,7 @@
     {
       "name": "pirata",
       "pet": "dog",
-      "image": "https://i.postimg.cc/pT8S8jwq/pirata.png",
+      "image": ["https://i.postimg.cc/pT8S8jwq/pirata.png"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -227,7 +227,7 @@
     {
       "name": "aleli",
       "pet": "dog",
-      "image": "https://i.postimg.cc/yNBb7rsn/aleli.jpg",
+      "image": ["https://i.postimg.cc/yNBb7rsn/aleli.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -239,7 +239,7 @@
     {
       "name": "marco",
       "pet": "dog",
-      "image": "https://i.postimg.cc/nhPSPTZ3/Mesa-de-trabajo-1-3.png",
+      "image": ["https://i.postimg.cc/nhPSPTZ3/Mesa-de-trabajo-1-3.png"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -251,7 +251,7 @@
     {
       "name": "vizcacha",
       "pet": "dog",
-      "image": "https://i.postimg.cc/nzfcVxMg/vizcacha.jpg",
+      "image": ["https://i.postimg.cc/nzfcVxMg/vizcacha.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "long",
@@ -263,7 +263,7 @@
     {
       "name": "cony",
       "pet": "dog",
-      "image": "https://i.postimg.cc/CM7N2Jsb/cony.png",
+      "image": ["https://i.postimg.cc/CM7N2Jsb/cony.png"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -275,7 +275,7 @@
     {
       "name": "jano",
       "pet": "dog",
-      "image": "https://i.postimg.cc/02JdLgBL/IMG-20220129-WA0002.jpg",
+      "image": ["https://i.postimg.cc/02JdLgBL/IMG-20220129-WA0002.jpg"],
       "size": "big",
       "weight": "42",
       "fur": "short",
@@ -287,7 +287,7 @@
     {
       "name": "clemente",
       "pet": "cat",
-      "image": "https://i.postimg.cc/CLP5Hd70/20220429-144340.jpg",
+      "image":[ "https://i.postimg.cc/CLP5Hd70/20220429-144340.jpg"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -299,7 +299,7 @@
     {
       "name": "nena",
       "pet": "cat",
-      "image": "https://i.postimg.cc/tC5SrGnp/nena.jpg",
+      "image": ["https://i.postimg.cc/tC5SrGnp/nena.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "long",
@@ -311,7 +311,7 @@
     {
       "name": "cartucho",
       "pet": "dog",
-      "image": "https://i.postimg.cc/6QyBW0x4/cartucho.jpg",
+      "image": ["https://i.postimg.cc/6QyBW0x4/cartucho.jpg"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -323,7 +323,7 @@
     {
       "name": "nala",
       "pet": "cat",
-      "image": "https://i.postimg.cc/dVBSHk3W/IMG-20220317-WA0039.jpg",
+      "image": ["https://i.postimg.cc/dVBSHk3W/IMG-20220317-WA0039.jpg"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -335,7 +335,7 @@
     {
       "name": "capitan",
       "pet": "dog",
-      "image": "https://i.postimg.cc/htj9nfMZ/capitan.jpg",
+      "image":[ "https://i.postimg.cc/htj9nfMZ/capitan.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -347,7 +347,7 @@
     {
       "name": "pupula",
       "pet": "cat",
-      "image": "https://i.postimg.cc/1tHt4K3G/20211101-213457.jpg",
+      "image": ["https://i.postimg.cc/1tHt4K3G/20211101-213457.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "long",
@@ -359,7 +359,7 @@
     {
       "name": "neron",
       "pet": "dog",
-      "image": "https://i.postimg.cc/L6q9MSLB/neron.jpg",
+      "image": ["https://i.postimg.cc/L6q9MSLB/neron.jpg"],
       "size": "big",
       "weight": "45",
       "fur": "short",
@@ -371,7 +371,7 @@
     {
       "name": "teo",
       "pet": "cat",
-      "image": "https://i.postimg.cc/j5dXDZhK/teo.jpg",
+      "image": ["https://i.postimg.cc/j5dXDZhK/teo.jpg"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -383,7 +383,7 @@
     {
       "name": "sophi",
       "pet": "cat",
-      "image": "https://i.postimg.cc/XYjcHsT5/sophi.jpg",
+      "image": ["https://i.postimg.cc/XYjcHsT5/sophi.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "long",
@@ -395,7 +395,7 @@
     {
       "name": "diño",
       "pet": "dog",
-      "image": "https://i.postimg.cc/hjLXqBmt/di-o.jpg",
+      "image": ["https://i.postimg.cc/hjLXqBmt/di-o.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "long",
@@ -407,7 +407,7 @@
     {
       "name": "pascal",
       "pet": "cat",
-      "image": "https://i.postimg.cc/zB8JKRLq/pascal.jpg",
+      "image": ["https://i.postimg.cc/zB8JKRLq/pascal.jpg"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -419,7 +419,7 @@
     {
       "name": "atena",
       "pet": "dog",
-      "image": "https://i.postimg.cc/4dLryKVL/atena.jpg",
+      "image": ["https://i.postimg.cc/4dLryKVL/atena.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -431,7 +431,7 @@
     {
       "name": "miguel",
       "pet": "cat",
-      "image": "https://i.postimg.cc/Y9GJ4rRt/miguel.jpg",
+      "image": ["https://i.postimg.cc/Y9GJ4rRt/miguel.jpg"],
       "size": "medium",
       "weight": "3",
       "fur": "short",
@@ -443,7 +443,7 @@
     {
       "name": "gorda",
       "pet": "dog",
-      "image": "https://i.postimg.cc/t4stGs4R/20220128-184236.jpg",
+      "image": ["https://i.postimg.cc/t4stGs4R/20220128-184236.jpg"],
       "size": "big",
       "weight": "",
       "fur": "short",
@@ -455,7 +455,7 @@
     {
       "name": "malta",
       "pet": "dog",
-      "image": "https://i.postimg.cc/htM97CV2/malta.jpg",
+      "image": ["https://i.postimg.cc/htM97CV2/malta.jpg"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -467,7 +467,7 @@
     {
       "name": "luna",
       "pet": "dog",
-      "image": "https://i.postimg.cc/7ZPzDgj0/luna.jpg",
+      "image": ["https://i.postimg.cc/7ZPzDgj0/luna.jpg"],
       "size": "small",
       "weight": "",
       "fur": "long",
@@ -479,7 +479,7 @@
     {
       "name": "marito",
       "pet": "dog",
-      "image": "https://i.postimg.cc/dQBdfHxw/marito.jpg",
+      "image": ["https://i.postimg.cc/dQBdfHxw/marito.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -491,7 +491,7 @@
     {
       "name": "flak",
       "pet": "dog",
-      "image": "https://i.postimg.cc/4dtCdHjQ/flak.jpg",
+      "image": ["https://i.postimg.cc/4dtCdHjQ/flak.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -503,7 +503,7 @@
     {
       "name": "morita",
       "pet": "dog",
-      "image": "https://i.postimg.cc/3rVyVsZM/morita.jpg",
+      "image": ["https://i.postimg.cc/3rVyVsZM/morita.jpg"],
       "size": "small",
       "weight": "",
       "fur": "short",
@@ -516,7 +516,7 @@
     {
       "name": "tornado",
       "pet": "dog",
-      "image": "https://i.postimg.cc/fRgsH9XM/tornado.jpg",
+      "image":[ "https://i.postimg.cc/fRgsH9XM/tornado.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -528,7 +528,7 @@
     {
       "name": "matilde",
       "pet": "dog",
-      "image": "https://i.postimg.cc/7Lm2tX9f/matilde.jpg",
+      "image": ["https://i.postimg.cc/7Lm2tX9f/matilde.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -540,7 +540,7 @@
     {
       "name": "pit",
       "pet": "dog",
-      "image": "https://i.postimg.cc/nrYj7kXF/pit.jpg",
+      "image": ["https://i.postimg.cc/nrYj7kXF/pit.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -553,7 +553,7 @@
     {
       "name": "chelo",
       "pet": "dog",
-      "image": "https://i.postimg.cc/25fs97yR/chelo.jpg",
+      "image": ["https://i.postimg.cc/25fs97yR/chelo.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
@@ -565,7 +565,7 @@
     {
       "name": "pedro",
       "pet": "dog",
-      "image": "https://i.postimg.cc/c48TkDHD/pedro.jpg",
+      "image": ["https://i.postimg.cc/c48TkDHD/pedro.jpg"],
       "size": "medium",
       "weight": "",
       "fur": "short",
