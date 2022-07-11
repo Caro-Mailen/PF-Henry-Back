@@ -53,10 +53,10 @@ const petPost = async (req, res) => {
 
 const petState = async (req, res, next) => {
   try {
-    const { id } = req.params
+    const { id, state } = req.params
 
     await Pet.update(
-      { state: 'adopted' },
+      { state },
       {
         where: {
           id
@@ -66,6 +66,34 @@ const petState = async (req, res, next) => {
     res.status(200).send('status updated successfully')
   } catch (e) {
     next(e)
+  }
+}
+
+const petUpdate = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { image, name, fur, size, weight, castration, vaccinate, state } = req.body
+
+    const update = await Pet.update(
+      {
+        name,
+        image,
+        size,
+        weight,
+        fur,
+        castration,
+        vaccinate,
+        state
+      },
+      {
+        where: { id }
+      },
+      { returning: true }
+    )
+    console.log(update)
+    res.status(200).send('pet updated successfully')
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -116,6 +144,7 @@ module.exports = {
   petName,
   petPost,
   petState,
+  petUpdate,
   countPets,
   petDelete
 }
