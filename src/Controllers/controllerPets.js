@@ -69,6 +69,26 @@ const petState = async (req, res, next) => {
   }
 }
 
+const countPets = async (req, res) => {
+  const pets = await Pet.findAndCountAll()
+  const lost = await Pet.findAndCountAll({
+    where: {
+      state: 'lost'
+    }
+  })
+  const adopted = await Pet.findAndCountAll({
+    where: {
+      state: 'adopted'
+    }
+  })
+  const transit = await Pet.findAndCountAll({
+    where: {
+      state: 'transit'
+    }
+  })
+  res.json({ pets, lost, adopted, transit })
+}
+
 const petDelete = async (req, res, next) => {
   try {
     const { id } = req.params
@@ -92,5 +112,6 @@ module.exports = {
   petName,
   petPost,
   petState,
+  countPets,
   petDelete
 }

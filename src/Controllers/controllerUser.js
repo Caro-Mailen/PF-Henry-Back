@@ -102,7 +102,7 @@ const userLoginGoogle = async (req, res) => {
         lastname: decoded.family_name,
         picture: decoded.picture
       }
-      await User.create(data)  
+      await User.create(data)
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
     res.json({ message: 'Sesion Iniciada' })
@@ -112,15 +112,16 @@ const userLoginGoogle = async (req, res) => {
 }
 
 const updatePassword = async (req, res, next) => {
-  try{
-    const {password} = req.body;
-    const {id} = req.params;
-    await User.update({password: password}, {where: {
-      id: id
-    }})
+  try {
+    const { password } = req.body
+    const { id } = req.params
+    await User.update({ password }, {
+      where: {
+        id
+      }
+    })
     res.send('se cambio la contraseña con exito')
-  }
-  catch(error){
+  } catch (error) {
     next(error)
   }
 }
