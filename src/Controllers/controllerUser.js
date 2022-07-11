@@ -90,17 +90,17 @@ const userLoginGoogle = async (req, res) => {
 
   try {
     const decoded = jwtDecode(token)
-  
+
     const user = await User.findOne({ where: { email: decoded.email } }).catch((error) => {
       console.log(error)
-     
     })
-  
+
     if (user === null) {
       const data = {
         email: decoded.email,
         name: decoded.given_name,
-        lastname: decoded.family_name
+        lastname: decoded.family_name,
+        picture: decoded.picture
       }
       await User.create(data)  
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })

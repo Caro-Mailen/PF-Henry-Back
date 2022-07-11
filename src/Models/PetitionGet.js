@@ -95,9 +95,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    formState:{
+    formState: {
       type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
-      defaultValue:'pending'
+      defaultValue: 'pending'
     }
   }, {
     timestamps: false

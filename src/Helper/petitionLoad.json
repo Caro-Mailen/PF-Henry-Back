@@ -1,9 +1,9 @@
 {
     "data":
         [
-        { "userId": 1,
+        { "userId": 7,
           "name": "coco",
-          "image":[],
+          "image":["https://as01.epimg.net/diarioas/imagenes/2022/05/29/actualidad/1653826510_995351_1653826595_noticia_normal_recorte1.jpg"],
           "pet":"dog",
           "size":"medium",
           "weight":"58",
@@ -17,9 +17,9 @@
           "actualPlace":[],          
           "formDate":"5/07/2022"           
         },
-        { "userId": 1,
+        { "userId": 7,
           "name": "coca",
-          "image":[],
+          "image":["https://s1.eestatic.com/2022/04/05/actualidad/662693884_223269248_1024x576.jpg"],
           "pet":"dog",
           "size":"medium",
           "weight":"48",
