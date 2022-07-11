@@ -1,4 +1,9 @@
-const { PetitionLoad, User } = require('../db.js')
+const { PetitionLoad, User } = require('../db.js');
+
+const getAll = async (req, res, next) => {
+  const allPetitions = await PetitionLoad.findAll().catch(() => { return 'no se encontraron peticiones.' })
+  res.send(allPetitions)
+}
 
 const postPetition = async (req, res, next) => {
   const { userId } = req.body
@@ -13,6 +18,23 @@ const postPetition = async (req, res, next) => {
   }
 }
 
+const deletePetitionLoad = async (req, res, next) => {
+    try{
+      const {id} = req.params;
+      await PetitionLoad.destroy({
+        where:{
+          id: id
+        }
+      })
+      res.status(200).send('se elimino su petición')
+    }
+    catch(error){
+      next(error);
+    }
+  }
+
 module.exports = {
-  postPetition
+    getAll,
+    postPetition,
+    deletePetitionLoad
 }

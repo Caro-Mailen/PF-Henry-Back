@@ -51,9 +51,41 @@ const postPetitionLost = async (req, res, next) => {
   }
 }
 
+const deletePetition = async (req, res, next) => {
+  try{
+    const {id} = req.params;
+    await PetitionGet.destroy({
+      where:{
+        id: id
+      }
+    })
+    res.status(200).send('se elimino su petición')
+  }
+  catch(error){
+    next(error);
+  }
+}
+
+const deletePetitionLost = async (req, res, next) => {
+  try{
+    const {id} = req.params;
+    await PetitionGetLost.destroy({
+      where:{
+        id: id
+      }
+    })
+    res.status(200).send('se elimino su petición')
+  }
+  catch(error){
+    next(error);
+  }
+}
+
 module.exports = {
   getAll,
   getId,
   postPetition,
-  postPetitionLost
+  postPetitionLost,
+  deletePetition,
+  deletePetitionLost
 }
