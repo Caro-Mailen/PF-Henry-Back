@@ -1,6 +1,7 @@
 // aca van las funciones controladoras de las rutas pets
-const { Pet } = require('../db.js')
+const { Pet, User } = require('../db.js')
 const { sortAsc, sortDes } = require('../Helper/index.js')
+const { decode } = require('../Helper/decode.js')
 
 const petName = async (req, res, next) => {
   const { name } = req.query
@@ -48,6 +49,26 @@ const petPost = async (req, res) => {
     res.status(200).send(newPet)
   } catch (error) {
     res.status(400).send('error, possibly the name of the properties are mistyped')
+  }
+}
+
+const petReturn = async (req, res, next) => {
+  const { token, petId } = req.body
+  if (!token || !petId) throw new Error('El token es invalido')
+  try {
+    console.log('aca toy')
+    const { email } = decode(token)
+    if (!email) throw new Error('El token es invalido')
+    const pet = await Pet.findByPk(petId, { include: User })
+    if (!pet) throw new Error(`La mascota con el id ${petId}, no existe`)
+    console.log(pet.User)
+    if (!pet.User) throw new Error('La mascota no tiene dueño')
+    if (pet.User.dataValues.email !== email) throw new Error('El usuario actual no es dueño de esta mascota')
+    await pet.update({ state: 'adopt', UserId: null, actualPlace: ['Cachi 119', 'Los Altos', 'Capital', 'Salta', '4400'], User: null })
+    res.send({ message: 'Mascota se desvinculo' })
+  } catch (e) {
+    console.log(e)
+    res.status(400).send({ error: e.message })
   }
 }
 
@@ -144,7 +165,8 @@ module.exports = {
   petName,
   petPost,
   petState,
+  petDelete,
+  petReturn,
   petUpdate,
-  countPets,
-  petDelete
+  countPets
 }
