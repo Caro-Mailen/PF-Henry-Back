@@ -10,10 +10,10 @@ class PaymentController {
     try {
       const payment = await this.subscriptionService.createPayment(req)
 
-      const user = decode(req.body.token)
-      // console.log(user)
-      await Donation.create({ email: user.email, amount: req.body.unit_price, date: res.date_created, type: res.type })
-      // console.log(donationData)
+      const user = decode(req.params.token)
+      console.log(user)
+      await Donation.create({ amount: req.body.unit_price, date: payment.date_created, type: payment.operation_type })
+      console.log(payment)
 
       return res.json({ url: payment.init_point })
     } catch (error) {
@@ -28,6 +28,9 @@ class PaymentController {
   async getSubscriptionLink (req, res) {
     try {
       const subscription = await this.subscriptionService.createSubscription(req)
+      await Donation.create({ amount: subscription.auto_rrecurring.transaction_amount, date: subscription.date_created, type: subscription.reason })
+
+      console.log(subscription)
 
       return res.json({ url: subscription.init_point })
     } catch (error) {

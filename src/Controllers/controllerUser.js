@@ -10,8 +10,12 @@ const {
 const { decode } = require('../Helper/decode.js')
 
 const user = (req, res) => {
-  User.findAll().then((r) => res.send(r))
+  User.findAndCountAll().then((r) => res.send(r))
 }
+
+// const countUsers = (req, res) => {
+//   User.count().then((r) => res.send(r))
+// }
 
 const userAll = (req, res) => {
   User.findAll({ include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).then((r) => res.send(r))
@@ -102,7 +106,7 @@ const userLoginGoogle = async (req, res) => {
         lastname: decoded.family_name,
         picture: decoded.picture
       }
-      await User.create(data)  
+      await User.create(data)
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
     res.json({ message: 'Sesion Iniciada' })
@@ -112,15 +116,16 @@ const userLoginGoogle = async (req, res) => {
 }
 
 const updatePassword = async (req, res, next) => {
-  try{
-    const {password} = req.body;
-    const {id} = req.params;
-    await User.update({password: password}, {where: {
-      id: id
-    }})
+  try {
+    const { password } = req.body
+    const { id } = req.params
+    await User.update({ password }, {
+      where: {
+        id
+      }
+    })
     res.send('se cambio la contraseña con exito')
-  }
-  catch(error){
+  } catch (error) {
     next(error)
   }
 }
@@ -129,6 +134,7 @@ module.exports = {
   userLogin,
   userRegister,
   user,
+  // countUsers,
   updatePassword,
   userLoginGoogle,
   userToken,
