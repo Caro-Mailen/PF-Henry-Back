@@ -13,7 +13,7 @@ router.get('/all', userAll)
 router.get('/:token', userToken)
 router.post('/register', userRegister)
 router.post('/login', userLogin)
-router.put('/:id',updatePassword)
+router.put('/:id', updatePassword)
 router.post('/loginGoogle', userLoginGoogle)
 // router.get('/logout', logout)
 

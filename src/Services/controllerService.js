@@ -12,7 +12,7 @@ class PaymentController {
 
       const user = decode(req.body.token)
       // console.log(user)
-      await Donation.create({ email: user.email, amount: req.body.unit_price })
+      await Donation.create({ email: user.email, amount: req.body.unit_price, date: res.date_created, type: res.type })
       // console.log(donationData)
 
       return res.json({ url: payment.init_point })
