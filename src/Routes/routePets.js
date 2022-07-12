@@ -4,9 +4,11 @@ const {
   petId,
   petName,
   petPost,
+  countPets,
   petDelete,
   petState,
-  petReturn
+  petReturn,
+  petUpdate
 } = require('../Controllers/controllerPets')
 //  Importar todos los routers;
 // /Ejemplo: const authRouter = require('./auth.js');
@@ -20,9 +22,11 @@ router.put('/', pet)
 // (si hubieramos usado post tenia conflicto con petPost, con los otros dos no porque reciben id por params.)
 router.get('/', petName)
 router.get('/return', petReturn)
+router.get('/count', countPets)
 router.get('/:id', petId)
 router.post('/', petPost)
-router.put('/:id', petState)
+router.put('/update/:id', petUpdate)
+router.put('/:id/:state', petState)
 router.put('/:id', petDelete)
 
 module.exports = router

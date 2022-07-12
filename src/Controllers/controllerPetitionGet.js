@@ -53,10 +53,10 @@ const postPetitionLost = async (req, res, next) => {
 
 const deletePetition = async (req, res, next) => {
   try{
-    const {id} = req.params;
+    const {petitionid} = req.params;
     await PetitionGet.destroy({
       where:{
-        id: id
+        id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
@@ -68,10 +68,10 @@ const deletePetition = async (req, res, next) => {
 
 const deletePetitionLost = async (req, res, next) => {
   try{
-    const {id} = req.params;
+    const {petitionid} = req.params;
     await PetitionGetLost.destroy({
       where:{
-        id: id
+        id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')

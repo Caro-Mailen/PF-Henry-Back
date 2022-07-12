@@ -2,13 +2,17 @@ const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
   sequelize.define('Donation', {
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    email: {
+    type: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     }
   }, {
     timestamps: false
