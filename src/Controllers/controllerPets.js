@@ -20,8 +20,8 @@ const pet = async (req, res) => {
     limit: size,
     offset: size * page
   }
-
-  if (Object.entries({ ...req.body }).length !== 0) options.where = { ...req.body }
+  req.body.stateBinary = true;
+  if (Object.entries({ ...req.body }).length !== 0) options.where = {...req.body }
 
   try {
     const { count, rows } = await Pet.findAndCountAll(options)

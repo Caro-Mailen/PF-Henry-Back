@@ -20,7 +20,7 @@ router.put('/', pet)
 router.get('/', petName)
 router.get('/:id', petId)
 router.post('/', petPost)
-router.put('/:id', petState)
 router.put('/:id', petDelete)
+router.put('/:id', petState)
 
 module.exports = router
