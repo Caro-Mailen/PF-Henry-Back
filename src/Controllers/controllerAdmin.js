@@ -96,9 +96,24 @@ const loadPet = async (req, res) => {
   }
 }
 
+const addAdmin = async (req, res, next) => {
+  try{
+    const {id} = req.body;
+    const usuario = User.findOne({where: {id}});
+    if(!usuario)return res.send('no existe el usuario');
+    if(usuario.rol==='admin')return res.send('el usuario ya es admin');
+    await User.update({rol: 'admin'}, {where: {id} })
+    res.send({message:'el usuario ahora es admin'})
+  }
+  catch(error){
+    next(error)
+  }
+}
+
 module.exports = {
   getToken,
   getPet,
   getPetLost,
-  loadPet
+  loadPet, 
+  addAdmin
 }
