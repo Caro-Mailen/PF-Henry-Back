@@ -1,4 +1,4 @@
-const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
+const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad, Donation } = require('../db.js')
 const { transporter } = require('./nodemailer')
 
 const getAll = async (req, res, next) => {
@@ -9,7 +9,7 @@ const getAll = async (req, res, next) => {
 
 const getId = async (req, res, next) => {
   const { userId } = req.params
-  const user = await User.findByPk(userId, { include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).catch(() => { return 'no se encontraron peticiones.' })
+  const user = await User.findByPk(userId, { include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad, Donation] }).catch(() => { return 'no se encontraron peticiones.' })
   res.send(user)
 }
 
