@@ -3,16 +3,16 @@ const { db } = require('./src/db.js')
 const { Pet, User, PetitionGet, PetitionGetLost, PetitionLoad, Tracking } = require('./src/db')
 const json = require('./src/Helper/mascotas.json')
 const Ujson = require('./src/Helper/users.json')
-// const passportSetUp = require('./src/Controllers/passport.js')
-
 const PGjson = require('./src/Helper/petitionGet.json')
 const PGLjson = require('./src/Helper/petitionGetLost.json')
 const PLoadjson = require('./src/Helper/petitionLoad.json')
+const trackingJson = require('./src/Helper/seguimiento.json');
 const mascotas = json.data
 const users = Ujson.data
 const petitionGet = PGjson.data
 const petitionGetLost = PGLjson.data
 const petitionLoad = PLoadjson.data
+const tracking = trackingJson.data;
 
 db.sync({ force: true }).then(() => {
   server.listen(process.env.PORT, async () => {
@@ -23,7 +23,6 @@ db.sync({ force: true }).then(() => {
     await PetitionGetLost.bulkCreate(petitionGetLost)
     await PetitionLoad.bulkCreate(petitionLoad)
     const usuario = await User.findOne({ where: { id: 1 } })
-    const usuario2 = await User.findOne({ where: { id: 5 } })
     const user = await User.findOne({ where: { id: 7 } })
     const peticion = await PetitionGet.findOne({ where: { id: 1 } })
     const peticion2 = await PetitionGet.findOne({ where: { id: 2 } })
@@ -37,9 +36,12 @@ db.sync({ force: true }).then(() => {
     await usuario.addPetitionGets(peticion2)
     await user.addPetitionGets(peticion3)
     await usuario.addPetitionGetLosts(peticionLost)
-    await usuario2.addPetitionLoads(peticionLoad)
+    await usuario.addPetitionLoads(peticionLoad)
     await usuario.addPetitionLoads(peticionLoad2)
     const pet3 = pet.concat(pet2)
-    await usuario.addPets(pet3)    
+    await usuario.addPets(pet3)
+    // await Tracking.bulkCreate(tracking)
+    
+    
   })
 })
