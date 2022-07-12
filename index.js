@@ -1,6 +1,6 @@
 const server = require('./src/app.js')
 const { db } = require('./src/db.js')
-const { Pet, User, PetitionGet, PetitionGetLost, PetitionLoad, Seguimiento } = require('./src/db')
+const { Pet, User, PetitionGet, PetitionGetLost, PetitionLoad, Tracking } = require('./src/db')
 const json = require('./src/Helper/mascotas.json')
 const Ujson = require('./src/Helper/users.json')
 // const passportSetUp = require('./src/Controllers/passport.js')
@@ -22,11 +22,6 @@ db.sync({ force: true }).then(() => {
     await PetitionGet.bulkCreate(petitionGet)
     await PetitionGetLost.bulkCreate(petitionGetLost)
     await PetitionLoad.bulkCreate(petitionLoad)
-    const Mascotas = await Pet.findAll()
-    Mascotas.forEach(async (mascota) => {
-      const seguimientoBase = await Seguimiento.create({ emails: ['patitas.adopt@gmail.com'] })
-      await mascota.setSeguimiento(seguimientoBase)
-    })
     const usuario = await User.findOne({ where: { id: 1 } })
     const user = await User.findOne({ where: { id: 7 } })
     const peticion = await PetitionGet.findOne({ where: { id: 1 } })
@@ -45,5 +40,6 @@ db.sync({ force: true }).then(() => {
     await usuario.addPetitionLoads(peticionLoad2)
     const pet3 = pet.concat(pet2)
     await usuario.addPets(pet3)
+    
   })
 })
