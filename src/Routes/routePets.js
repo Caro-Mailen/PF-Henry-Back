@@ -4,8 +4,10 @@ const {
   petId,
   petName,
   petPost,
+  countPets,
   petDelete,
-  petState
+  petState,
+  petUpdate
 } = require('../Controllers/controllerPets')
 //  Importar todos los routers;
 // /Ejemplo: const authRouter = require('./auth.js');
@@ -18,9 +20,11 @@ router.put('/', pet)
 // Gente, tuvimos que cambiarlo a put, porque los get no pueden recibir body
 // (si hubieramos usado post tenia conflicto con petPost, con los otros dos no porque reciben id por params.)
 router.get('/', petName)
+router.get('/count', countPets)
 router.get('/:id', petId)
 router.post('/', petPost)
-router.put('/:id', petState)
+router.put('/update/:id', petUpdate)
+router.put('/:id/:state', petState)
 router.put('/:id', petDelete)
 
 module.exports = router
