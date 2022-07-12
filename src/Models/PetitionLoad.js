@@ -74,5 +74,7 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
       defaultValue: 'pending'
     }
+  }, {
+    timestamps: false
   })
 }

@@ -14,9 +14,27 @@
           "vaccinate":"true",
           "stateBinary":"true" ,
           "state": "adopt",          
-          "actualPlace":["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],          
+          "actualPlace":["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],    
           "formDate":"5/07/2022",
-          "formState":"acepted"           
+          "formState":"acepted"   
+        },
+        { "userId": 7,
+          "name": "coca",
+          "image":["https://s1.eestatic.com/2022/04/05/actualidad/662693884_223269248_1024x576.jpg","https://as01.epimg.net/diarioas/imagenes/2022/05/29/actualidad/1653826510_995351_1653826595_noticia_normal_recorte1.jpg"],
+          "pet":"dog",
+          "size":"medium",
+          "weight":"48",
+          "fur":"short",
+          "breed":"labrador",
+          "gender":"female",
+          "castration":"true",
+          "vaccinate":"true",
+          "stateBinary":"true" ,
+          "state": "lost",
+          "foundDate":"4/07/2022",
+          "actualPlace":["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
+          "foundPlace":"En la terminal",
+          "formDate":"6/07/2022"           
         },
         { "userId": 7,
           "name": "coca",
@@ -35,6 +53,6 @@
           "actualPlace":["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
           "foundPlace":"En la terminal",
           "formDate":"6/07/2022"           
-        }        
+        }   
     ]
 }
