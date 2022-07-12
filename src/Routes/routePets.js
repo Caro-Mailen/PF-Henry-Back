@@ -28,5 +28,6 @@ router.post('/', petPost)
 router.put('/update/:id', petUpdate)
 router.put('/:id/:state', petState)
 router.put('/:id', petDelete)
+router.put('/:id', petState)
 
 module.exports = router
