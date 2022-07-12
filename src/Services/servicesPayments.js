@@ -33,14 +33,14 @@ class PaymentService {
     const url = 'https://api.mercadopago.com/preapproval'
 
     const body = {
-      reason: 'Donas por mes: ',
+      reason: 'suscripcion ',
       auto_recurring: {
         frequency: 1,
         frequency_type: 'months',
         transaction_amount: req.body.transaction_amount,
         currency_id: 'ARS'
       },
-      back_url: req.body.back_url,
+      back_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
       payer_email: req.body.payer_email
     }
 
