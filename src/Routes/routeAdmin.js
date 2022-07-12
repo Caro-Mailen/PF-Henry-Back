@@ -4,7 +4,7 @@ const { isAdmin } = require('../Middleware/isAdmin.js')
 
 const router = Router()
 
-router.get('/', getToken)
+router.put('/', getToken)
 router.post('/petitionGet/:action', isAdmin, getPet)
 router.post('/petitionGetLost/:action', isAdmin, getPetLost)
 router.post('/petitionLoadPet/:action', isAdmin, loadPet)
