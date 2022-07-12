@@ -64,11 +64,12 @@ const petReturn = async (req, res, next) => {
     console.log(pet.User)
     if (!pet.User) throw new Error('La mascota no tiene dueño')
     if (pet.User.dataValues.email !== email) throw new Error('El usuario actual no es dueño de esta mascota')
-
+    console.log({ ...pet.emailOwners })
+    await pet.update({ state: 'adopt', UserId: null, actualPlace: ['Cachi 119', 'Los Altos', 'Capital', 'Salta', '4400'] })
     res.send('x')
   } catch (e) {
     console.log(e)
-    res.status(400).send(e.message)
+    res.status(400).send({ error: e.message })
   }
 }
 
