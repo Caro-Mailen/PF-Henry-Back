@@ -8,7 +8,11 @@ const breed = require('./routeBreed.js')
 const petitionGet = require('./routePetitionGet.js')
 const petitionLoad = require('./routePetitionLoad.js')
 const admin = require('./routeAdmin.js')
+<<<<<<< HEAD
 const { PetitionGet, PetitionLoad, PetitionGetLost } = require('../db.js')
+=======
+const seguimiento = require('./routeSeguimiento.js')
+>>>>>>> 3055104aafd99e2cb8cda4da2a2d2932cc88d641
 // const passport = require('passport')
 
 // const user = require('./routeUser')
@@ -32,6 +36,7 @@ router.use('/breed', breed)
 router.use('/petitionGet', petitionGet)
 router.use('/petitionLoad', petitionLoad)
 router.use('/admin', admin)
+router.use('/tracking', seguimiento)
 router.use('/', (req, res, next) => res.send('welcome to pfmascotas-api'))
 
 module.exports = router
