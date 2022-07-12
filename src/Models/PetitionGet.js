@@ -23,13 +23,16 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     otherPetsInfo: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull: true
     },
     otherPetsCastration: {
-      type: DataTypes.ENUM(['true', 'false'])
+      type: DataTypes.ENUM(['true', 'false']),
+      allowNull: true
     },
     otherPetsVacunation: {
-      type: DataTypes.ENUM(['true', 'false'])
+      type: DataTypes.ENUM(['true', 'false']),
+      allowNull: true
     },
     adoptedPetPlace: {
       type: DataTypes.TEXT,
@@ -72,7 +75,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     adaptationTime: {
-      type: DataTypes.ENUM(['yes', 'no']),
+      type: DataTypes.ENUM(['yes', 'no', 'maybe']),
       allowNull: false
     },
     state: {
@@ -92,9 +95,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    formState:{
+    formState: {
       type: DataTypes.ENUM(['pending', 'acepted', 'rejected']),
-      defaultValue:'pending'
+      defaultValue: 'pending'
     }
   }, {
     timestamps: false

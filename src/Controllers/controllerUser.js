@@ -1,4 +1,3 @@
-
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
 const { transporter } = require('./nodemailer')
 const jwtDecode = require('jwt-decode')
@@ -21,8 +20,6 @@ const userToken = (req, res) => {
   const { token } = req.params
   try {
     User.findOne({ where: { email: decode(token).email } }).then(user => {
-      delete user.password
-      console.log(user)
       res.send(user)
     })
   } catch (e) {
@@ -89,18 +86,22 @@ const userLogin = async (req, res) => {
 
 const userLoginGoogle = async (req, res) => {
   const { token } = req.body
+
   try {
     const decoded = jwtDecode(token)
+
     const user = await User.findOne({ where: { email: decoded.email } }).catch((error) => {
       console.log(error)
     })
-    if (!user) {
+
+    if (user === null) {
       const data = {
         email: decoded.email,
         name: decoded.given_name,
-        lastname: decoded.family_name
+        lastname: decoded.family_name,
+        picture: decoded.picture
       }
-      await User.create(data)
+      await User.create(data)  
       return res.json({ message: 'Sesion Iniciada y usuario nuevo creado!' })
     }
     res.json({ message: 'Sesion Iniciada' })
@@ -109,10 +110,25 @@ const userLoginGoogle = async (req, res) => {
   }
 }
 
+const updatePassword = async (req, res, next) => {
+  try{
+    const {password} = req.body;
+    const {id} = req.params;
+    await User.update({password: password}, {where: {
+      id: id
+    }})
+    res.send('se cambio la contraseña con exito')
+  }
+  catch(error){
+    next(error)
+  }
+}
+
 module.exports = {
   userLogin,
   userRegister,
   user,
+  updatePassword,
   userLoginGoogle,
   userToken,
   userAll
