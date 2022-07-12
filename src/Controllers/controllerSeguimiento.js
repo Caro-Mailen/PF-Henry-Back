@@ -5,7 +5,27 @@ const moment = require("moment");
 const getSeg = async (req, res, next) => {
     try{
         const todosSeg = await Tracking.findAll();
-        res.send(todosSeg)
+        const segOrdenados = todosSeg.sort(function(a,b) {
+            if(a.id > b.id)return -1;
+            if(a.id < b.id)return 1;
+            else return 0;
+        })
+        res.send(segOrdenados)
+    }
+    catch (error) {
+        next(error)
+      }
+}
+
+const getSegUlt5 = async (req, res, next) => {
+    try{
+        const todosSeg = await Tracking.findAll();
+        const segOrdenados = todosSeg.sort(function(a,b) {
+            if(a.id > b.id)return -1;
+            if(a.id < b.id)return 1;
+            else return 0;
+        })
+        res.send(segOrdenados.slice(0,5))
     }
     catch (error) {
         next(error)
@@ -37,7 +57,8 @@ const seguimiento = async (req,res,next) => {
 const trackingById = async (req, res, next) => {
     try{
         const {id} = req.params;
-        const pet = Tracking.findAll({where:{Petid: id}})
+        const pet = await Pet.findByPk(id,{include: User} )
+        const pet2 = await Tracking.findAll({where:{Petid: id}})
         if(!pet)return res.send('mascota sin seguimientos')
         res.send(pet)
     }
@@ -49,5 +70,6 @@ const trackingById = async (req, res, next) => {
 module.exports = {
     seguimiento,
     getSeg,
-    trackingById
+    trackingById,
+    getSegUlt5
 }
