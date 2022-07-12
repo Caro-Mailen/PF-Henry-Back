@@ -1,6 +1,7 @@
 // aca van las funciones controladoras de las rutas pets
-const { Pet } = require('../db.js')
+const { Pet, User } = require('../db.js')
 const { sortAsc, sortDes } = require('../Helper/index.js')
+const { decode } = require('../Helper/decode.js')
 
 const petName = async (req, res, next) => {
   const { name } = req.query
@@ -51,12 +52,32 @@ const petPost = async (req, res) => {
   }
 }
 
+const petReturn = async (req, res, next) => {
+  const { token, petId } = req.body
+  if (!token || !petId) throw new Error('El token es invalido')
+  try {
+    console.log('aca toy')
+    const { email } = decode(token)
+    if (!email) throw new Error('El token es invalido')
+    const pet = await Pet.findByPk(petId, { include: User })
+    if (!pet) throw new Error(`La mascota con el id ${petId}, no existe`)
+    console.log(pet.User)
+    if (!pet.User) throw new Error('La mascota no tiene dueño')
+    if (pet.User.dataValues.email !== email) throw new Error('El usuario actual no es dueño de esta mascota')
+    await pet.update({ state: 'adopt', UserId: null, actualPlace: ['Cachi 119', 'Los Altos', 'Capital', 'Salta', '4400'], User: null })
+    res.send({ message: 'Mascota se desvinculo' })
+  } catch (e) {
+    console.log(e)
+    res.status(400).send({ error: e.message })
+  }
+}
+
 const petState = async (req, res, next) => {
   try {
-    const { id } = req.params
+    const { id, state } = req.params
 
     await Pet.update(
-      { state: 'adopted' },
+      { state },
       {
         where: {
           id
@@ -67,6 +88,58 @@ const petState = async (req, res, next) => {
   } catch (e) {
     next(e)
   }
+}
+
+const petUpdate = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { image, name, fur, size, weight, castration, vaccinate, state } = req.body
+
+    const update = await Pet.update(
+      {
+        name,
+        image,
+        size,
+        weight,
+        fur,
+        castration,
+        vaccinate,
+        state
+      },
+      {
+        where: { id }
+      },
+      { returning: true }
+    )
+    console.log(update)
+    res.status(200).send('pet updated successfully')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// const counter = (state) => {
+//   Pet.count({where: {state}})
+// }
+
+const countPets = async (req, res) => {
+  const pets = await Pet.count()
+  const lost = await Pet.count({
+    where: {
+      state: 'lost'
+    }
+  })
+  const adopted = await Pet.count({
+    where: {
+      state: 'adopted'
+    }
+  })
+  const transit = await Pet.count({
+    where: {
+      state: 'transit'
+    }
+  })
+  res.json({ pets, lost, adopted, transit })
 }
 
 const petDelete = async (req, res, next) => {
@@ -92,5 +165,8 @@ module.exports = {
   petName,
   petPost,
   petState,
-  petDelete
+  petDelete,
+  petReturn,
+  petUpdate,
+  countPets
 }

@@ -9,11 +9,12 @@ const router = Router()
 // Ejemplo: router.use('/auth', authRouter);
 // router.get('/:userId', userId)
 router.get('/', user)
+// router.get('/count', countUsers)
 router.get('/all', userAll)
 router.get('/:token', userToken)
 router.post('/register', userRegister)
 router.post('/login', userLogin)
-router.put('/:id',updatePassword)
+router.put('/:id', updatePassword)
 router.post('/loginGoogle', userLoginGoogle)
 // router.get('/logout', logout)
 
