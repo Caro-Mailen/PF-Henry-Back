@@ -27,6 +27,7 @@
       "vaccinate": "true",
       "state":"adopted",
       "actualPlace":["Cachi 119","Los Altos", "Capital", "Salta", "4400"]
+      "emailOwners": ["matiasfarinasola@gmail.com","agustindigiacinto18@gmail.com"]
     },
     {
       "name": "simon",

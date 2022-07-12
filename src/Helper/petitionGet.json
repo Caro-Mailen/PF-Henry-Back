@@ -1,7 +1,7 @@
 {
     "data": [
         {
-            "petId": 3,
+            "petId": 2,
             "state": "adopted",
             "formDate": "22/6/2022",
             "userAge": "19",
@@ -19,7 +19,8 @@
             "adoptedPetAloneMoments": "siempre hay alguien en casa",
             "adoptedPetWalkingInfo": "a la tarde ",
             "adaptationTime": "yes",
-            "userMovingIdea": "si, tenemos pensado mudarnos, nos llevamos el perro con nosotros"
+            "userMovingIdea": "si, tenemos pensado mudarnos, nos llevamos el perro con nosotros",
+            "formState":"acepted"
         },
         {
             "petId": 5,

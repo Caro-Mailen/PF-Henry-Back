@@ -67,6 +67,10 @@ module.exports = (sequelize) => {
       },
       foundPlace: {
         type: DataTypes.STRING
+      },
+      emailOwners:{
+        type: DataTypes.ARRAY(DataTypes.TEXT),
+        defaultValue: ['patitas.adopt@gmail.com'] 
       }
     },
     {
