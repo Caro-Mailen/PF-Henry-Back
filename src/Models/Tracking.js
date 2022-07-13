@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize')
 module.exports = (sequelize) => {
   sequelize.define('Tracking', {
     image:{
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     },
     description: {
       type: DataTypes.TEXT
