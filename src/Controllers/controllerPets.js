@@ -2,6 +2,7 @@
 const { Pet, User } = require('../db.js')
 const { sortAsc, sortDes } = require('../Helper/index.js')
 const { decode } = require('../Helper/decode.js')
+const { mail } = require('./nodemailer.js')
 
 const petName = async (req, res, next) => {
   const { name } = req.query
@@ -65,6 +66,8 @@ const petReturn = async (req, res, next) => {
     if (!pet.User) throw new Error('La mascota no tiene dueño')
     if (pet.User.dataValues.email !== email) throw new Error('El usuario actual no es dueño de esta mascota')
     await pet.update({ state: 'adopt', UserId: null, actualPlace: ['Cachi 119', 'Los Altos', 'Capital', 'Salta', '4400'], User: null })
+    mail(email, 'peticion de retorno', `'<h1>${pet.name}(${petId}) se encuentra de nuevo en adopcion</h1> 
+    <img src="https://i.postimg.cc/TP083WRP/poster-devolucion.png" alt="AQUI VA UNA IMAGEN">'`)
     res.send({ message: 'Mascota se desvinculo' })
   } catch (e) {
     console.log(e)

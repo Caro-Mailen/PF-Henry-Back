@@ -30,6 +30,5 @@ const mail = async (email, subject, html) => {
 // console.log('Message sent: %s', mail.messageId)
 
 module.exports = {
-  transporter,
   mail
 }

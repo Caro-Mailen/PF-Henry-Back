@@ -1,6 +1,6 @@
 const { decode } = require('jsonwebtoken')
 const { Donation, User } = require('../db.js')
-const { transporter } = require('../Controllers/nodemailer')
+const { mail } = require('../Controllers/nodemailer')
 
 class PaymentController {
   constructor (subscriptionService) {
@@ -26,16 +26,17 @@ class PaymentController {
       // newDonation.addUser([userFind.id])
       await userFind.addDonations(newDonation)
       // }
+      mail(user.email, `'Gracias por tu donacion ${user.name}'`, '<img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">')
 
       // eslint-disable-next-line no-unused-vars
-      const correo = await transporter.sendMail({
-        from: '"Patitas 🐾" <adopta@gmail.com>',
-        to: user.email,
-        subject: `¡Gracias ${user.name} !`,
-        html: `
-        <img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">
-        `
-      })
+      // const correo = await transporter.sendMail({
+      //   from: '"Patitas 🐾" <adopta@gmail.com>',
+      //   to: user.email,
+      //   subject: `¡Gracias ${user.name} !`,
+      //   html: `
+      //   <img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">
+      //   `
+      // })
 
       // console.log('Message sent: %s', correo.messageId)
 
@@ -78,16 +79,17 @@ class PaymentController {
       await userFind.addDonations(newSubscription)
 
       // console.log(subscription)
+      mail(user.email, `'${user.name} gracias por suscribirte!'`, '<img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">')
 
       // eslint-disable-next-line no-unused-vars
-      const correo = await transporter.sendMail({
-        from: '"Patitas 🐾" <adopta@gmail.com>',
-        to: user.email,
-        subject: `¡${user.name} Gracias por suscribirte!`,
-        html: `
-        <img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">
-        `
-      })
+      // const correo = await transporter.sendMail({
+      //   from: '"Patitas 🐾" <adopta@gmail.com>',
+      //   to: user.email,
+      //   subject: `¡${user.name} Gracias por suscribirte!`,
+      //   html: `
+      //   <img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">
+      //   `
+      // })
 
       // console.log('Message sent: %s', correo.messageId)
 
