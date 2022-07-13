@@ -1,5 +1,6 @@
 const { decode } = require('jsonwebtoken')
 const { Donation, User } = require('../db.js')
+const { transporter } = require('../Controllers/nodemailer')
 
 class PaymentController {
   constructor (subscriptionService) {
@@ -25,6 +26,17 @@ class PaymentController {
       // newDonation.addUser([userFind.id])
       await userFind.addDonations(newDonation)
       // }
+
+      const correo = await transporter.sendMail({
+        from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
+        to: user.email,
+        subject: `¡Gracias ${user.name} !`,
+        html: `
+        <img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">
+        `
+      })
+
+      console.log('Message sent: %s', correo.messageId)
 
       return res.json({ url: payment.init_point })
     } catch (error) {
@@ -54,6 +66,17 @@ class PaymentController {
       await userFind.addDonations(newSubscription)
 
       // console.log(subscription)
+
+      const correo = await transporter.sendMail({
+        from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
+        to: user.email,
+        subject: `¡${user.name} Gracias por suscribirte!`,
+        html: `
+        <img src="https://i.postimg.cc/NfXv2x5V/poster-agradecimiento.png" alt="AQUI VA UNA IMAGEN">
+        `
+      })
+
+      console.log('Message sent: %s', correo.messageId)
 
       return res.json({ url: subscription.init_point })
     } catch (error) {

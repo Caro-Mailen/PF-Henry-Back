@@ -52,32 +52,30 @@ const postPetitionLost = async (req, res, next) => {
 }
 
 const deletePetition = async (req, res, next) => {
-  try{
-    const {petitionid} = req.params;
+  try {
+    const { petitionid } = req.params
     await PetitionGet.destroy({
-      where:{
+      where: {
         id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
-  }
-  catch(error){
-    next(error);
+  } catch (error) {
+    next(error)
   }
 }
 
 const deletePetitionLost = async (req, res, next) => {
-  try{
-    const {petitionid} = req.params;
+  try {
+    const { petitionid } = req.params
     await PetitionGetLost.destroy({
-      where:{
+      where: {
         id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
-  }
-  catch(error){
-    next(error);
+  } catch (error) {
+    next(error)
   }
 }
 
