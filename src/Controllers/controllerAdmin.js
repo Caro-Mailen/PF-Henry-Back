@@ -97,14 +97,28 @@ const loadPet = async (req, res) => {
 }
 
 const addAdmin = async (req, res, next) => {
+  const { id } = req.body
   try {
-    const { id } = req.body
-    const usuario = await User.findOne({ where: { id } })
-    if (!usuario) return res.send('no existe el usuario')
-    console.log(usuario)
-    if (usuario.rol === 'admin') return res.send('el usuario ya es admin')
+    const usuario = await User.findByPk(id)
+    if (!usuario) throw new Error('No existe el usuario')
+    if (usuario.rol === 'admin') throw new Error('El usuario ya es admin')
     await User.update({ rol: 'admin' }, { where: { id } })
-    res.send({ message: 'el usuario ahora es admin' })
+    res.send({ message: 'El usuario ahora es admin' })
+  } catch (e) {
+    console.log(e.message)
+    res.status(400).send({ error: e.message })
+  }
+}
+
+const setRating = async (req, res, next) => {
+  const { id, rating } = req.body 
+  console.log(rating)
+  try {
+    const user = await User.findByPk(id)
+    if (!user) throw new Error('No existe el usuario')
+    if (rating > 5 || rating < 0 ) throw new Error('Rating invalido')
+    await user.update({ rating: String(rating)})
+    res.send({ message: 'Rating actualizado' })
   } catch (e) {
     console.log(e.message)
     res.status(400).send({ error: e.message })
@@ -116,5 +130,10 @@ module.exports = {
   getPet,
   getPetLost,
   loadPet,
+<<<<<<< HEAD
   addAdmin
+=======
+  addAdmin,
+  setRating
+>>>>>>> 7903a3d88cbe5c1e63472d2e6fd6e66b328db058
 }

@@ -1,4 +1,3 @@
-// aca tenemos que hacer las funciones controladoras de las rutas User
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
 const { transporter } = require('./nodemailer')
 const jwtDecode = require('jwt-decode')
@@ -18,7 +17,10 @@ const user = (req, res) => {
 // }
 
 const userAll = (req, res) => {
-  User.findAll({ include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).then((r) => res.send(r))
+  User.findAll({ include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).then((r) => {
+    r.sort(function (a, b) { return a.id - b.id })
+    res.send(r)
+  })
 }
 
 const userToken = (req, res) => {
