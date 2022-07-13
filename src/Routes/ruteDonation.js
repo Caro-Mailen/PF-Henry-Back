@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   // const user = decode(req.body.token)
   // console.log(user)
   const donationData = await Donation.findAll()
-  console.log(donationData)
+  // console.log(donationData)
   res.send(donationData)
   //   const { token } = req.body
   //   console.log(req.body)
@@ -22,6 +22,22 @@ router.get('/', async (req, res) => {
 //     res.send(user)
 })
 // })
-// router.get('/:id', userId)
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params
+    console.log(req.params)
+    await Donation.destroy(
+      {
+        where: {
+          id
+        }
+      }
+    )
+    res.status(200).send('subscription canceled successfully')
+  } catch (error) {
+    next(error)
+  }
+})
 
 module.exports = router
