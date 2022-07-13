@@ -1,5 +1,5 @@
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
-const { transporter } = require('./nodemailer')
+const { mail } = require('./nodemailer')
 const jwtDecode = require('jwt-decode')
 const { emailWelcome } = require('../Helper/templateWelcome')
 const jwt = require('jsonwebtoken')
@@ -50,14 +50,17 @@ const userRegister = async (req, res) => {
       console.log(error)
     })
 
-    const correo = await transporter.sendMail({
-      from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
-      to: email,
-      subject: `¡Bienvenido ${name} !`,
-      html: emailWelcome
-    })
+    mail(email, `'${name} te damos la bienvenida'`, emailWelcome)
 
-    console.log('Message sent: %s', correo.messageId)
+    // // const correo
+    // await transporter.sendMail({
+    //   from: '"Patitas 🐾" <adopta@gmail.com>',
+    //   to: email,
+    //   subject: `¡Bienvenido ${name} !`,
+    //   html: emailWelcome
+    // })
+
+    // console.log('Message sent: %s', correo.messageId)
 
     // const userSave = await newUser.save().catch ((error)=>{
     //     console.log(error)

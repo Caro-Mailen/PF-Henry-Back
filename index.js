@@ -1,18 +1,20 @@
 const server = require('./src/app.js')
 const { db } = require('./src/db.js')
+// eslint-disable-next-line no-unused-vars
 const { Pet, User, PetitionGet, PetitionGetLost, PetitionLoad, Tracking } = require('./src/db')
 const json = require('./src/Helper/mascotas.json')
 const Ujson = require('./src/Helper/users.json')
 const PGjson = require('./src/Helper/petitionGet.json')
 const PGLjson = require('./src/Helper/petitionGetLost.json')
 const PLoadjson = require('./src/Helper/petitionLoad.json')
-const trackingJson = require('./src/Helper/seguimiento.json');
+const trackingJson = require('./src/Helper/seguimiento.json')
 const mascotas = json.data
 const users = Ujson.data
 const petitionGet = PGjson.data
 const petitionGetLost = PGLjson.data
 const petitionLoad = PLoadjson.data
-const tracking = trackingJson.data;
+// eslint-disable-next-line no-unused-vars
+const tracking = trackingJson.data
 
 db.sync({ force: true }).then(() => {
   server.listen(process.env.PORT, async () => {
@@ -43,7 +45,5 @@ db.sync({ force: true }).then(() => {
     const pet3 = pet.concat(pet2)
     await usuario.addPets(pet3)
     // await Tracking.bulkCreate(tracking)
-    
-    
   })
 })
