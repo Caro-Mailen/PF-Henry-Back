@@ -1,5 +1,5 @@
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad, Donation } = require('../db.js')
-const { transporter } = require('./nodemailer')
+const { mail } = require('./nodemailer')
 
 const getAll = async (req, res, next) => {
   const allPetitions = await PetitionGet.findAll().catch(() => { return 'no se encontraron peticiones.' })
@@ -21,14 +21,15 @@ const postPetition = async (req, res, next) => {
     const user = await User.findByPk(userId)
     // console.log(user)
     await user.addPetitionGets(newPetition)
-    await transporter.sendMail({
-      from: '"Patitas 🐾" <patitas.adopt@gmail.com>',
-      to: user.email,
-      subject: `¡ ${user.name} te postulaste para una adopcion !`,
-      html: `
-      <img src="https://i.postimg.cc/KYG4jpgQ/poster-mascota-saludable-celeste.png" alt="AQUI VA UNA IMAGEN">
-      `
-    })
+    mail(user.email, `¡ ${user.name} te postulaste para una adopcion !`, '<img src="https://i.postimg.cc/KYG4jpgQ/poster-mascota-saludable-celeste.png" alt="AQUI VA UNA IMAGEN">')
+    // await transporter.sendMail({
+    //   from: '"Patitas 🐾" <patitas.adopt@gmail.com>',
+    //   to: user.email,
+    //   subject: `¡ ${user.name} te postulaste para una adopcion !`,
+    //   html: `
+    //   <img src="https://i.postimg.cc/KYG4jpgQ/poster-mascota-saludable-celeste.png" alt="AQUI VA UNA IMAGEN">
+    //   `
+    // })
 
     // console.log('Message sent: Adoptionn  %s', correo.messageId)
     res.send('Petición realizada.')

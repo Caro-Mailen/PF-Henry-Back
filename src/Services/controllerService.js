@@ -10,12 +10,10 @@ class PaymentController {
 
   async getPaymentLink (req, res) {
     try {
-      
       const newDonation = await Donation.create({ amount: req.body.unit_price, date: moment().format('DD/MM/YYYY'), type: 'regular_payment' })
       const id = newDonation.id
-      
-      const payment = await this.subscriptionService.createPayment(req, id)
 
+      const payment = await this.subscriptionService.createPayment(req, id)
 
       const user = decode(req.body.token)
       // console.log(user)
@@ -43,7 +41,7 @@ class PaymentController {
 
       // console.log('Message sent: %s', correo.messageId)
 
-      return res.json({ url: payment.init_point})
+      return res.json({ url: payment.init_point })
     } catch (error) {
       console.log(error)
 

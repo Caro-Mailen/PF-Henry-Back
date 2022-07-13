@@ -13,7 +13,7 @@ class PaymentService {
         }
       ],
       back_urls: {
-        failure: req.body.failure+id,
+        failure: req.body.failure + id,
         pending: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         success: req.body.success
       }
