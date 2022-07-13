@@ -21,8 +21,8 @@ const postPetition = async (req, res, next) => {
     const user = await User.findByPk(userId)
     // console.log(user)
     await user.addPetitionGets(newPetition)
-    const correo = await transporter.sendMail({
-      from: '"AdoptA 🐶🐱" <patitas.adopt@gmail.com>',
+    await transporter.sendMail({
+      from: '"Patitas 🐾" <patitas.adopt@gmail.com>',
       to: user.email,
       subject: `¡ ${user.name} te postulaste para una adopcion !`,
       html: `
@@ -30,7 +30,7 @@ const postPetition = async (req, res, next) => {
       `
     })
 
-    console.log('Message sent: Adoptionn  %s', correo.messageId)
+    // console.log('Message sent: Adoptionn  %s', correo.messageId)
     res.send('Petición realizada.')
   } catch (e) {
     console.log(e)
@@ -40,7 +40,7 @@ const postPetition = async (req, res, next) => {
 
 const postPetitionLost = async (req, res, next) => {
   const { userId } = req.body
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const newPetition = await PetitionGetLost.create({ ...req.body })
     const usuarioId = await User.findByPk(userId)
@@ -52,32 +52,30 @@ const postPetitionLost = async (req, res, next) => {
 }
 
 const deletePetition = async (req, res, next) => {
-  try{
-    const {petitionid} = req.params;
+  try {
+    const { petitionid } = req.params
     await PetitionGet.destroy({
-      where:{
+      where: {
         id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
-  }
-  catch(error){
-    next(error);
+  } catch (error) {
+    next(error)
   }
 }
 
 const deletePetitionLost = async (req, res, next) => {
-  try{
-    const {petitionid} = req.params;
+  try {
+    const { petitionid } = req.params
     await PetitionGetLost.destroy({
-      where:{
+      where: {
         id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
-  }
-  catch(error){
-    next(error);
+  } catch (error) {
+    next(error)
   }
 }
 

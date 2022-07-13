@@ -7,7 +7,7 @@ const getAll = async (req, res, next) => {
 
 const postPetition = async (req, res, next) => {
   const { userId } = req.body
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const newPetition = await PetitionLoad.create({ ...req.body })
     const usuarioId = await User.findByPk(userId)
