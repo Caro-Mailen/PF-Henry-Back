@@ -1,4 +1,3 @@
-// aca tenemos que hacer las funciones controladoras de las rutas User
 const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
 const { transporter } = require('./nodemailer')
 const jwtDecode = require('jwt-decode')
