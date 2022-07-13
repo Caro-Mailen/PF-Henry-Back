@@ -9,8 +9,8 @@ module.exports = (sequelize) => {
         allowNull: false
       },
       image: {
-        type: DataTypes.TEXT,
-        defaultValue: 'https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg'
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: ['https://baltrion.es/wp-content/uploads/sin-IMAGEN.jpg']
       },
       pet: {
         type: DataTypes.ENUM(['dog', 'cat']),
@@ -26,14 +26,10 @@ module.exports = (sequelize) => {
       },
       fur: {
         type: DataTypes.STRING,
-        // type: DataTypes.ENUM(["short", "long"]),
         allowNull: false
-        // defaultValue: "medium",
       },
       breed: {
-        // type: DataTypes.ENUM(["crossbreed", "salchicha", "bulldog"]),
         type: DataTypes.STRING,
-
         allowNull: false,
         defaultValue: 'crossbreed'
       },
@@ -42,7 +38,6 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: 'unknown'
       },
-
       castration: {
         type: DataTypes.ENUM(['true', 'false', 'unknown']),
         allowNull: false,
@@ -67,10 +62,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING
       },
       actualPlace: {
-        type: DataTypes.STRING
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: ['Cachi 119', 'Los Altos', 'Capital', 'Salta', '4400']
       },
       foundPlace: {
         type: DataTypes.STRING
+      },
+      emailOwners:{
+        type: DataTypes.ARRAY(DataTypes.TEXT),
+        defaultValue: ['patitas.adopt@gmail.com'] 
       }
     },
     {

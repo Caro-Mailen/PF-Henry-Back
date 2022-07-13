@@ -22,6 +22,8 @@ const getPet = async (req, res) => {
   if (!petitionId) return res.status(400).send({ error: 'No se envió el Id de la petición' })
   try {
     const petition = await PetitionGet.findByPk(petitionId, { include: User })
+    if (petition === null) throw new Error('La petición no fue encontrada')
+    if (petition.formState === 'rejected' || petition.formState === 'acepted') throw new Error('La petición ya fue respondida.')
     if (action === 'acepted') {
       const owner = petition.User
       if (owner == null) return res.status(400).send({ error: 'La petición no pertenece a ningun usuario' })
@@ -47,6 +49,7 @@ const getPetLost = async (req, res) => {
   if (!petitionId) return res.status(400).send({ error: 'No se envió el Id de la petición' })
   try {
     const petition = await PetitionGetLost.findByPk(petitionId, { include: User })
+    if (petition.formState === 'rejected' || petition.formState === 'acepted') throw new Error('La petición ya fue respondida.')
     if (action === 'acepted') {
       const owner = petition.User
       if (owner == null) return res.status(400).send({ error: 'La petición no pertenece a ningun usuario' })
@@ -71,18 +74,55 @@ const loadPet = async (req, res) => {
   const { action } = req.params
   try {
     const petition = await PetitionLoad.findByPk(petitionId, { include: User })
-    const data = { ...petition.dataValues }
-    console.log(data, action)
-    res.send(data)
+    if (petition.formState === 'rejected' || petition.formState === 'acepted') throw new Error('La petición ya fue respondida.')
+    if (action === 'acepted') {
+      const data = { ...petition.dataValues }
+      delete data.id
+      delete data.User
+      delete data.UserId
+      const owner = petition.User
+      if (owner == null) throw new Error('La petición no pertenece a ningun usuario')
+      const pet = await Pet.create({ ...data })
+      await pet.update({ state: data.state })
+      petition.update({ formState: action })
+      res.send({ message: 'La petición fue aceptada' })
+    } else if (action === 'rejected') {
+      petition.update({ formState: action })
+      res.send({ message: 'La petición fue rechazada' })
+    } else res.status(400).send('action no aceptada')
   } catch (e) {
     console.log(e.message)
     res.status(400).send({ error: e.message })
   }
 }
 
-const loadLost = async (req, res) => {
-  // const { petitionId } = req.body
-  // const { action } = req.params
+const addAdmin = async (req, res, next) => {
+  const { id } = req.body
+  try {
+    const usuario = await User.findByPk(id)
+    if (!usuario) throw new Error('No existe el usuario')
+    if (usuario.rol === 'admin') throw new Error('El usuario ya es admin')
+    await User.update({ rol: 'admin' }, { where: { id } })
+    res.send({ message: 'El usuario ahora es admin' })
+  } catch (e) {
+    console.log(e.message)
+    res.status(400).send({ error: e.message })
+  }
+}
+
+const setRating = async (req, res, next) => {
+  const { id, rating } = req.body 
+  console.log(rating)
+  try {
+    const user = await User.findByPk(id)
+    if (!user) throw new Error('No existe el usuario')
+    if (rating > 5 || rating < 0 ) throw new Error('Rating invalido')
+    await user.update({ rating: String(rating)})
+    res.send({ message: 'Rating actualizado' })
+  } catch (e) {
+    console.log(e.message)
+    res.status(400).send({ error: e.message })
+  }
 }
 
 module.exports = {
@@ -90,5 +130,6 @@ module.exports = {
   getPet,
   getPetLost,
   loadPet,
-  loadLost
+  addAdmin,
+  setRating
 }

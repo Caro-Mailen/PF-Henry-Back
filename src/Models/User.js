@@ -25,11 +25,15 @@ module.exports = (sequelize) => {
       },
       picture: {
         type: DataTypes.STRING,
-         defaultValue: 'https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg'
+        defaultValue: 'https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg'
       },
       rol: {
         type: DataTypes.ENUM(['admin', 'user']),
         defaultValue: 'user'
+      },
+      rating: {
+        type: DataTypes.ENUM(['null', '1', '2', '3', '4', '5']),
+        defaultValue: 'null'
       }
     },
     {
