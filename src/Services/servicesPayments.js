@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 class PaymentService {
-  async createPayment (req) {
+  async createPayment (req, id) {
     const url = 'https://api.mercadopago.com/checkout/preferences'
 
     const body = {
@@ -13,7 +13,7 @@ class PaymentService {
         }
       ],
       back_urls: {
-        failure: req.body.failure,
+        failure: req.body.failure+id,
         pending: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         success: req.body.success
       }
