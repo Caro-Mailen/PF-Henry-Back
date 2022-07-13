@@ -20,7 +20,7 @@ class PaymentController {
       const userFind = await User.findOne({
         where: { email: user.email }
       })
-      console.log(userFind.id)
+      // console.log(userFind.id)
 
       // if (userFind.length) {
       // newDonation.addUser([userFind.id])
@@ -29,7 +29,7 @@ class PaymentController {
 
       // eslint-disable-next-line no-unused-vars
       const correo = await transporter.sendMail({
-        from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
+        from: '"Patitas 🐾" <adopta@gmail.com>',
         to: user.email,
         subject: `¡Gracias ${user.name} !`,
         html: `
@@ -50,17 +50,28 @@ class PaymentController {
   }
 
   async getSubscriptionLink (req, res) {
+    const user = decode(req.body.token)
+
+    const userFind = await User.findOne({
+      where: { email: user.email }
+    })
+    const allDonation = await Donation.findAll({
+      where: {
+        UserId: userFind.id
+      }
+    })
+    const data = allDonation.map((e) => e.dataValues.type)
+    // console.log(allDonation.map((e) => e.dataValues.type))
+    if (data.includes('suscripcion ')) {
+      console.log('hola')
+      return res.status(400).send('este usuario ya esta suscripto')
+    }
     try {
       const subscription = await this.subscriptionService.createSubscription(req)
       const newSubscription = await Donation.create({
         amount: req.body.transaction_amount,
         date: subscription.date_created,
         type: subscription.reason
-      })
-      const user = decode(req.body.token)
-
-      const userFind = await User.findOne({
-        where: { email: user.email }
       })
       // console.log(userFind.id)
 
@@ -70,7 +81,7 @@ class PaymentController {
 
       // eslint-disable-next-line no-unused-vars
       const correo = await transporter.sendMail({
-        from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
+        from: '"Patitas 🐾" <adopta@gmail.com>',
         to: user.email,
         subject: `¡${user.name} Gracias por suscribirte!`,
         html: `

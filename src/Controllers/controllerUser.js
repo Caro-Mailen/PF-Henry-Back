@@ -52,7 +52,7 @@ const userRegister = async (req, res) => {
 
     // const correo
     await transporter.sendMail({
-      from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
+      from: '"Patitas 🐾" <adopta@gmail.com>',
       to: email,
       subject: `¡Bienvenido ${name} !`,
       html: emailWelcome

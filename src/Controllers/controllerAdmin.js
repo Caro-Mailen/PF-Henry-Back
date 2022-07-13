@@ -111,13 +111,13 @@ const addAdmin = async (req, res, next) => {
 }
 
 const setRating = async (req, res, next) => {
-  const { id, rating } = req.body 
+  const { id, rating } = req.body
   console.log(rating)
   try {
     const user = await User.findByPk(id)
     if (!user) throw new Error('No existe el usuario')
-    if (rating > 5 || rating < 0 ) throw new Error('Rating invalido')
-    await user.update({ rating: String(rating)})
+    if (rating > 5 || rating < 0) throw new Error('Rating invalido')
+    await user.update({ rating: String(rating) })
     res.send({ message: 'Rating actualizado' })
   } catch (e) {
     console.log(e.message)
@@ -130,10 +130,6 @@ module.exports = {
   getPet,
   getPetLost,
   loadPet,
-<<<<<<< HEAD
-  addAdmin
-=======
   addAdmin,
   setRating
->>>>>>> 7903a3d88cbe5c1e63472d2e6fd6e66b328db058
 }

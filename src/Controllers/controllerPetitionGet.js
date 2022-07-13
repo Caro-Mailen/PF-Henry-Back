@@ -22,7 +22,7 @@ const postPetition = async (req, res, next) => {
     // console.log(user)
     await user.addPetitionGets(newPetition)
     await transporter.sendMail({
-      from: '"AdoptA 🐶🐱" <patitas.adopt@gmail.com>',
+      from: '"Patitas 🐾" <patitas.adopt@gmail.com>',
       to: user.email,
       subject: `¡ ${user.name} te postulaste para una adopcion !`,
       html: `
