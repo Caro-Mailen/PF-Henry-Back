@@ -32,8 +32,8 @@ module.exports = (sequelize) => {
         defaultValue: 'user'
       },
       rating: {
-        type: DataTypes.ENUM(['0', '1', '2', '3', '4', '5']),
-        defaultValue: '0'
+        type: DataTypes.ENUM(['null', '1', '2', '3', '4', '5']),
+        defaultValue: 'null'
       }
     },
     {
