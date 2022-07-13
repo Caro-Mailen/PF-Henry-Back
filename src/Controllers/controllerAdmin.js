@@ -115,7 +115,7 @@ const setRating = async (req, res, next) => {
   try {
     const user = await User.findByPk(id)
     if (!user) throw new Error('No existe el usuario')
-    if (rating > 5 || rating < 0) throw new Error('Rating invalido')
+    if (rating > 5 || rating <= 0 || rating === 'null' || rating === null) throw new Error('Rating invalido')
     await user.update({ rating })
     res.send({ message: 'Rating actualizado' })
   } catch (e) {
