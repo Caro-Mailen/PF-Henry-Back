@@ -22,6 +22,7 @@ const getPet = async (req, res) => {
   if (!petitionId) return res.status(400).send({ error: 'No se envió el Id de la petición' })
   try {
     const petition = await PetitionGet.findByPk(petitionId, { include: User })
+    if (petition === null) throw new Error('La petición no fue encontrada')
     if (petition.formState === 'rejected' || petition.formState === 'acepted') throw new Error('La petición ya fue respondida.')
     if (action === 'acepted') {
       const owner = petition.User
@@ -95,9 +96,24 @@ const loadPet = async (req, res) => {
   }
 }
 
+const addAdmin = async (req, res, next) => {
+  try{
+    const {id} = req.body;
+    const usuario = User.findOne({where: {id}});
+    if(!usuario)return res.send('no existe el usuario');
+    if(usuario.rol==='admin')return res.send('el usuario ya es admin');
+    await User.update({rol: 'admin'}, {where: {id} })
+    res.send({message:'el usuario ahora es admin'})
+  }
+  catch(error){
+    next(error)
+  }
+}
+
 module.exports = {
   getToken,
   getPet,
   getPetLost,
-  loadPet
+  loadPet, 
+  addAdmin
 }

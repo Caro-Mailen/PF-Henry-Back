@@ -1,4 +1,4 @@
-const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad } = require('../db.js')
+const { PetitionGet, User, Pet, PetitionGetLost, PetitionLoad, Donation } = require('../db.js')
 const { transporter } = require('./nodemailer')
 
 const getAll = async (req, res, next) => {
@@ -9,7 +9,7 @@ const getAll = async (req, res, next) => {
 
 const getId = async (req, res, next) => {
   const { userId } = req.params
-  const user = await User.findByPk(userId, { include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad] }).catch(() => { return 'no se encontraron peticiones.' })
+  const user = await User.findByPk(userId, { include: [PetitionGet, Pet, PetitionGetLost, PetitionLoad, Donation] }).catch(() => { return 'no se encontraron peticiones.' })
   res.send(user)
 }
 
@@ -53,10 +53,10 @@ const postPetitionLost = async (req, res, next) => {
 
 const deletePetition = async (req, res, next) => {
   try{
-    const {id} = req.params;
+    const {petitionid} = req.params;
     await PetitionGet.destroy({
       where:{
-        id: id
+        id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
@@ -68,10 +68,10 @@ const deletePetition = async (req, res, next) => {
 
 const deletePetitionLost = async (req, res, next) => {
   try{
-    const {id} = req.params;
+    const {petitionid} = req.params;
     await PetitionGetLost.destroy({
       where:{
-        id: id
+        id: petitionid
       }
     })
     res.status(200).send('se elimino su petición')
