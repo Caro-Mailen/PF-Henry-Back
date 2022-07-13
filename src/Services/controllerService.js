@@ -27,6 +27,7 @@ class PaymentController {
       await userFind.addDonations(newDonation)
       // }
 
+      // eslint-disable-next-line no-unused-vars
       const correo = await transporter.sendMail({
         from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
         to: user.email,
@@ -36,7 +37,7 @@ class PaymentController {
         `
       })
 
-      console.log('Message sent: %s', correo.messageId)
+      // console.log('Message sent: %s', correo.messageId)
 
       return res.json({ url: payment.init_point })
     } catch (error) {
@@ -67,6 +68,7 @@ class PaymentController {
 
       // console.log(subscription)
 
+      // eslint-disable-next-line no-unused-vars
       const correo = await transporter.sendMail({
         from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
         to: user.email,
@@ -76,7 +78,7 @@ class PaymentController {
         `
       })
 
-      console.log('Message sent: %s', correo.messageId)
+      // console.log('Message sent: %s', correo.messageId)
 
       return res.json({ url: subscription.init_point })
     } catch (error) {

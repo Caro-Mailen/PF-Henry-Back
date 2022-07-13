@@ -48,14 +48,15 @@ const userRegister = async (req, res) => {
       console.log(error)
     })
 
-    const correo = await transporter.sendMail({
+    // const correo
+    await transporter.sendMail({
       from: '"AdoptA 🐶🐱" <adopta@gmail.com>',
       to: email,
       subject: `¡Bienvenido ${name} !`,
       html: emailWelcome
     })
 
-    console.log('Message sent: %s', correo.messageId)
+    // console.log('Message sent: %s', correo.messageId)
 
     // const userSave = await newUser.save().catch ((error)=>{
     //     console.log(error)

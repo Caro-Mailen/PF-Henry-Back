@@ -2,16 +2,16 @@ const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
   sequelize.define('Tracking', {
-    image:{
+    image: {
       type: DataTypes.ARRAY(DataTypes.TEXT)
     },
     description: {
       type: DataTypes.TEXT
     },
-    date:{
+    date: {
       type: DataTypes.TEXT
     },
-    email:{
+    email: {
       type: DataTypes.TEXT
     }
   }, {

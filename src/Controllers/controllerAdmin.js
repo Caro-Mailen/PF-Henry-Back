@@ -115,6 +115,6 @@ module.exports = {
   getToken,
   getPet,
   getPetLost,
-  loadPet, 
+  loadPet,
   addAdmin
 }

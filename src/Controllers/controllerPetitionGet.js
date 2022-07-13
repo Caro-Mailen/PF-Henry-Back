@@ -21,7 +21,7 @@ const postPetition = async (req, res, next) => {
     const user = await User.findByPk(userId)
     // console.log(user)
     await user.addPetitionGets(newPetition)
-    const correo = await transporter.sendMail({
+    await transporter.sendMail({
       from: '"AdoptA 🐶🐱" <patitas.adopt@gmail.com>',
       to: user.email,
       subject: `¡ ${user.name} te postulaste para una adopcion !`,
@@ -30,7 +30,7 @@ const postPetition = async (req, res, next) => {
       `
     })
 
-    console.log('Message sent: Adoptionn  %s', correo.messageId)
+    // console.log('Message sent: Adoptionn  %s', correo.messageId)
     res.send('Petición realizada.')
   } catch (e) {
     console.log(e)
@@ -40,7 +40,7 @@ const postPetition = async (req, res, next) => {
 
 const postPetitionLost = async (req, res, next) => {
   const { userId } = req.body
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const newPetition = await PetitionGetLost.create({ ...req.body })
     const usuarioId = await User.findByPk(userId)

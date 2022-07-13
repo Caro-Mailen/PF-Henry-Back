@@ -8,6 +8,6 @@ router.put('/', getToken)
 router.post('/petitionGet/:action', isAdmin, getPet)
 router.post('/petitionGetLost/:action', isAdmin, getPetLost)
 router.post('/petitionLoadPet/:action', isAdmin, loadPet)
-router.put('/addAdmin', isAdmin, addAdmin) 
+router.put('/addAdmin', isAdmin, addAdmin)
 
 module.exports = router

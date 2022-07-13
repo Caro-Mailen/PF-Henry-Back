@@ -21,8 +21,8 @@ const pet = async (req, res) => {
     limit: size,
     offset: size * page
   }
-  req.body.stateBinary = true;
-  if (Object.entries({ ...req.body }).length !== 0) options.where = {...req.body }
+  req.body.stateBinary = true
+  if (Object.entries({ ...req.body }).length !== 0) options.where = { ...req.body }
 
   try {
     const { count, rows } = await Pet.findAndCountAll(options)
@@ -56,12 +56,12 @@ const petReturn = async (req, res, next) => {
   const { token, petId } = req.body
   if (!token || !petId) throw new Error('El token es invalido')
   try {
-    console.log('aca toy')
+    // console.log('aca toy')
     const { email } = decode(token)
     if (!email) throw new Error('El token es invalido')
     const pet = await Pet.findByPk(petId, { include: User })
     if (!pet) throw new Error(`La mascota con el id ${petId}, no existe`)
-    console.log(pet.User)
+    // console.log(pet.User)
     if (!pet.User) throw new Error('La mascota no tiene dueño')
     if (pet.User.dataValues.email !== email) throw new Error('El usuario actual no es dueño de esta mascota')
     await pet.update({ state: 'adopt', UserId: null, actualPlace: ['Cachi 119', 'Los Altos', 'Capital', 'Salta', '4400'], User: null })
@@ -95,7 +95,8 @@ const petUpdate = async (req, res) => {
     const { id } = req.params
     const { image, name, fur, size, weight, castration, vaccinate, state } = req.body
 
-    const update = await Pet.update(
+    // const update
+    await Pet.update(
       {
         name,
         image,
@@ -111,7 +112,7 @@ const petUpdate = async (req, res) => {
       },
       { returning: true }
     )
-    console.log(update)
+    // console.log(update)
     res.status(200).send('pet updated successfully')
   } catch (error) {
     console.log(error)
