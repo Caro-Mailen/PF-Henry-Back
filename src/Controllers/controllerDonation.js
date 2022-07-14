@@ -1,5 +1,4 @@
 // aca las rutas controladoras de las rutas Donation
-/// ////////////////////////////////////////
 const { User } = require('../db.js')
 
 const donation = async (req, res, next) => {
