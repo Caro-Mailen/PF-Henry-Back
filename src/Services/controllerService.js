@@ -48,9 +48,9 @@ class PaymentController {
         UserId: userFind.id
       }
     })
-    const data = allDonation.map((e) => e.dataValues.type)    
+    const data = allDonation.map((e) => e.dataValues.type)
     // console.log(allDonation.map((e) => e.dataValues.type))
-    if (data.includes('suscripcion ')) {      
+    if (data.includes('suscripcion ')) {
       return res.status(400).send('este usuario ya esta suscripto')
     }
     try {

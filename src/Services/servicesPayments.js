@@ -42,7 +42,7 @@ class PaymentService {
         transaction_amount: req.body.transaction_amount,
         currency_id: 'ARS'
       },
-      back_url: "https://pf-henry-front-three.vercel.app/donation/success",
+      back_url: 'https://pf-henry-front-three.vercel.app/donation/success',
       payer_email: req.body.payer_email
     }
 
