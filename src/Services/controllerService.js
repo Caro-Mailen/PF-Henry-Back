@@ -1,6 +1,7 @@
 const { decode } = require('jsonwebtoken')
 const { Donation, User } = require('../db.js')
 const { mail } = require('../Controllers/nodemailer')
+const moment = require('moment')
 
 class PaymentController {
   constructor (subscriptionService) {
@@ -9,10 +10,10 @@ class PaymentController {
 
   async getPaymentLink (req, res) {
     try {
-      const payment = await this.subscriptionService.createPayment(req)
-      // console.log(payment)
+      const newDonation = await Donation.create({ amount: req.body.unit_price, date: moment().format('DD/MM/YYYY'), type: 'regular_payment' })
+      const id = newDonation.id
 
-      const newDonation = await Donation.create({ amount: req.body.unit_price, date: payment.date_created, type: payment.operation_type })
+      const payment = await this.subscriptionService.createPayment(req, id)
 
       const user = decode(req.body.token)
       // console.log(user)
@@ -74,6 +75,8 @@ class PaymentController {
         date: subscription.date_created,
         type: subscription.reason
       })
+      const id = newSubscription.id
+
       // console.log(userFind.id)
 
       await userFind.addDonations(newSubscription)
@@ -93,7 +96,7 @@ class PaymentController {
 
       // console.log('Message sent: %s', correo.messageId)
 
-      return res.json({ url: subscription.init_point })
+      return res.json({ url: subscription.init_point, id })
     } catch (error) {
       console.log(error)
 

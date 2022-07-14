@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       },
       picture: {
         type: DataTypes.STRING,
-        defaultValue: 'https://p16-va-default.akamaized.net/img/musically-maliva-obj/1665282759496710~c5_720x720.jpeg'
+        defaultValue: 'https://i.postimg.cc/0QD2ssQd/Whats-App-Image-2022-07-07-at-3-44-31-PM-1.jpg'
       },
       rol: {
         type: DataTypes.ENUM(['admin', 'user']),

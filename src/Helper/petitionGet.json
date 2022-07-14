@@ -6,7 +6,13 @@
             "formDate": "22/6/2022",
             "userAge": "19",
             "tel": "3547598556",
-            "actualPlace": ["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
+            "actualPlace": [
+                "Cachi 119",
+                "Los Altos",
+                "Capital",
+                "Salta",
+                "4400"
+            ],
             "otherPets": "false",
             "adoptedPetPlace": "casa",
             "openSpace": "patio",
@@ -20,15 +26,21 @@
             "adoptedPetWalkingInfo": "a la tarde ",
             "adaptationTime": "yes",
             "userMovingIdea": "si, tenemos pensado mudarnos, nos llevamos el perro con nosotros",
-            "formState":"acepted"
+            "formState": "acepted"
         },
         {
             "petId": 5,
             "state": "transit",
             "formDate": "22/6/2022",
-            "userAge": "19",
+            "userAge": "23",
             "tel": "3547598556",
-            "actualPlace": ["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
+            "actualPlace": [
+                "Cachi 119",
+                "Los Altos",
+                "Capital",
+                "Salta",
+                "4400"
+            ],
             "otherPets": "true",
             "otherPetsCastration": "false",
             "otherPetsVacunation": "false",
@@ -51,9 +63,15 @@
             "petId": 9,
             "state": "transit",
             "formDate": "22/6/2022",
-            "userAge": "19",
+            "userAge": "21",
             "tel": "3547598556",
-            "actualPlace": ["Cachi 119", "Los Altos", "Capital", "Salta", "4400"],
+            "actualPlace": [
+                "Cachi 119",
+                "Los Altos",
+                "Capital",
+                "Salta",
+                "4400"
+            ],
             "otherPets": "true",
             "otherPetsCastration": "false",
             "otherPetsVacunation": "false",
@@ -71,6 +89,34 @@
             "adaptationTime": "yes",
             "transitPetPeriod": "Lo puedo tener por tres meses",
             "userAgreement": "true"
+        },
+        {
+            "petId": 59,
+            "state": "adopted",
+            "formDate": "13/7/2022",
+            "userAge": "31",
+            "tel": "3517598556",
+            "actualPlace": [
+                "Cachi 118",
+                "Los Altos",
+                "Capital",
+                "Salta",
+                "4400"
+            ],
+            "otherPets": "false",
+            "adoptedPetPlace": "casa",
+            "openSpace": "patio",
+            "rental": "tenant",
+            "adoptedPetSleepingSpace": "En el sofa",
+            "getPetReason": "reason",
+            "userMovility": "yes",
+            "familySize": "3",
+            "familyRelation": "Madre, dos Hijas",
+            "adoptedPetAloneMoments": "siempre hay alguien en casa",
+            "adoptedPetWalkingInfo": "a la mañana",
+            "adaptationTime": "yes",
+            "userMovingIdea": "si, tenemos pensado mudarnos, nos llevamos el perro con nosotros",
+            "formState": "pending"
         }
     ]
 }

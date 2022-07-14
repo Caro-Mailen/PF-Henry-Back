@@ -101,7 +101,10 @@ const addAdmin = async (req, res, next) => {
   try {
     const usuario = await User.findByPk(id)
     if (!usuario) throw new Error('No existe el usuario')
-    if (usuario.rol === 'admin') throw new Error('El usuario ya es admin')
+    if (usuario.rol === 'admin') {
+      await User.update({ rol: 'user' }, { where: { id } })
+      return res.send({ message: 'El usuario dejó de ser admin' })
+    }
     await User.update({ rol: 'admin' }, { where: { id } })
     res.send({ message: 'El usuario ahora es admin' })
   } catch (e) {
