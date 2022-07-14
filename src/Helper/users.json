@@ -16,7 +16,10 @@
       "name": "Lucas",
       "lastname": "Giorgi",
       "email": "lucas1995giorgi@gmail.com",
+<<<<<<< HEAD
       "picture": "https://i.postimg.cc/0QD2ssQd/Whats-App-Image-2022-07-07-at-3-44-31-PM-1.jpg",
+=======
+>>>>>>> 38c3621e9fcad3a81b3ff3b4578227c6e0067c14
       "address": "jdsafljsd",
       "socialMedia": "1321adsf",
       "tel": "12321",
@@ -76,7 +79,6 @@
       "name": "usuarionormall",
       "lastname": "guusuarionormallzmn",
       "email": "user@gmail.com",
-      "image": "usuarionormall",
       "address": "usuarionormall",
       "socialMedia": "13usuarionormall21adsf",
       "tel": "123124321",
