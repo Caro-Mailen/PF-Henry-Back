@@ -32,6 +32,8 @@ class PaymentService {
   async createSubscription (req) {
     const url = 'https://api.mercadopago.com/preapproval'
 
+    /* console.log('req.body.succes  skereeeeeeeeeeeeeeeeeeeeee',req.body.succes) */
+
     const body = {
       reason: 'suscripcion ',
       auto_recurring: {
@@ -40,7 +42,7 @@ class PaymentService {
         transaction_amount: req.body.transaction_amount,
         currency_id: 'ARS'
       },
-      back_url: req.body.succes,
+      back_url: 'https://pf-henry-front-three.vercel.app/donation/success',
       payer_email: req.body.payer_email
     }
 
