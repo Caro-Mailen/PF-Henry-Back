@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING
       },
       fur: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM(['short', 'long']),
         allowNull: false
       },
       breed: {

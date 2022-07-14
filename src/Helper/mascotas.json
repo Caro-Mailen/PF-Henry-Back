@@ -181,7 +181,7 @@
       ],
       "size": "medium",
       "weight": "",
-      "fur": "",
+      "fur": "short",
       "breed": "mestiza",
       "gender": "male",
       "castration": "true",
@@ -757,7 +757,7 @@
       "state": "lost"
     },
     {
-      "name": "simona",
+      "name": "lola",
       "pet": "dog",
       "image": [
         "https://i.postimg.cc/bJ9bV6CN/simona-adulta.jpg"
@@ -769,7 +769,7 @@
       "gender": "female",
       "castration": "true",
       "vaccinate": "unknown",
-      "state": "adopted"
+      "state": "adopt"
     },
     {
       "name": "mckenzie",
