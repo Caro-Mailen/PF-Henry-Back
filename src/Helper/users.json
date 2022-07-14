@@ -64,7 +64,7 @@
       "lastname": "guzmn",
       "email": "fgimenez029@gmail.com",
       "address": "jdsafljsd",
-      "picture":"xd",
+      "picture": "xd",
       "socialMedia": "1321adsf",
       "tel": "123747321",
       "password": "123",
@@ -81,6 +81,54 @@
       "tel": "123124321",
       "password": "123",
       "age": 21,
+      "rol": "user"
+    },
+    {
+      "name": "alexis",
+      "lastname": "barrionuevo",
+      "email": "alexis_10@gmail.com",
+      "picture": "picture",
+      "address": "olivares 3480",
+      "socialMedia": "alexisBarrio",
+      "tel": "3513210456",
+      "password": "A123456",
+      "age": 25,
+      "rol": "user"
+    },
+    {
+      "name": "aylen",
+      "lastname": "andres",
+      "email": "aylu_and@gmail.com",
+      "picture": "lilen",
+      "address": "varela ortiz 576",
+      "socialMedia": "aylu_and",
+      "tel": "3512980446",
+      "password": "Ay123",
+      "age": 22,
+      "rol": "user"
+    },
+    {
+      "name": "gaston",
+      "lastname": "salgado",
+      "email": "gaston_sal@gmail.com",
+      "picture": "tato",
+      "address": "gurruchaga 3607",
+      "socialMedia": "tatto21",
+      "tel": "3514263102",
+      "password": "GS123",
+      "age": 19,
+      "rol": "user"
+    },
+    {
+      "name": "gladys",
+      "lastname": "calderon",
+      "email": "gladis_rene@gmail.com",
+      "picture": "nona",
+      "address": "vazquez b 3706",
+      "socialMedia": "gladys21",
+      "tel": "3518974562",
+      "password": "GRC123",
+      "age": "50",
       "rol": "user"
     }
   ]
