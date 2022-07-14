@@ -98,7 +98,6 @@ const petUpdate = async (req, res) => {
     const { id } = req.params
     const { image, name, fur, size, weight, castration, vaccinate, state } = req.body
 
-    // const update
     await Pet.update(
       {
         name,
@@ -121,10 +120,6 @@ const petUpdate = async (req, res) => {
     console.log(error)
   }
 }
-
-// const counter = (state) => {
-//   Pet.count({where: {state}})
-// }
 
 const countPets = async (req, res) => {
   const pets = await Pet.count()
