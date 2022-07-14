@@ -24,6 +24,8 @@ db.sync({ force: true }).then(() => {
     await PetitionGet.bulkCreate(petitionGet)
     await PetitionGetLost.bulkCreate(petitionGetLost)
     await PetitionLoad.bulkCreate(petitionLoad)
+    await Tracking.bulkCreate(tracking)
+
     const usuario = await User.findOne({ where: { id: 1 } })
     const user = await User.findOne({ where: { id: 7 } })
     const user4 = await User.findOne({ where: { id: 9 } }) // aylen
