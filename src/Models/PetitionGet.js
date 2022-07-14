@@ -79,7 +79,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     state: {
-      type: DataTypes.ENUM(['adopt', 'adopted', 'transit']),
+      type: DataTypes.ENUM(['adopted', 'transit']),
       allowNull: false
     },
     transitPetPeriod: {
