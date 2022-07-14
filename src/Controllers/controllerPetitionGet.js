@@ -22,16 +22,7 @@ const postPetition = async (req, res, next) => {
     // console.log(user)
     await user.addPetitionGets(newPetition)
     mail(user.email, `¡ ${user.name} te postulaste para una adopcion !`, '<img src="https://i.postimg.cc/KYG4jpgQ/poster-mascota-saludable-celeste.png" alt="AQUI VA UNA IMAGEN">')
-    // await transporter.sendMail({
-    //   from: '"Patitas 🐾" <patitas.adopt@gmail.com>',
-    //   to: user.email,
-    //   subject: `¡ ${user.name} te postulaste para una adopcion !`,
-    //   html: `
-    //   <img src="https://i.postimg.cc/KYG4jpgQ/poster-mascota-saludable-celeste.png" alt="AQUI VA UNA IMAGEN">
-    //   `
-    // })
 
-    // console.log('Message sent: Adoptionn  %s', correo.messageId)
     res.send('Petición realizada.')
   } catch (e) {
     console.log(e)
